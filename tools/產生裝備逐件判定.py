@@ -10,9 +10,9 @@ import json
 import re
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT = ROOT / "data/ro-idle裝備資料_2026-10-22.json"
-OUTPUT = ROOT / "裝備逐件保留判定.md"
+OUTPUT = ROOT / "裝備/裝備逐件保留判定.md"
 SOURCE_URL = "https://ro-idle.app/info/database?type=equipment&id={}"
 
 WEAPON_ORDER = [
