@@ -95,13 +95,17 @@ for (const file of candidates) {
   }
 }
 
+// GitHub Pages 會快取靜態檔約 10 分鐘；資源網址附內容雜湊，更新後立即生效。
+const assetVersion = file => crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, file))).digest('hex').slice(0, 10);
+const asset = { style: assetVersion('style.css'), app: assetVersion('app.js'), skills: assetVersion('skills.js') };
+
 function layout({ title, description, body, page = 'home' }) {
   const prefix = page === 'article' ? '../' : '';
   return `<!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#121d35"><meta name="description" content="${esc(description)}">
 <title>${esc(title)}｜RO 放置仙境攻略</title><link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="${prefix}style.css"><script src="${prefix}app.js" defer></script></head>
+<link rel="stylesheet" href="${prefix}style.css?v=${asset.style}"><script src="${prefix}app.js?v=${asset.app}" defer></script></head>
 <body data-page="${page}"><a class="skip-link" href="#main">跳至主要內容</a>
 <header class="site-header"><div class="header-inner"><a class="brand" href="${prefix}index.html" aria-label="RO 放置仙境攻略首頁"><span class="brand-mark" aria-hidden="true">R<span>/</span></span><span class="brand-name">RO 放置仙境<span>玩家攻略索引</span></span></a>
 <nav class="top-nav" aria-label="主選單"><a href="${prefix}index.html#roles">職業攻略</a><a href="${prefix}skills.html"${page === 'tool' ? ' aria-current="page"' : ''}>技能模擬器</a><a href="${prefix}index.html#equipment">裝備分析</a><a href="${prefix}index.html#how-to-read">閱讀須知</a><a class="github-link" href="${repo}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header>
@@ -176,11 +180,11 @@ const skillData = skillSnapshot ? JSON.parse(fs.readFileSync(path.join(root, 'da
 
 function renderSkills() {
   const body = `<main id="main" class="article-shell tool-shell"><div class="article-top"><a href="index.html" class="back-link">← 回到攻略目錄</a><span class="eyebrow">工具 · 至二轉（進階二轉尚未開放）</span><h1>技能配點模擬器</h1><p class="article-summary">選職業、設定 Job Lv，直接點技能加點（右鍵減點），或點刻度設定等級。前置技能會自動補齊，右側記錄學習順序，可複製成攻略「技能配點」表或分享連結。</p><div class="article-meta"><span>資料查詢：<time>${esc(skillData.queried)}</time></span><a href="https://ro-idle.app/info/database?type=jobs" target="_blank" rel="noopener noreferrer">RO 放置仙境資訊站 · 職業 ↗</a><a href="${repo}/blob/main/data/${encodeURIComponent(skillSnapshot)}" target="_blank" rel="noopener noreferrer">資料快照 ↗</a></div></div>
-  <div id="skill-sim" class="skill-sim" data-src="skills-data.json"><div id="sk-picker"></div>
+  <div id="skill-sim" class="skill-sim" data-src="skills-data.json?v=${crypto.createHash('sha256').update(JSON.stringify(skillData)).digest('hex').slice(0, 10)}"><div id="sk-picker"></div>
   <div class="sk-tools"><button type="button" data-tool="prereq" aria-pressed="false" title="切換點技能時前置技能補到需求等級或直接點滿">前置：補到需求等級</button><button type="button" data-tool="undo">復原上一步</button><button type="button" data-tool="reset">全部重置</button><button type="button" data-tool="md">複製 Markdown 配點表</button><button type="button" data-tool="link" class="primary">複製分享連結</button></div>
   <div class="sk-layout"><div id="sk-board" class="sk-board"><p class="sk-hint">載入技能資料中…</p></div><aside class="sk-side"><section class="sk-panel"><h2>技能說明</h2><div id="sk-detail"></div></section><section class="sk-panel"><h2>學習順序</h2><div id="sk-order"></div></section></aside></div>
   <details class="sk-rules"><summary>點數規則與資料說明</summary><ul><li>每升 1 Job Lv 得 1 技能點：初學者 Job 10 共 9 點、一轉與二轉 Job 50 各 49 點；超級初心者 Job Lv 上限 ${esc(skillData.jobs.find(j => j.id === 'supernovice')?.maxJobLv ?? '待查證')}。</li><li>一轉 Job 40 以上且技能點用完才能轉二轉；二轉專屬技能須先把一轉期間的點數全部投入一轉技能（資訊站的學習判定）。二轉後多出的點數可回補一轉技能。</li><li>任務技能（標示「任務 Job N」）達到 Job Lv 即可學，不扣技能點。</li><li>「本遊戲停用」的技能依資訊站標示無法學習。技能名稱、等級上限、前置與效果說明皆擷取自資訊站，遊戲更新後以資訊站為準。</li><li>進階二轉（騎士領主等）尚未開放，暫不收錄；介面參考 <a href="https://ro.17173.com/content/03312017/175328149.shtml" target="_blank" rel="noopener noreferrer">17173 全職業技能樹</a> 的模擬器形式重新設計。</li></ul></details></div></main>`;
-  return `${layout({ title: '技能配點模擬器', description: 'RO 放置仙境至二轉各職業的技能配點模擬器，依資訊站技能樹資料計算點數與前置。', body, page: 'tool' })}`.replace('</head>', '<script src="skills.js" defer></script></head>');
+  return `${layout({ title: '技能配點模擬器', description: 'RO 放置仙境至二轉各職業的技能配點模擬器，依資訊站技能樹資料計算點數與前置。', body, page: 'tool' })}`.replace('</head>', `<script src="skills.js?v=${asset.skills}" defer></script></head>`);
 }
 
 function renderHome() {

@@ -28,3 +28,4 @@ python3 -m http.server 8000 --directory site/dist
 - 搜尋索引由攻略全文產生，搜尋只在瀏覽器內執行。
 - 靜態網站沒有帳號、資料庫與伺服器 API；更新內容只需重新建置與發佈。
 - 技能配點模擬器（`skills.html`）由 `build.cjs` 依 `data/` 最新的技能樹快照產生，前端邏輯在 `site/skills.js`；配點狀態只存在網址 hash，不寫入瀏覽器儲存。
+- 建置時在 CSS、JS 與技能資料的網址附上內容雜湊（`?v=`），避免 GitHub Pages 快取讓更新延遲生效。
