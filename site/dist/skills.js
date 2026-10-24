@@ -23,7 +23,7 @@
     const free = id => tree.get(id)?.questJobLv !== undefined;
     // 初學者以外，基本技能固定在初學者階段點滿 9 級，不佔用此處的點數。
     const fixed = kind === 'novice' ? {} : { NV_BASIC: 9 };
-    const jobLvRange = kind === 'novice' ? [1, 10] : kind === 'super' ? [1, job.maxJobLv] : kind === 'second' ? [first.jobChange.minJobLv ?? 40, first.maxJobLv] : [1, job.maxJobLv];
+    const jobLvRange = kind === 'novice' ? [1, 10] : kind === 'super' ? [1, job.maxJobLv] : kind === 'second' ? [job.jobChange.minJobLv ?? 40, first.maxJobLv] : [1, job.maxJobLv];
     return { job, first, kind, firstIds, tree, free, fixed, jobLvRange };
   }
 
@@ -43,7 +43,7 @@
         step.phase = used <= pool1 ? 1 : 2;
         step.jobLv = step.phase === 1 ? used + 1 : used - pool1 + 1;
         if (used > pool1 + pool2) step.issues.push('超過可用技能點');
-        if (ctx.kind === 'second' && !ctx.firstIds.has(id) && step.phase === 1) step.issues.push(`一轉期間的 ${pool1} 點須先投入一轉技能`);
+        if (ctx.kind === 'second' && !ctx.firstIds.has(id) && step.phase === 1) step.issues.push(`一轉期間的 ${pool1} 點須先投入一轉技能（在一轉 Job ${state.c} 轉職；可調整上方「轉職 Job Lv」）`);
       } else {
         const q = node.questJobLv;
         const reach = ctx.kind === 'second' ? Math.max(state.c, state.l) : state.c;
@@ -259,7 +259,8 @@
     const clamp = (v, lo, hi, d) => Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d;
     const ids = job.skillTree.map(s => s.id);
     state = {
-      c: clamp(Number(preset.c), min, max, max),
+      // 二轉預設在一轉 Job 40 轉職：一轉只需用完 39 點即可學二轉技能；可在頁面改成 41～50。
+      c: clamp(Number(preset.c), min, max, ctx.kind === 'second' ? min : max),
       l: clamp(Number(preset.l), 1, job.maxJobLv, job.maxJobLv),
       p: preset.p === 'max' || (preset.p === undefined && state?.p === 'max') ? 'max' : 'need',
       order: [...(preset.o || '')].map(ch => ids[CODE.indexOf(ch)]).filter(x => x && !ctx.fixed[x] && (ctx.kind === 'novice' || !NOVICE.includes(x))),
