@@ -6,6 +6,7 @@
   if (!root) return;
   const INFO = 'https://ro-idle.app/info/database?type=skills&id=';
   const KIND = { passive: '被動', self: '自身', attack: '攻擊', ground: '地面', support: '輔助' };
+  const NOVICE = ['NV_BASIC', 'NV_FIRSTAID'];
   const LINES = ['swordman', 'mage', 'archer', 'acolyte', 'merchant', 'thief'];
   const CODE = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -58,15 +59,17 @@
     return { levels, used, firstSpent, pool1, pool2, steps, issues: steps.filter(s => s.issues.length) };
   }
 
-  // 嘗試 +1：自動補齊前置技能，再以重播檢查是否合法。
-  function increment(id) {
+  // 把技能提升到 target：先補齊前置（依設定補到需求等級或點滿），再以重播檢查是否合法。
+  function tryRaise(id, target, fillMax) {
     const add = [];
     const levels = { ...replay().levels };
-    (function raise(skillId, target) {
+    (function raise(skillId, lv) {
       const node = ctx.tree.get(skillId);
-      for (const [req, need] of Object.entries(node.requires || {})) raise(req, need);
-      while ((levels[skillId] || 0) < target) { levels[skillId] = (levels[skillId] || 0) + 1; add.push(skillId); }
-    })(id, (levels[id] || 0) + 1);
+      for (const [req, need] of Object.entries(node.requires || {})) {
+        raise(req, fillMax && data.skills[req].status.kind === 'ready' ? ctx.tree.get(req).maxLv : need);
+      }
+      while ((levels[skillId] || 0) < lv) { levels[skillId] = (levels[skillId] || 0) + 1; add.push(skillId); }
+    })(id, target);
     const before = replay().issues.length;
     const prev = state.order;
     state.order = [...prev, ...add];
@@ -78,6 +81,28 @@
     }
     return null;
   }
+  // 依序嘗試：目標等級＋前置點滿 → 目標等級＋前置補到需求 → 逐級降低目標，盡量完成。
+  function setLevel(id, target) {
+    const cur = replay().levels[id] || 0;
+    if (target <= cur) {
+      while ((replay().levels[id] || 0) > target && state.order.includes(id)) decrement(id);
+      return null;
+    }
+    let first = null;
+    for (let lv = target; lv > cur; lv--) {
+      const modes = state.p === 'max' ? [true, false] : [false];
+      for (const fillMax of modes) {
+        const err = tryRaise(id, lv, fillMax);
+        if (!err) {
+          if (lv < target) return `${first}；已提升到 Lv ${lv}`;
+          return fillMax || state.p !== 'max' ? null : '點數不足以點滿前置，前置只補到需求等級';
+        }
+        first ||= err;
+      }
+    }
+    return first;
+  }
+  const increment = id => setLevel(id, (replay().levels[id] || 0) + 1);
 
   // −1：移除最後一次學習；前置不足的技能連帶歸零。
   function decrement(id) {
@@ -116,8 +141,9 @@
       `<span class="req${(levels[req] || 0) >= need ? ' met' : ''}">${esc(data.skills[req].name)} ${need}</span>`).join('');
     const tags = [node.questJobLv ? `<span class="tag quest">任務 Job ${node.questJobLv}</span>` : '', blocked ? `<span class="tag off">${skill.status.kind === 'disabled' ? '本遊戲停用' : '無法學習'}</span>` : ''].join('');
     return `<div class="sk-card${lv ? ' on' : ''}${lv === node.maxLv ? ' max' : ''}${blocked ? ' blocked' : ''}${selected === id ? ' sel' : ''}${cls}" data-id="${id}"${style ? ` style="${style}"` : ''}>
-      <button type="button" class="sk-name" data-act="sel">${esc(skill.name)}</button><small class="sk-id" title="${id}">${id}</small>
+      <button type="button" class="sk-name" data-act="inc" title="點一下升 1 級（自動補前置）；右鍵降 1 級">${esc(skill.name)}</button><small class="sk-id" title="${id}">${id}</small>
       <div class="sk-lv"><button type="button" data-act="dec" aria-label="${esc(skill.name)} 降 1 級"${!lv || fixed ? ' disabled' : ''}>−</button><b>${lv}<span>/${node.maxLv}</span></b><button type="button" data-act="inc" aria-label="${esc(skill.name)} 升 1 級"${lv >= node.maxLv || fixed || blocked ? ' disabled' : ''}>＋</button></div>
+      ${node.maxLv > 1 && !fixed && !blocked ? `<div class="sk-pips" role="group" aria-label="${esc(skill.name)} 直接設定等級">${Array.from({ length: node.maxLv }, (_, i) => `<button type="button" data-act="set" data-lv="${i + 1 === lv ? i : i + 1}" class="${i < lv ? 'on' : ''}" aria-label="設為 Lv ${i + 1 === lv ? i : i + 1}" title="Lv ${i + 1}"></button>`).join('')}</div>` : ''}
       ${tags || reqs ? `<div class="sk-meta">${tags}${reqs}</div>` : ''}</div>`;
   }
 
@@ -172,7 +198,7 @@
   }
 
   function detail(r) {
-    if (!selected || !ctx.tree.has(selected)) return '<p class="sk-hint">點技能名稱查看各等級效果、SP 與前置關係；滑過卡片會標出前置（藍）與可解鎖技能（橘）。</p>';
+    if (!selected || !ctx.tree.has(selected)) return '<p class="sk-hint">點技能卡片升 1 級、右鍵降 1 級，點下方刻度可直接設定等級；前置技能會自動補齊。滑過卡片會標出前置（藍）與可解鎖技能（橘）。</p>';
     const node = ctx.tree.get(selected), skill = data.skills[selected], lv = r.levels[selected] || 0;
     const unlocks = [...ctx.tree.values()].filter(s => s.requires?.[selected]).map(s => `${esc(data.skills[s.id].name)}（需 ${s.requires[selected]}）`);
     const reqs = Object.entries(node.requires || {}).map(([q, n]) => `${esc(data.skills[q].name)} Lv ${n}`);
@@ -188,9 +214,10 @@
   function render(message) {
     const r = replay();
     const job = ctx.job;
-    const pointIds = [...ctx.tree.keys()];
-    const firstSec = ctx.kind === 'second' ? pointIds.filter(id => ctx.firstIds.has(id) && id !== 'NV_BASIC') : [];
-    const ownSec = pointIds.filter(id => !firstSec.includes(id) && (ctx.kind === 'novice' || id !== 'NV_BASIC'));
+    // 基本技能與緊急治療屬於初學者，只在初學者頁顯示。
+    const pointIds = [...ctx.tree.keys()].filter(id => ctx.kind === 'novice' || !NOVICE.includes(id));
+    const firstSec = ctx.kind === 'second' ? pointIds.filter(id => ctx.firstIds.has(id)) : [];
+    const ownSec = pointIds.filter(id => !firstSec.includes(id));
     const budget = r.pool1 + r.pool2;
     const lvInput = (key, label, [min, max]) => `<label class="sk-num"><span>${label}</span><input type="number" data-key="${key}" min="${min}" max="${max}" value="${state[key]}"></label>`;
     const ready = ctx.kind === 'second'
@@ -206,7 +233,7 @@
         <div class="sk-ready ${r.issues.length ? 'bad' : ''}">${r.issues.length ? `有 ${r.issues.length} 個步驟不合規則，請調整 Job Lv 或移除標紅步驟` : esc(ready)}</div>
       </div>
       ${message ? `<p class="sk-toast" role="status">${esc(message)}</p>` : ''}
-      ${ctx.kind !== 'novice' ? `<p class="sk-fixed">基本技能（NV_BASIC）於初學者階段固定為 Lv 9，不佔本頁點數。</p>` : ''}
+      ${ctx.kind !== 'novice' ? `<p class="sk-fixed">初學者技能（基本技能 NV_BASIC Lv 9、緊急治療 NV_FIRSTAID）在初學者頁配點，不列入本頁。</p>` : ''}
       ${section(ctx.kind === 'second' ? `${ctx.first.name}技能` : `${job.name}技能`, ctx.kind === 'second' ? `一轉期間 ${r.pool1} 點須全部用在此區` : `可用 ${budget} 點`, ctx.kind === 'second' ? firstSec : ownSec, r.levels)}
       ${ctx.kind === 'second' ? section(`${job.name}技能`, `二轉 ${r.pool2} 點；未用完的二轉點數也可回補一轉技能`, ownSec, r.levels) : ''}`;
     $('#sk-detail').innerHTML = detail(r);
@@ -214,13 +241,16 @@
       ? `<ol>${list.map(x => `<li class="${x.issues.length ? 'bad' : ''}${x.free ? ' free' : ''}"><span>${esc(runJob(x))}</span><b>${esc(data.skills[x.id].name)}</b><em>Lv ${x.from === x.to ? x.to : `${x.from}→${x.to}`}</em>${x.issues.length ? `<small>${esc([...new Set(x.issues)].join('；'))}</small>` : ''}</li>`).join('')}</ol>`
       : '<p class="sk-hint">按「＋」依序加點，這裡會記錄學習順序，可複製成攻略的技能配點表。</p>';
     root.querySelectorAll('.sk-jobs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.job === job.id)));
+    const prereq = root.querySelector('[data-tool="prereq"]');
+    prereq.setAttribute('aria-pressed', String(state.p === 'max'));
+    prereq.textContent = state.p === 'max' ? '前置：直接點滿' : '前置：補到需求等級';
     writeHash();
   }
 
   function writeHash() {
     const ids = ctx.job.skillTree.map(s => s.id);
     const o = state.order.map(id => CODE[ids.indexOf(id)]).join('');
-    history.replaceState(null, '', `#${new URLSearchParams({ j: ctx.job.id, c: state.c, ...(ctx.kind === 'second' ? { l: state.l } : {}), ...(o ? { o } : {}) })}`);
+    history.replaceState(null, '', `#${new URLSearchParams({ j: ctx.job.id, c: state.c, ...(ctx.kind === 'second' ? { l: state.l } : {}), ...(state.p === 'max' ? { p: 'max' } : {}), ...(o ? { o } : {}) })}`);
   }
   function setJob(id, preset = {}) {
     const job = jobs[id] || jobs.knight;
@@ -231,7 +261,8 @@
     state = {
       c: clamp(Number(preset.c), min, max, max),
       l: clamp(Number(preset.l), 1, job.maxJobLv, job.maxJobLv),
-      order: [...(preset.o || '')].map(ch => ids[CODE.indexOf(ch)]).filter(x => x && !ctx.fixed[x]),
+      p: preset.p === 'max' || (preset.p === undefined && state?.p === 'max') ? 'max' : 'need',
+      order: [...(preset.o || '')].map(ch => ids[CODE.indexOf(ch)]).filter(x => x && !ctx.fixed[x] && (ctx.kind === 'novice' || !NOVICE.includes(x))),
     };
     if (selected && !ctx.tree.has(selected)) selected = null;
   }
@@ -250,14 +281,22 @@
     const act = event.target.closest('[data-act]');
     if (act) {
       const id = act.closest('[data-id]').dataset.id;
-      if (act.dataset.act === 'sel') { selected = id; render(); }
+      if (act.dataset.act === 'set') { selected = id; render(setLevel(id, Number(act.dataset.lv))); }
       else if (act.dataset.act === 'inc') { selected = id; render(increment(id)); }
       else if (act.dataset.act === 'dec') { selected = id; decrement(id); render(); }
       root.querySelector(`[data-id="${id}"] [data-act="${act.dataset.act}"]`)?.focus();
       return;
     }
+    // 點卡片空白處也當作升 1 級。
+    const cardEl = event.target.closest('.sk-card');
+    if (cardEl && !event.target.closest('a,button')) {
+      selected = cardEl.dataset.id;
+      render(increment(selected));
+      return;
+    }
     const tool = event.target.closest('[data-tool]')?.dataset.tool;
     if (tool === 'reset') { state.order = []; render(); }
+    if (tool === 'prereq') { state.p = state.p === 'max' ? 'need' : 'max'; render(state.p === 'max' ? '之後點技能時，前置技能會直接點滿' : '之後點技能時，前置技能只補到需求等級'); }
     if (tool === 'undo') { state.order = state.order.slice(0, -1); cascade(); render(); }
     if (tool === 'link' || tool === 'md') {
       const text = tool === 'link' ? location.href : markdown(replay());
