@@ -27,3 +27,4 @@ python3 -m http.server 8000 --directory site/dist
 - 同內容的詩人／舞孃攻略合併成一頁，兩個原始檔仍保留。
 - 搜尋索引由攻略全文產生，搜尋只在瀏覽器內執行。
 - 靜態網站沒有帳號、資料庫與伺服器 API；更新內容只需重新建置與發佈。
+- 技能配點模擬器（`skills.html`）由 `build.cjs` 依 `data/` 最新的技能樹快照產生，前端邏輯在 `site/skills.js`；配點狀態只存在網址 hash，不寫入瀏覽器儲存。

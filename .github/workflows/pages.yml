@@ -7,6 +7,7 @@ on:
       - 'Role/**'
       - '裝備/**'
       - 'site/**'
+      - 'data/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
