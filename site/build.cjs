@@ -10,8 +10,9 @@ const root = path.resolve(__dirname, '..');
 const output = path.join(__dirname, 'dist');
 const guidesOutput = path.join(output, 'guides');
 const repo = 'https://github.com/ned-lin-9527/Ragnarok';
-const classOrder = ['劍士', '商人', '弓箭手', '服事', '盜賊', '法師'];
+const classOrder = ['初心者', '劍士', '商人', '弓箭手', '服事', '盜賊', '法師', '超級初心者'];
 const summaries = {
+  '初心者一轉前': '吉芬原野 04 鎖定蟲蛹，完成初學者 Job 10 與基本技能 Lv 9。',
   '雙手劍力敏騎士': '雙手劍普攻與攻速，走 STR／AGI 路線。',
   '力敏鐵匠': '雙手斧普攻、速度激發與凶砍常駐。',
   '鳥獵': '普攻搭配獵鷹自動攻擊，降低 SP 補品依賴。',
@@ -69,7 +70,7 @@ for (const file of candidates.sort((a, b) => a.localeCompare(b, 'zh-Hant'))) {
   const parts = rel.split(path.sep);
   const title = titleFrom(source, file);
   const kind = parts[0] === 'Role' ? 'role' : 'equipment';
-  const label = kind === 'role' ? `${parts[1]} · ${title === '詩人與舞孃' ? '詩人／舞孃' : parts[2]}` : '裝備分析';
+  const label = kind === 'role' ? (parts.length > 3 ? `${parts[1]} · ${title === '詩人與舞孃' ? '詩人／舞孃' : parts[2]}` : parts[1]) : '裝備分析';
   const slug = path.basename(file, '.md');
   docs.push({ file, source, rel, title, kind, label, first: parts[1], second: parts[2],
     date: dateFrom(source), summary: summaries[title] || plainMarkdown(source).slice(0, 90),
@@ -165,19 +166,21 @@ function renderArticle(doc) {
 }
 
 function card(doc, prefix = '') {
-  return `<a class="guide-card" href="${prefix}${doc.url}"><span class="card-type">${esc(doc.label)}</span><h3>${esc(doc.title)}</h3><p>${esc(doc.summary)}</p><span class="card-bottom"><span>查證 ${esc(doc.date)}</span><span aria-hidden="true">↗</span></span></a>`;
+  const pinned = doc.first === '初心者' && doc.title === '初心者一轉前';
+  return `<a class="guide-card${pinned ? ' guide-card-pinned' : ''}" href="${prefix}${doc.url}"><span class="card-type">${esc(pinned ? '置頂 · 初心者' : doc.label)}</span><h3>${esc(doc.title)}</h3><p>${esc(doc.summary)}</p><span class="card-bottom"><span>查證 ${esc(doc.date)}</span><span aria-hidden="true">↗</span></span></a>`;
 }
 
 function renderHome() {
   const roles = docs.filter(x => x.kind === 'role');
+  const starter = roles.find(x => x.first === '初心者' && x.title === '初心者一轉前');
   const equipment = docs.filter(x => x.kind === 'equipment');
   const groups = [...new Set(roles.map(x => x.first))].sort((a, b) => {
     const aa = classOrder.indexOf(a), bb = classOrder.indexOf(b);
     return (aa < 0 ? 99 : aa) - (bb < 0 ? 99 : bb);
   });
-  const body = `<main id="main"><section class="hero"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow">玩家自建 · 非官方攻略索引</span><h1>先看條件，<br><em>再選攻略。</em></h1><p>把職業培養、掛機設定與裝備取捨放在同一個閱讀入口。從目前角色與遊玩目標出發，找到下一步，也看得見建議背後的資料與限制。</p><div class="hero-actions"><a class="button-primary" href="#roles">瀏覽職業攻略 <span aria-hidden="true">→</span></a><a class="button-text" href="#equipment">查看裝備分析 ↗</a></div></div><div class="hero-board" aria-label="閱讀攻略的三個步驟"><div class="board-top"><span>攻略閱讀路徑</span><span>01 — 03</span></div><div class="board-step"><b>01</b><div><strong>確定目標</strong><span>經驗、Zeny、材料或穩定度</span></div></div><div class="board-step"><b>02</b><div><strong>對照角色</strong><span>等級、技能、裝備與補給條件</span></div></div><div class="board-step"><b>03</b><div><strong>驗證結果</strong><span>擊殺、收益、死亡與中斷紀錄</span></div></div><div class="board-foot">依條件比較，不只給單一答案。</div></div></div></section>
+  const body = `<main id="main"><section class="hero"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow">玩家自建 · 非官方攻略索引</span><h1>先看條件，<br><em>再選攻略。</em></h1><p>把職業培養、掛機設定與裝備取捨放在同一個閱讀入口。從目前角色與遊玩目標出發，找到下一步，也看得見建議背後的資料與限制。</p><div class="hero-actions"><a class="button-primary" href="${starter ? starter.url : '#roles'}">新手先讀：初心者攻略 <span aria-hidden="true">→</span></a><a class="button-text" href="#roles">瀏覽職業攻略 ↗</a></div></div><div class="hero-board" aria-label="閱讀攻略的三個步驟"><div class="board-top"><span>攻略閱讀路徑</span><span>01 — 03</span></div><div class="board-step"><b>01</b><div><strong>確定目標</strong><span>經驗、Zeny、材料或穩定度</span></div></div><div class="board-step"><b>02</b><div><strong>對照角色</strong><span>等級、技能、裝備與補給條件</span></div></div><div class="board-step"><b>03</b><div><strong>驗證結果</strong><span>擊殺、收益、死亡與中斷紀錄</span></div></div><div class="board-foot">依條件比較，不只給單一答案。</div></div></div></section>
   <section class="intro-strip" aria-label="網站內容"><div><strong>${roles.length}</strong><span>篇職業攻略</span></div><div><strong>${equipment.length}</strong><span>篇裝備分析</span></div><div><strong>4</strong><span>種資料標示</span></div><p>每篇標明最後查證日期；原始 Markdown 與引用來源可直接開啟。</p></section>
-  <section class="content-section role-section" id="roles"><div class="section-heading"><div><span class="eyebrow">職業路線</span><h2>找到你的培養起點</h2><p>先選一轉職業，再閱讀各二轉流派的條件與取捨。</p></div><div class="search-wrap"><label for="site-search">搜尋全部攻略</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="site-search" type="search" placeholder="搜尋職業、技能、裝備、ID…" autocomplete="off"><kbd>/</kbd></div></div></div>
+  <section class="content-section role-section" id="roles"><div class="section-heading"><div><span class="eyebrow">職業路線</span><h2>找到你的培養起點</h2><p>從初心者一轉前開始，或依一轉職業閱讀各二轉流派的條件與取捨。</p></div><div class="search-wrap"><label for="site-search">搜尋全部攻略</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="site-search" type="search" placeholder="搜尋職業、技能、裝備、ID…" autocomplete="off"><kbd>/</kbd></div></div></div>
   <div id="search-results" class="search-results" hidden aria-live="polite"></div>
   <div id="browse-content"><div class="class-nav" aria-label="依職業篩選"><button type="button" class="active" data-filter="all" aria-pressed="true">全部職業</button>${groups.map(g => `<button type="button" data-filter="${esc(g)}" aria-pressed="false">${esc(g)}</button>`).join('')}</div><div class="guide-grid" id="role-grid">${roles.map(doc => `<div data-class="${esc(doc.first)}">${card(doc)}</div>`).join('')}</div></div></section>
   <section class="content-section equipment-section" id="equipment"><div class="section-heading"><div><span class="eyebrow">裝備決策</span><h2>先確認用途，再決定保留</h2><p>從類型清單掌握原則，用逐件判定核對裝備 ID 與限制。</p></div><span class="section-icon" aria-hidden="true">02</span></div><div class="equipment-grid">${equipment.map(x => card(x)).join('')}</div></section>
