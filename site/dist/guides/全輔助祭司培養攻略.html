@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121d35"><meta name="description" content="以增益與支援技能協助隊伍掛機。">
+<title>全輔助祭司｜RO 放置仙境攻略</title><link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css"><script src="../app.js" defer></script></head>
+<body data-page="article"><a class="skip-link" href="#main">跳至主要內容</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="../index.html" aria-label="RO 放置仙境攻略首頁"><span class="brand-mark" aria-hidden="true">R<span>/</span></span><span class="brand-name">RO 放置仙境<span>玩家攻略索引</span></span></a>
+<nav class="top-nav" aria-label="主選單"><a href="../index.html#roles">職業攻略</a><a href="../index.html#equipment">裝備分析</a><a href="../index.html#how-to-read">閱讀須知</a><a class="github-link" href="https://github.com/ned-lin-9527/Ragnarok" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header>
+<main id="main" class="article-shell"><div class="article-top"><a href="../index.html" class="back-link">← 回到攻略目錄</a><span class="eyebrow">服事 · 祭司</span><h1>全輔助祭司</h1><p class="article-summary">以增益與支援技能協助隊伍掛機。</p><div class="article-meta"><span>最後查證：<time>2026-10-23</time></span><a href="https://github.com/ned-lin-9527/Ragnarok/blob/main/Role/%E6%9C%8D%E4%BA%8B/%E7%A5%AD%E5%8F%B8/%E5%85%A8%E8%BC%94%E5%8A%A9%E7%A5%AD%E5%8F%B8%E5%9F%B9%E9%A4%8A%E6%94%BB%E7%95%A5.md" target="_blank" rel="noopener noreferrer">查看 Markdown 原檔 ↗</a></div></div>
+  <div class="article-grid"><aside class="toc"><details class="toc-panel" open><summary>本篇目錄 <span aria-hidden="true">＋</span></summary><nav aria-label="文章章節"><a class="toc-level-2" href="#section-1">目的與適用條件</a><a class="toc-level-2" href="#section-2">流派定位與選擇</a><a class="toc-level-2" href="#section-3">關鍵機制：組隊輔助與 SP 循環</a><a class="toc-level-2" href="#section-4">轉職路線與階段定義</a><a class="toc-level-2" href="#section-5">① 轉職前（初心者／服事）屬性配點</a><a class="toc-level-2" href="#section-6">② 轉職前（初心者／服事）技能配點</a><a class="toc-level-2" href="#section-7">③ 轉職後（祭司）屬性配點</a><a class="toc-level-2" href="#section-8">④ 轉職後（祭司）技能配點</a><a class="toc-level-2" href="#section-9">配裝建議</a><a class="toc-level-3" href="#section-10">轉職前（服事）</a><a class="toc-level-3" href="#section-11">轉職後（祭司）</a><a class="toc-level-2" href="#section-12">掛機設定與練功地圖</a><a class="toc-level-3" href="#section-13">掛機規則（建議值）</a><a class="toc-level-3" href="#section-14">候選地圖</a><a class="toc-level-3" href="#section-15">測試方法：輔助組合是否值得</a><a class="toc-level-2" href="#section-16">比較與取捨</a><a class="toc-level-2" href="#section-17">風險與待確認事項</a><a class="toc-level-2" href="#section-18">依據與資料來源</a></nav><div class="toc-note">數值與建議請以本文「最後查證」日期及引用來源為準。</div></details></aside>
+  <article class="article-content" aria-label="攻略內容"><h2 id="section-1">目的與適用條件<a class="heading-anchor" href="#section-1" aria-label="連結至目的與適用條件">#</a></h2><p>本攻略培養以「頌歌與增益」支援隊友的全輔助祭司（使用者稱「讚美祭司」）：聖母之頌歌讓全隊自然回 SP 加倍，幸運之頌歌、天使之賜福、加速術、霸邪之陣與治癒術讓主力隊友更快、更穩地掛機。祭司本身不追求輸出。</p>
+<ul>
+<li><strong>對象</strong>：從初心者開始培養，目標是祭司、並與 1～2 隻主力角色同隊掛機的玩家（例如雙手劍騎士、鳥獵、力敏鐵匠）。</li>
+<li><strong>前提</strong>：沒有穩定 SP 補品。祭司靠 INT、聖母之頌歌與禪心自己就能回足 SP，還能讓隊友一起回得更快。</li>
+<li><strong>目標</strong>：提高隊友的攻速、命中、存活與 SP 續航；祭司自己穩定不死。</li>
+<li><strong>尚未取得的玩家資料</strong>：隊伍組成、各角色目前等級與裝備、是否可以重置配點。</li>
+<li><strong>標示方式</strong>：未在本遊戲資訊站查證的內容，標為「R 版前參考／待此遊戲驗證」。</li>
+</ul>
+<h2 id="section-2">流派定位與選擇<a class="heading-anchor" href="#section-2" aria-label="連結至流派定位與選擇">#</a></h2><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>流派</th>
+<th>核心技能（本遊戲資料）</th>
+<th>主屬性</th>
+<th>SP 依賴</th>
+<th>掛機適性</th>
+<th>何時選它</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>全輔助祭司（本攻略）</strong></td>
+<td>聖母之頌歌 PR_MAGNIFICAT、幸運之頌歌 PR_GLORIA、霸邪之陣 PR_KYRIE、天使之賜福 AL_BLESSING、加速術 AL_INCAGI、治癒術 AL_HEAL、天使之障壁 AL_ANGELUS、禪心 MG_SRECOVERY</td>
+<td>INT、DEX、VIT</td>
+<td>高，但自己回得夠</td>
+<td>高（需隊友同圖）</td>
+<td>有 1～2 隻主力角色同隊同圖掛機</td>
+</tr>
+<tr>
+<td>轉生術祭司（官方範本）</td>
+<td>轉生術 PR_TURNUNDEAD、治癒術、霸邪之陣</td>
+<td>INT、VIT、DEX、LUK</td>
+<td>中</td>
+<td>中高</td>
+<td>想單人掛機，或常打不死屬性怪</td>
+</tr>
+<tr>
+<td>戰鬥祭司</td>
+<td>權杖使用熟練度 PR_MACEMASTERY、鈍器普攻</td>
+<td>STR、AGI</td>
+<td>低</td>
+<td>中</td>
+<td>沒有隊友、想自己打；輔助只給自己</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>輔助只在有隊友時發揮</strong>：單人掛機時，全隊型技能只作用在自己身上。沒有固定隊友時，改走轉生術祭司比較實際。</li>
+<li><strong>和詩人、舞孃搭配</strong>：合奏「經驗值倍增」與祭司輔助可以疊在同一隊，但同帳號同隊最多 4 隻一起掛機，第 3 隻起要付掛機位租金（見詩人與舞孃攻略）。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=jobs&amp;id=priest" target="_blank" rel="noopener noreferrer">祭司職業頁</a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=acolyte" target="_blank" rel="noopener noreferrer">服事職業頁</a>、<a href="https://ro-idle.app/info/database?type=skills" target="_blank" rel="noopener noreferrer">技能資料</a>。</p>
+<h2 id="section-3">關鍵機制：組隊輔助與 SP 循環<a class="heading-anchor" href="#section-3" aria-label="連結至關鍵機制：組隊輔助與 SP 循環">#</a></h2><p>本遊戲的輔助技能能自動補給隊友，但要符合同隊、同圖、存活、掛機與 SP 條件。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>本遊戲資料</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>對隊友施放</td>
+<td>掛機設定的「組隊行為」有兩個獨立開關：協助隊友打怪、對隊友輔助／回復。關閉後者時，全隊型技能也只作用自己</td>
+</tr>
+<tr>
+<td>單一對象增益的對象</td>
+<td>加速術、天使之賜福等可選「自己優先再給隊友（預設）、只對隊友、只對自己」</td>
+</tr>
+<tr>
+<td>補放時機</td>
+<td>依增益剩餘時間、回復門檻與目標條件補放，不是每輪重放；可設施放者 SP 下限</td>
+</tr>
+<tr>
+<td>全隊技能的等級</td>
+<td>有隊友時同次施法統一採「隊友施放等級」；未填時沿用原等級</td>
+</tr>
+<tr>
+<td>聖母之頌歌</td>
+<td>全隊 SP 自然回復 ×2；Lv 5 持續 90 秒、SP 40、詠唱 4 秒</td>
+</tr>
+<tr>
+<td>禪心（祭司可學）</td>
+<td>每 10 秒額外回 SP 30 + 最大 SP × 2%（Lv 10）；不受坐下影響</td>
+</tr>
+<tr>
+<td>坐下回復</td>
+<td>沒有怪物、要坐下前會先補不在身上的增益，再坐下回復</td>
+</tr>
+<tr>
+<td>犧牲祈福</td>
+<td>可填指定隊友名稱；留空時只自動選有詠唱時間的角色</td>
+</tr>
+<tr>
+<td>隊伍經驗</td>
+<td>均分；條件是同地圖、隊員 Base 等級差不超過 15（使用者確認，2026-10-23）</td>
+</tr>
+</tbody></table></div>
+<p><strong>SP 收支（依資料計算，含自己身上的天使之賜福 INT +10）</strong></p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>時期</th>
+<th>最大 SP</th>
+<th>自然回 SP／分</th>
+<th>開聖母之頌歌</th>
+<th>禪心／分</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base 50 服事（INT 61）</td>
+<td>約 444</td>
+<td>約 120</td>
+<td>服事沒有</td>
+<td>服事沒有</td>
+</tr>
+<tr>
+<td>Base 70 祭司（INT 83）</td>
+<td>約 1,100</td>
+<td>約 202</td>
+<td>約 405</td>
+<td>約 312</td>
+</tr>
+<tr>
+<td>Base 99 祭司（INT 104）</td>
+<td>約 1,716</td>
+<td>約 277</td>
+<td>約 555</td>
+<td>約 384</td>
+</tr>
+</tbody></table></div>
+<p>三人隊（祭司＋2 隊友）把賜福、加速術、霸邪之陣、聖母之頌歌、幸運之頌歌、神威祈福、天使之障壁全部常駐，每分鐘約需 236 SP，另加治癒術。Base 70 後的祭司綽綽有餘；服事階段只能維持賜福、加速術與治癒術。</p>
+<p>資料來源：<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式－可不協助打怪、加速術能只放給隊友嗎、治癒與天賜怎麼只放一次、坐下回復、自然回復</a>。</p>
+<h2 id="section-4">轉職路線與階段定義<a class="heading-anchor" href="#section-4" aria-label="連結至轉職路線與階段定義">#</a></h2><p>路線為初心者 → 服事（一轉）→ 祭司（二轉）。建議服事練到 Job 50 再轉職，多拿 10 個一轉技能點，把加速術、天使之賜福與治癒術都點滿。「轉職前」指服事階段，「轉職後」指祭司階段。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>階段</th>
+<th>轉職條件（資訊站）</th>
+<th>技能點</th>
+<th>要點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初心者</td>
+<td>Job 10、基本技能 Lv 9</td>
+<td>9 點全放基本技能</td>
+<td>沒有可選的技能</td>
+</tr>
+<tr>
+<td>服事</td>
+<td>Job 40 以上可轉祭司；必須用完技能點</td>
+<td>Job 50 轉：49 點</td>
+<td>跟主力隊友同隊均分經驗最快（需同地圖、Base 等級差不超過 15）；單人時靠治癒術打不死屬性怪</td>
+</tr>
+<tr>
+<td>祭司</td>
+<td>—</td>
+<td>Job 50 時 49 點</td>
+<td>可學禪心；傳送之陣與光之障壁在本遊戲停用</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Job 屬性加成</strong>：服事 Job 50 累計 LUK +4、STR +3、VIT +3、INT +3、DEX +3、AGI +2；祭司 Job 50 累計 LUK +7、STR +5、VIT +5、INT +5、AGI +4、DEX +4。轉職後只算當前職業的加成。</li>
+<li><strong>任務技能不扣技能點</strong>：緊急治療（Job 4）、神聖之光（Job 30，單體聖屬性魔法 125%、SP 15）。</li>
+</ul>
+<h2 id="section-5">① 轉職前（初心者／服事）屬性配點<a class="heading-anchor" href="#section-5" aria-label="連結至① 轉職前（初心者／服事）屬性配點">#</a></h2><p>INT 優先，DEX 次之，Base 30 後開始加 VIT。STR、AGI、LUK 不點。下表是手動分配的累計目標值，不含 Job 加成與裝備，已用本遊戲配點公式核算。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Base Lv</th>
+<th>可用總點數</th>
+<th>STR</th>
+<th>AGI</th>
+<th>DEX</th>
+<th>VIT</th>
+<th>INT</th>
+<th>LUK</th>
+<th>剩餘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10（初心者轉服事）</td>
+<td>80</td>
+<td>1</td>
+<td>1</td>
+<td>12</td>
+<td>1</td>
+<td>22</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>30</td>
+<td>210</td>
+<td>1</td>
+<td>1</td>
+<td>22</td>
+<td>10</td>
+<td>40</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>50</td>
+<td>420</td>
+<td>1</td>
+<td>1</td>
+<td>34</td>
+<td>25</td>
+<td>58</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table></div>
+<p><strong>投入順序</strong></p>
+<ol>
+<li>Base 1–10：INT 先加到 20 以上，DEX 補到 10 左右。</li>
+<li>Base 10–30：INT 與 DEX 約 2：1，Base 20 後補 VIT。</li>
+<li>Base 30–50：INT 推到 58、DEX 推到 34、VIT 推到 25。</li>
+</ol>
+<p><strong>推導與前提</strong></p>
+<ul>
+<li><strong>配點公式（資訊站）</strong>：新角色六圍各 1，另有 48 點；從 x 加到 x+1 花 floor((x − 1) ÷ 10) + 2 點；Base L 升到 L+1 拿 floor(L ÷ 5) + 3 點；單項手動上限 99。</li>
+<li><strong>為什麼 INT 優先</strong>：INT 同時提高治癒量、最大 SP 與自然回 SP；治癒術回復量 = floor((Base Lv + INT) ÷ 8) × 係數（Lv 10 為 84）。</li>
+<li><strong>服事的單人練功</strong>：治癒術對不死屬性怪造成回復量一半的聖屬性傷害，所以可以掛不死怪多的地圖（見「候選地圖」）。</li>
+<li>尚未確認本遊戲是否可以重置屬性，請先當作不可重置。</li>
+</ul>
+<h2 id="section-6">② 轉職前（初心者／服事）技能配點<a class="heading-anchor" href="#section-6" aria-label="連結至② 轉職前（初心者／服事）技能配點">#</a></h2><p>服事 49 點的分配：治癒術 10、加速術 10、天使之賜福 10、天使之障壁 10、天使之護 5、治療術 1、光獵 1、瞬間移動 2。天使之障壁是全隊技能，所以點滿；天使之護只點到天使之賜福需要的 5 級。前 39 點是全輔助的必要技能，也湊齊了祭司霸邪之陣的前置。初心者階段 9 點全放基本技能 NV_BASIC。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>服事 Job Lv</th>
+<th>技能（ID）</th>
+<th>目標等級</th>
+<th>前置</th>
+<th>累計點數</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2–4</td>
+<td>治癒術 AL_HEAL</td>
+<td>3</td>
+<td>無</td>
+<td>3</td>
+<td>自補、打不死怪；加速術的前置</td>
+</tr>
+<tr>
+<td>5–14</td>
+<td>加速術 AL_INCAGI</td>
+<td>10</td>
+<td>治癒術 Lv 3</td>
+<td>13</td>
+<td>AGI +12，240 秒、SP 45</td>
+</tr>
+<tr>
+<td>15–19</td>
+<td>天使之護 AL_DP</td>
+<td>5</td>
+<td>無</td>
+<td>18</td>
+<td>天使之賜福的前置</td>
+</tr>
+<tr>
+<td>20–29</td>
+<td>天使之賜福 AL_BLESSING</td>
+<td>10</td>
+<td>天使之護 Lv 5</td>
+<td>28</td>
+<td>STR、INT、DEX +10，240 秒、SP 64</td>
+</tr>
+<tr>
+<td>30–36</td>
+<td>治癒術 AL_HEAL</td>
+<td>10</td>
+<td>—</td>
+<td>35</td>
+<td>Lv 10 係數 84、SP 40</td>
+</tr>
+<tr>
+<td>37–38</td>
+<td>天使之障壁 AL_ANGELUS</td>
+<td>2</td>
+<td>天使之護 Lv 3</td>
+<td>37</td>
+<td>霸邪之陣的前置</td>
+</tr>
+<tr>
+<td>39</td>
+<td>治療術 AL_CURE</td>
+<td>1</td>
+<td>治癒術 Lv 2</td>
+<td>38</td>
+<td>解除沉默、黑暗、混亂</td>
+</tr>
+<tr>
+<td>40</td>
+<td>光獵 AL_RUWACH</td>
+<td>1</td>
+<td>無</td>
+<td>39</td>
+<td>讓隱匿怪現形；瞬間移動的前置</td>
+</tr>
+<tr>
+<td>41–42</td>
+<td>瞬間移動 AL_TELEPORT</td>
+<td>2</td>
+<td>光獵 Lv 1</td>
+<td>41</td>
+<td>Lv 1 在地圖內隨機移動，可設成逃生；本遊戲瞬移逃生不耗 SP</td>
+</tr>
+<tr>
+<td>43–50</td>
+<td>天使之障壁 AL_ANGELUS</td>
+<td>10</td>
+<td>—</td>
+<td>49</td>
+<td>全隊 VIT DEF +50%，300 秒、SP 50</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Job 40 就轉職（39 點）</strong>：照上表點到光獵（第 39 點），放棄瞬間移動與天使之障壁 3–10。</li>
+<li><strong>天使之障壁是全隊技能</strong>：使用者確認（2026-10-23）。它提高的是 VIT DEF，隊友 VIT 越高效果越明顯；VIT 很低的隊友加成的絕對值很小。</li>
+<li><strong>天使之護</strong>：只作用在自己、只對不死與惡魔怪有效，所以只點到前置需要的 5 級。</li>
+<li><strong>不建議的技能</strong>：傳送之陣與光之障壁在本遊戲停用；緩速術、天使之光、天使之淚對全輔助用處不大（天使之淚只是撒水祈福的前置）。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=jobs&amp;id=acolyte" target="_blank" rel="noopener noreferrer">服事職業頁</a>、<a href="https://ro-idle.app/info/database?type=skills" target="_blank" rel="noopener noreferrer">技能資料</a>。</p>
+<h2 id="section-7">③ 轉職後（祭司）屬性配點<a class="heading-anchor" href="#section-7" aria-label="連結至③ 轉職後（祭司）屬性配點">#</a></h2><p>Base 99 的最終手動配點目標是 INT 99、DEX 74、VIT 60，共用掉 1268 點。INT 點滿提高治癒與 SP；DEX 縮短霸邪之陣、聖母之頌歌的詠唱；VIT 讓祭司在隊友身邊不容易被打死。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Base Lv</th>
+<th>可用總點數</th>
+<th>STR</th>
+<th>AGI</th>
+<th>DEX</th>
+<th>VIT</th>
+<th>INT</th>
+<th>LUK</th>
+<th>剩餘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>60</td>
+<td>555</td>
+<td>1</td>
+<td>1</td>
+<td>40</td>
+<td>31</td>
+<td>68</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>70</td>
+<td>710</td>
+<td>1</td>
+<td>1</td>
+<td>47</td>
+<td>37</td>
+<td>78</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>80</td>
+<td>885</td>
+<td>1</td>
+<td>1</td>
+<td>55</td>
+<td>45</td>
+<td>86</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>90</td>
+<td>1080</td>
+<td>1</td>
+<td>1</td>
+<td>64</td>
+<td>52</td>
+<td>94</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr>
+<td>99</td>
+<td>1273</td>
+<td>1</td>
+<td>1</td>
+<td>74</td>
+<td>60</td>
+<td>99</td>
+<td>1</td>
+<td>5</td>
+</tr>
+</tbody></table></div>
+<p><strong>投入順序</strong></p>
+<ol>
+<li>Base 50–70：INT 推到 78，DEX 推到 47。這段學聖母之頌歌、霸邪之陣與禪心。</li>
+<li>Base 70–90：DEX 與 INT 交替加，VIT 跟上到 50 左右。</li>
+<li>Base 90–99：INT 點滿 99，DEX 74，VIT 60。祭司常被打死就提早加 VIT。</li>
+</ol>
+<p><strong>推導與前提</strong></p>
+<ul>
+<li><strong>詠唱時間（資訊站）</strong>：詠唱 = 基礎詠唱 × (150 − 總 DEX) ÷ 150；INT 不影響。Base 70（DEX 約 61，含 Job 與賜福）霸邪之陣約 1.19 秒、聖母之頌歌約 2.37 秒；Base 99（DEX 約 88）分別約 0.83 秒、1.65 秒。</li>
+<li><strong>治癒量</strong>：治癒術 Lv 10 = floor((Base Lv + INT) ÷ 8) × 84。Base 70（INT 約 93，含 Job 與賜福）約 1,680；Base 99（INT 約 114）約 2,184。</li>
+<li><strong>SP</strong>：見「關鍵機制」的 SP 收支表。Base 70 後自然回 SP 加禪心每分鐘約 500 以上，足以常駐全部輔助。</li>
+<li><strong>為什麼不點 LUK</strong>：幸運之頌歌直接給全隊 LUK +30，祭司自己不必點 LUK。</li>
+</ul>
+<h2 id="section-8">④ 轉職後（祭司）技能配點<a class="heading-anchor" href="#section-8" aria-label="連結至④ 轉職後（祭司）技能配點">#</a></h2><p>先學聖母之頌歌，讓全隊 SP 回復加倍，再學霸邪之陣與禪心。核心 43 點用完後，剩下 6 點彈性分配。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>祭司 Job Lv</th>
+<th>技能（ID）</th>
+<th>目標等級</th>
+<th>前置</th>
+<th>累計點數</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2–6</td>
+<td>聖母之頌歌 PR_MAGNIFICAT</td>
+<td>5</td>
+<td>無</td>
+<td>5</td>
+<td>全隊 SP 自然回復 ×2，90 秒、SP 40；沒有 SP 補品時最重要的技能</td>
+</tr>
+<tr>
+<td>7–16</td>
+<td>霸邪之陣 PR_KYRIE</td>
+<td>10</td>
+<td>天使之障壁 Lv 2</td>
+<td>15</td>
+<td>吸收 MaxHP × 30% 的物理傷害、最多 10 次，120 秒、SP 35</td>
+</tr>
+<tr>
+<td>17–26</td>
+<td>禪心 MG_SRECOVERY</td>
+<td>10</td>
+<td>無</td>
+<td>25</td>
+<td>每 10 秒額外回 SP 30 + 最大 SP × 2%</td>
+</tr>
+<tr>
+<td>27–31</td>
+<td>幸運之頌歌 PR_GLORIA</td>
+<td>5</td>
+<td>霸邪之陣 Lv 4、聖母之頌歌 Lv 3</td>
+<td>30</td>
+<td>全隊 LUK +30，Lv 5 持續 30 秒、SP 20；鳥獵的閃電衝擊觸發率約 +10%</td>
+</tr>
+<tr>
+<td>32–36</td>
+<td>神威祈福 PR_IMPOSITIO</td>
+<td>5</td>
+<td>無</td>
+<td>35</td>
+<td>自己或隊友武器 ATK +25，60 秒、SP 25</td>
+</tr>
+<tr>
+<td>37–39</td>
+<td>犧牲祈福 PR_SUFFRAGIUM</td>
+<td>3</td>
+<td>神威祈福 Lv 2</td>
+<td>38</td>
+<td>隊友下一次詠唱 −45%、SP 8；隊伍有法系或要詠唱的角色時才掛</td>
+</tr>
+<tr>
+<td>40</td>
+<td>痊癒術 PR_STRECOVERY</td>
+<td>1</td>
+<td>無</td>
+<td>39</td>
+<td>解除隊友的石化、冰凍、暈眩、睡眠；復活術的前置</td>
+</tr>
+<tr>
+<td>41–44</td>
+<td>復活術 ALL_RESURRECTION</td>
+<td>4</td>
+<td>痊癒術 Lv 1、禪心 Lv 4</td>
+<td>43</td>
+<td>復活同圖死亡的隊友、HP 80%；耗 1 個藍色魔力礦石、SP 60</td>
+</tr>
+<tr>
+<td>45–50</td>
+<td>彈性 6 點</td>
+<td>—</td>
+<td>—</td>
+<td>49</td>
+<td>見下表</td>
+</tr>
+</tbody></table></div>
+<p><strong>最後 6 點的方案</strong></p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>內容</th>
+<th>適用情況</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>預設</td>
+<td>天使之淚 1 → 撒水祈福 5</td>
+<td>隊友常打念屬性或不死怪；把隊友武器變成聖屬性，每次耗 1 個聖水</td>
+</tr>
+<tr>
+<td>回復</td>
+<td>光耀之堂 6</td>
+<td>隊伍常被圍、需要範圍補血；每次耗 1 個藍色魔力礦石</td>
+</tr>
+<tr>
+<td>控場</td>
+<td>沉默之術 5 → 天使之怒 1</td>
+<td>常遇到會放技能的怪；天使之怒讓目標下一次受到的傷害 ×2</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>幸運之頌歌的取捨</strong>：Lv 5 只有 30 秒，平均每分鐘約 40 SP，是最耗 SP 的輔助。隊伍沒有吃 LUK 的角色（鳥獵、爆擊職業）時可以不掛。</li>
+<li><strong>官方範本「祭司（轉生術）」</strong> 另學轉生術、沉默之術等攻擊技能，本攻略把這些點數改投輔助。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=jobs&amp;id=priest" target="_blank" rel="noopener noreferrer">祭司職業頁</a>、<a href="https://ro-idle.app/info/database?type=skills" target="_blank" rel="noopener noreferrer">技能資料</a>。</p>
+<h2 id="section-9">配裝建議<a class="heading-anchor" href="#section-9" aria-label="連結至配裝建議">#</a></h2><p>全輔助祭司的裝備優先 MaxSP、SP 回復、INT、DEX，其次是 MaxHP。下表物品的數值、職業與取得來源已在資訊站確認。掉率是資訊站基準值，不含倍率與修正。</p>
+<h3 id="section-10">轉職前（服事）<a class="heading-anchor" href="#section-10" aria-label="連結至轉職前（服事）">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>部位</th>
+<th>過渡裝備</th>
+<th>目標裝備</th>
+<th>取得方式</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>武器</td>
+<td>智慧魔杖 Staff（ID 1607，INT +2、MATK +15%，2 洞，Base 12）</td>
+<td>智慧魔杖[3]（ID 1608）</td>
+<td>智慧魔杖：吉芬、朱諾 9,500z。[3]：馬爾杜克 Lv40 掉 0.1%</td>
+<td>INT 與 MATK；全輔助不靠武器輸出</td>
+</tr>
+<tr>
+<td>鎧甲</td>
+<td>聖職之袍[1] Scapulare（防 4）</td>
+<td>聖職之袍[1]＋沙漠幼狼卡片（INT +1）</td>
+<td>聖職之袍[1]：天使波利 Lv20 掉 0.6%</td>
+<td>前期便宜的有洞鎧甲</td>
+</tr>
+<tr>
+<td>披肩</td>
+<td>披肩 Muffler（商店 5,000z）</td>
+<td>披肩[1]＋禿鷹卡片（迴避 +10）</td>
+<td>披肩[1]：鬼女 Lv33 掉 0.05%</td>
+<td>提高存活</td>
+</tr>
+<tr>
+<td>鞋子</td>
+<td>長靴（商店 3,500z）</td>
+<td>長靴[1]＋轉轉蛋卡片（SP 自然回復 +15%）</td>
+<td>長靴[1]：僵屍 Lv30 掉 0.15%</td>
+<td>提高回 SP</td>
+</tr>
+<tr>
+<td>飾品 ×2</td>
+<td>髮夾[1] Clip（MaxSP +10）</td>
+<td>髮夾[1]＋傑洛米卡片（DEX +3）</td>
+<td>髮夾：龍蠅 Lv8 掉 30%</td>
+<td>縮短詠唱</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-11">轉職後（祭司）<a class="heading-anchor" href="#section-11" aria-label="連結至轉職後（祭司）">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>部位</th>
+<th>目標裝備</th>
+<th>替代品</th>
+<th>取得方式</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>武器</td>
+<td>言靈魔杖[2] Arc_Wand（ID 1611，INT +3、MATK +15%，Base 24）</td>
+<td>言靈魔杖（1 洞，吉芬、朱諾 45,000z）；聖言之書（INT +2，2 洞）</td>
+<td>[2]：風魔巫師 Lv51 掉 0.08%；聖言之書：闇神官 Lv58 掉 0.1%</td>
+<td>INT 最高的常見手杖</td>
+</tr>
+<tr>
+<td>鎧甲</td>
+<td>聖職之衣[1] Saint_Robe（防 6、MDEF +5）＋大嘴鳥卡片（MaxHP +10%）</td>
+<td>聖職之衣（無洞，普隆德拉 54,000z）；改插羅達蛙卡片（MaxHP +400、MaxSP +50）</td>
+<td>聖職之衣[1]：人魚 Lv31 掉 0.1%</td>
+<td>祭司站在隊友旁，被打到的機會不少</td>
+</tr>
+<tr>
+<td>披肩</td>
+<td>披肩[1]＋白幽靈卡片（迴避 +20）</td>
+<td>禿鷹卡片</td>
+<td>披肩[1]：鬼女 Lv33 掉 0.05%</td>
+<td>白幽靈會使念屬性傷害 +50%，打念屬性怪時拔掉</td>
+</tr>
+<tr>
+<td>鞋子</td>
+<td>長靴[1]＋鬼女卡片（MaxSP +15%、SP 自然回復 +3%）</td>
+<td>轉轉蛋卡片（SP 自然回復 +15%）、木乃伊犬卡片（MaxHP／MaxSP +8%）</td>
+<td>鬼女 Lv33</td>
+<td>最大 SP 越高，自然回 SP 與禪心都越多</td>
+</tr>
+<tr>
+<td>頭部</td>
+<td>有洞頭飾＋長老樹精卡片（INT +2）或樹精卡片（MaxSP +80）</td>
+<td>護士帽（INT +1，無洞）</td>
+<td>護士帽：鬼女 Lv33 掉 0.01%</td>
+<td>INT 或 MaxSP 二選一</td>
+</tr>
+<tr>
+<td>飾品 ×2</td>
+<td>髮夾[1]＋傑洛米卡片（DEX +3）</td>
+<td>森靈卡片（DEX +2）</td>
+<td>傑洛米 Lv23</td>
+<td>DEX 縮短詠唱</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>不要用黑蟻卡片</strong>：技能 SP 消耗 +25%。</li>
+<li><strong>高階頭飾</strong>：修女的帽子[1]（MaxSP +100，Base 65）只由黑暗之王掉落；當長期目標即可。</li>
+<li><strong>消耗品</strong>：復活術、光耀之堂要藍色魔力礦石，撒水祈福要聖水（可用天使之淚自己做）。購買來源與價格待查。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=equipment" target="_blank" rel="noopener noreferrer">裝備資料</a>、<a href="https://ro-idle.app/info/database?type=items" target="_blank" rel="noopener noreferrer">道具資料</a>、<a href="https://ro-idle.app/info/database?type=monsters" target="_blank" rel="noopener noreferrer">怪物資料</a>。</p>
+<h2 id="section-12">掛機設定與練功地圖<a class="heading-anchor" href="#section-12" aria-label="連結至掛機設定與練功地圖">#</a></h2><p>全輔助祭司的地圖跟著主力隊友走；設定重點是「對隊友輔助／回復」要開，增益依隊友職業挑選。負重要保持在 50% 以下，否則自然回復會停止，祭司的 SP 循環會整個斷掉。</p>
+<h3 id="section-13">掛機規則（建議值）<a class="heading-anchor" href="#section-13" aria-label="連結至掛機規則（建議值）">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>規則</th>
+<th>設定</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>組隊行為</td>
+<td>開「對隊友輔助／回復」；「協助隊友打怪」可關</td>
+<td>關閉協助打怪後仍會自行尋怪與自衛</td>
+</tr>
+<tr>
+<td>回復</td>
+<td>治癒術 Lv 10，目標 HP &lt; 60%</td>
+<td>官方範本門檻；隊友 HP 高時可改 50% 省 SP</td>
+</tr>
+<tr>
+<td>輔助：SP 回復</td>
+<td>聖母之頌歌 Lv 5，常駐</td>
+<td>第一優先；全隊 SP 自然回復 ×2</td>
+</tr>
+<tr>
+<td>輔助：增益</td>
+<td>天使之賜福 Lv 10、加速術 Lv 10，對象「自己優先再給隊友」</td>
+<td>加速術每次另扣 15 HP</td>
+</tr>
+<tr>
+<td>輔助：防禦</td>
+<td>霸邪之陣 Lv 10，對象給前排隊友；天使之障壁 Lv 10，常駐</td>
+<td>霸邪之陣被打完 10 次就消失；天使之障壁全隊 VIT DEF +50%，每 300 秒 50 SP</td>
+</tr>
+<tr>
+<td>輔助：頌歌</td>
+<td>幸運之頌歌 Lv 5，條件：自己 SP ≥ 60%</td>
+<td>隊伍沒有吃 LUK 的角色時不掛</td>
+</tr>
+<tr>
+<td>輔助：武器</td>
+<td>神威祈福 Lv 5，對象只對隊友</td>
+<td>給近戰主力；SP 吃緊時先拿掉</td>
+</tr>
+<tr>
+<td>輔助：詠唱</td>
+<td>犧牲祈福 Lv 3，填指定隊友名稱</td>
+<td>只對有詠唱時間的隊友有效</td>
+</tr>
+<tr>
+<td>復活</td>
+<td>復活術 Lv 4</td>
+<td>需攜帶藍色魔力礦石</td>
+</tr>
+<tr>
+<td>逃生</td>
+<td>瞬間移動 Lv 1，條件：HP &lt; 30%</td>
+<td>本遊戲瞬移逃生不耗 SP</td>
+</tr>
+<tr>
+<td>坐下回復</td>
+<td>開啟，SP &lt; 50% 時坐下</td>
+<td>坐下前會先補增益；坐下時自然回復週期減半</td>
+</tr>
+<tr>
+<td>負重</td>
+<td>自動賣出／存倉設在 50% 以下觸發</td>
+<td>50% 時自然回復停止，聖母之頌歌也救不回來</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-14">候選地圖<a class="heading-anchor" href="#section-14" aria-label="連結至候選地圖">#</a></h3><ul>
+<li><strong>服事單人期</strong>：靠治癒術打不死屬性怪。斐揚洞穴 1 樓（pay_dun00）的邪骸戰士 Lv10、腐屍 Lv15 都是不死屬性，Base 10–20 可以試；之後斐揚洞穴 2 樓（pay_dun01）有邪骸士兵 Lv29、邪骸弓箭手（主動），轉來前先確認 HP 夠用。</li>
+<li><strong>組隊期</strong>：以主力隊友的地圖為準（見騎士、鳥獵、鐵匠攻略的候選地圖），優先挑主動怪少的地圖，避免祭司被圍。隊伍經驗會均分，所以祭司不必自己打怪也能升級；但要同地圖、Base 等級差不超過 15（使用者確認），祭司的 Base 等級不要落後主力隊友超過 15 級，也不要拉一隻等級差太多的新角色進隊。</li>
+<li>祭司沒有主力隊友同圖時，輔助效果只剩自己，經驗也很慢，不建議長時間單人掛。</li>
+</ul>
+<h3 id="section-15">測試方法：輔助組合是否值得<a class="heading-anchor" href="#section-15" aria-label="連結至測試方法：輔助組合是否值得">#</a></h3><ol>
+<li>同一張地圖、同樣主力隊友，各掛 30 分鐘。A 組：只有治癒術＋天使之賜福＋加速術；B 組：再加聖母之頌歌、霸邪之陣；C 組：再加幸運之頌歌、神威祈福。</li>
+<li>記錄主力隊友的 Base／Job 經驗、擊殺數、死亡次數、藥水用量，以及祭司的 SP 是否見底。用統計頁前先按「歸零」。</li>
+<li>判斷：多開一組輔助後，隊友的經驗／小時高 5% 以上、或死亡與藥水明顯減少，就保留；祭司 SP 常見底時，先拿掉幸運之頌歌與神威祈福。</li>
+</ol>
+<p>資料來源：<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>、<a href="https://ro-idle.app/info/database?type=maps" target="_blank" rel="noopener noreferrer">地圖資料</a>。</p>
+<h2 id="section-16">比較與取捨<a class="heading-anchor" href="#section-16" aria-label="連結至比較與取捨">#</a></h2><p>全輔助祭司的價值完全取決於隊友。有固定隊友時，聖母之頌歌加上各種增益能讓整隊不靠 SP 補品也長時間掛機；沒有隊友時，改走轉生術祭司比較划算。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>決策點</th>
+<th>本攻略的選擇</th>
+<th>替代方案</th>
+<th>何時改用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主要定位</td>
+<td>全輔助</td>
+<td>轉生術祭司（官方範本）</td>
+<td>沒有固定隊友、要單人掛機時</td>
+</tr>
+<tr>
+<td>DEX</td>
+<td>74</td>
+<td>DEX 90 以上</td>
+<td>隊伍需要更快補霸邪之陣與頌歌；代價是 VIT 較低</td>
+</tr>
+<tr>
+<td>VIT</td>
+<td>60</td>
+<td>VIT 30、INT／DEX 更高</td>
+<td>祭司很少被打時</td>
+</tr>
+<tr>
+<td>幸運之頌歌</td>
+<td>學 5 級，視隊伍掛</td>
+<td>不學，點數改投光耀之堂</td>
+<td>隊伍沒有吃 LUK 的角色</td>
+</tr>
+<tr>
+<td>最後 6 個技能點</td>
+<td>撒水祈福</td>
+<td>光耀之堂、沉默之術＋天使之怒</td>
+<td>見「④ 技能配點」的方案表</td>
+</tr>
+<tr>
+<td>轉職時機</td>
+<td>服事 Job 50</td>
+<td>Job 40</td>
+<td>想早點拿聖母之頌歌；少瞬間移動與天使之障壁 3–10</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>重置成本</strong>：技能重置後必須先把一轉點數投回服事技能。屬性重置的方式與費用尚未查證。</li>
+<li><strong>短期與長期</strong>：轉祭司後先點聖母之頌歌，整隊立刻受益；禪心是祭司自己的長期 SP 來源。</li>
+</ul>
+<h2 id="section-17">風險與待確認事項<a class="heading-anchor" href="#section-17" aria-label="連結至風險與待確認事項">#</a></h2><p>最大的不確定性是 Base 等級差超過 15 或不同地圖時，祭司是完全分不到經驗，還是只是打怪者獨拿；以及離線、死亡的隊員能不能分到。隊伍經驗可以均分（同地圖、Base 等級差不超過 15）、天使之障壁是全隊技能，都已由使用者確認（2026-10-23）。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 確認離線或死亡的隊員是否照樣分到經驗</li>
+<li><input disabled="" type="checkbox"> 確認藍色魔力礦石、聖水的購買來源與價格</li>
+<li><input disabled="" type="checkbox"> 提供隊伍組成與各角色目前等級，以便挑選必掛的輔助</li>
+<li><input disabled="" type="checkbox"> 確認屬性是否可以重置及費用</li>
+<li><input disabled="" type="checkbox"> 用「測試方法」比較三組輔助組合，記錄 30 分鐘的隊友經驗、死亡與藥水用量</li>
+</ul>
+<p><strong>其他風險</strong></p>
+<ul>
+<li>掉率都是資訊站基準值，不含活動倍率與角色修正。</li>
+<li>SP 收支、詠唱與治癒量是依公式推算，未計裝備加成與實際受擊頻率。</li>
+<li>遊戲更新後，請優先複查聖母之頌歌、幸運之頌歌、禪心的數值與組隊輔助規則。</li>
+</ul>
+<h2 id="section-18">依據與資料來源<a class="heading-anchor" href="#section-18" aria-label="連結至依據與資料來源">#</a></h2><p>以下資料查詢於 2026-10-23。</p>
+<ul>
+<li><a href="https://ro-idle.app/info/database?type=jobs&amp;id=priest" target="_blank" rel="noopener noreferrer">RO 放置仙境資訊站－祭司</a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=acolyte" target="_blank" rel="noopener noreferrer">服事</a>：技能樹、轉職條件、Job 加成</li>
+<li><a href="https://ro-idle.app/info/database?type=skills" target="_blank" rel="noopener noreferrer">資訊站－技能資料</a>：聖母之頌歌、幸運之頌歌、霸邪之陣、禪心、治癒術、天使之賜福、加速術等數值與前置</li>
+<li><a href="https://ro-idle.app/info/database?type=equipment" target="_blank" rel="noopener noreferrer">資訊站－裝備資料</a>、<a href="https://ro-idle.app/info/database?type=items" target="_blank" rel="noopener noreferrer">道具資料</a>：手杖、法袍、卡片、商店價格</li>
+<li><a href="https://ro-idle.app/info/database?type=monsters" target="_blank" rel="noopener noreferrer">資訊站－怪物資料</a>、<a href="https://ro-idle.app/info/database?type=maps" target="_blank" rel="noopener noreferrer">地圖資料</a>：掉落、地圖怪物組成</li>
+<li><a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站－玩法與公式</a>：配點、自然回復、詠唱公式、組隊輔助設定、坐下回復、負重</li>
+<li>R 版前參考（待此遊戲驗證）：全輔助祭司的 INT／DEX／VIT 配點思路</li>
+</ul>
+<div class="article-end"><span>閱讀完畢</span><a href="../index.html">探索其他攻略 →</a></div></article></div>
+  <section class="related"><h2>延伸閱讀</h2><div class="related-grid"><a class="guide-card" href="../guides/%E5%85%AD%E5%90%88%E6%8B%B3%E6%95%8F%E7%B3%BB%E6%AD%A6%E9%81%93%E5%AE%B6%E5%9F%B9%E9%A4%8A%E6%94%BB%E7%95%A5.html"><span class="card-type">服事 · 武道家</span><h3>六合拳敏系武道家</h3><p>拳套普攻觸發六合拳，兼顧高防禦目標。</p><span class="card-bottom"><span>查證 2026-10-23</span><span aria-hidden="true">↗</span></span></a><a class="guide-card" href="../guides/%E8%A3%9D%E5%82%99%E9%80%90%E4%BB%B6%E4%BF%9D%E7%95%99%E5%88%A4%E5%AE%9A.html"><span class="card-type">裝備分析</span><h3>458 件裝備逐件保留判定</h3><p>逐件查詢 458 件裝備的 ID、用途與掛機保留優先序。</p><span class="card-bottom"><span>查證 2026-10-22</span><span aria-hidden="true">↗</span></span></a><a class="guide-card" href="../guides/%E5%90%84%E9%A1%9E%E5%9E%8B%E8%A3%9D%E5%82%99%E4%BF%9D%E7%95%99%E8%88%87%E8%B3%A3%E5%87%BA%E6%B8%85%E5%96%AE.html"><span class="card-type">裝備分析</span><h3>各類型裝備保留與賣出清單</h3><p>依裝備類型快速判斷保留、條件留與可賣多餘。</p><span class="card-bottom"><span>查證 2026-10-22</span><span aria-hidden="true">↗</span></span></a></div></section></main><footer class="site-footer"><div><strong>RO 放置仙境攻略手冊</strong><p>非官方玩家整理。攻略會隨遊戲資料與實測更新，使用前請核對最後查證日期。</p></div><div class="footer-links"><a href="https://ro-idle.app/info" target="_blank" rel="noopener noreferrer">遊戲資訊站 ↗</a><a href="https://github.com/ned-lin-9527/Ragnarok" target="_blank" rel="noopener noreferrer">原始資料與回報 ↗</a></div></footer>
+</body></html>
