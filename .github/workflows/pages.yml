@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'Role/**'
+      - '技能/**'
       - '裝備/**'
       - 'site/**'
       - 'data/**'
