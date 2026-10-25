@@ -60,8 +60,11 @@ const jobs = JOBS.map(id => {
   };
 });
 
+// 技能資料庫含未列於技能樹的任務／通用技能；一併保存以供職業技能說明使用。
+const catalogIds = [...src.matchAll(/\{id:`([A-Z][A-Z0-9_]+)`,name:`/g)].map(m => m[1])
+  .filter(id => id !== 'PERFORMING'); // 內部演奏狀態，不在公開技能資料庫 269 筆清單。
 const skills = {};
-for (const id of new Set(jobs.flatMap(j => j.skillTree.map(s => s.id)))) {
+for (const id of new Set(catalogIds)) {
   const s = find(`{id:\`${id}\`,name:\``);
   skills[id] = { name: s.name, maxLv: s.maxLv, kind: s.kind, status: s.status || { kind: 'ready' },
     sp: s.sp || [], descs: s.descs || [] };
@@ -69,9 +72,9 @@ for (const id of new Set(jobs.flatMap(j => j.skillTree.map(s => s.id)))) {
 
 const out = path.resolve(__dirname, '..', 'data', `ro-idle技能樹資料_${date}.json`);
 fs.writeFileSync(out, JSON.stringify({
-  source: 'https://ro-idle.app/info/database?type=jobs',
+  source: 'https://ro-idle.app/info/database?type=skills',
   queried: date,
-  note: '由資訊站前端資料擷取；技能點規則（Job Lv−1 點、轉職需用完點數）見各職業 jobChange 與資訊站機制頁。',
+  note: '由資訊站前端資料擷取；含技能資料庫中未列於技能樹的技能。技能點規則（Job Lv−1 點、轉職需用完點數）見各職業 jobChange 與資訊站機制頁。',
   jobs, skills,
 }, null, 1) + '\n');
 console.log(`已寫入 ${path.relative(process.cwd(), out)}：${jobs.length} 個職業、${Object.keys(skills).length} 個技能`);

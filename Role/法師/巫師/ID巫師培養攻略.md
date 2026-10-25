@@ -175,6 +175,10 @@
 
 資料來源：[巫師職業頁](https://ro-idle.app/info/database?type=jobs&id=wizard)、[隕石術](https://ro-idle.app/info/database?type=skills&id=WZ_METEOR)、[火之獵殺](https://ro-idle.app/info/database?type=skills&id=WZ_SIGHTRASHER)、[雷鳴術](https://ro-idle.app/info/database?type=skills&id=WZ_JUPITEL)、[水球術](https://ro-idle.app/info/database?type=skills&id=WZ_WATERBALL)、[崩裂術](https://ro-idle.app/info/database?type=skills&id=WZ_HEAVENDRIVE)。
 
+### 放置版技能說明（2026-10-25 核對）
+
+本流派的技能樹、前置與放置版調整見[魔法師技能說明](../../../技能/魔法師技能說明.md)、[巫師技能說明](../../../技能/巫師技能說明.md)；各級效果請點技能 ID 連至資訊站核對。怪物情報 WZ_ESTIMATION 已因地圖資訊可直接查看而停用；火狩 MG_SIGHT 掛機只在附近有隱身怪物時施放。
+
 ## 配裝建議
 
 以 R 版前法系常見的**單手杖＋盾、INT／DEX 頭飾與飾品**作候選方向，再逐件核對本遊戲的 ID、限制與來源。單手杖保留盾牌位置，較符合不依賴牆的單人 ID 巫師；雙手杖只有在額外火力確實抵過少一面盾的風險時才換。下列價格是資訊站列出的 **NPC 商店價**；僅列基準買價、沒有商店來源的稀有裝備不等於 NPC 可買。掉率若列出均為資訊站基準值（查詢 2026-10-23）。
