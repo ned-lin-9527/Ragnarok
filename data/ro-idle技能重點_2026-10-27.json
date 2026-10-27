@@ -1,0 +1,123 @@
+{
+  "queried": "2026-10-27",
+  "source": "https://ro-idle.app/info/database?type=skills",
+  "notes": {
+    "MG_SIGHT": "掛機只在附近有隱身怪物時施放。",
+    "AL_RUWACH": "掛機只在附近有隱身怪物時施放。",
+    "AL_WARP": "本遊戲以地圖選擇／蝴蝶翅膀移動，技能停用。",
+    "AL_PNEUMA": "傳送之陣停用，前置無法達成；目前不可學。",
+    "AL_BLESSING": "遇到詛咒或石化時優先解除，該次不提供屬性增益。",
+    "AC_MAKINGARROW": "可設掛機輔助規則，在箭矢耗盡時用指定材料製箭並裝備；受負重限制。",
+    "MC_DISCOUNT": "折扣包含 NPC 自動購買。",
+    "MC_CHANGECART": "手推車外觀在本遊戲不顯示，技能停用。",
+    "SM_AUTOBERSERK": "低血量自動觸發，會提高輸出並降低防禦；掛機須注意存活率。",
+    "CR_DEVOTION": "只保護同圖一起掛機且符合等級差限制的隊友。",
+    "WZ_ESTIMATION": "怪物資料已在地圖資訊顯示，技能停用。",
+    "SA_CASTCANCEL": "可學，但掛機不會主動取消詠唱；若要學自由施法，須先點此技能 Lv 1 作過路點。",
+    "SA_MAGICROD": "設為輔助規則後，可在怪物魔法命中前自動施放。",
+    "SA_SPELLBREAKER": "掛機只對正在詠唱的目標施放。",
+    "SA_FREECAST": "改為詠唱受傷時有機率不被打斷；原版的移動效果不適用。",
+    "SA_AUTOSPELL": "普攻觸發的魔法由掛機規則選擇；未指定時依資訊站規則選技能。",
+    "SA_VOLCANO": "領域改為同圖一起掛機隊友的增益，四種領域同時僅能保留一種。",
+    "SA_DELUGE": "領域改為同圖一起掛機隊友的增益，四種領域同時僅能保留一種。",
+    "SA_VIOLENTGALE": "領域改為同圖一起掛機隊友的增益，四種領域同時僅能保留一種。",
+    "SA_LANDPROTECTOR": "同圖隊友免受怪物地面魔法，期間也不能使用自己的地面技能。",
+    "SA_DISPELL": "掛機有目標條件；可能連自己施加的異常狀態也解除。",
+    "SA_ABRACADABRA": "從本遊戲已實作技能抽取，結果具不確定性。",
+    "HT_SHOCKWAVE": "可學，但怪物沒有 SP，放置時無實際效果；若要學爆散陷阱，須先點此技能 Lv 1 作過路點。",
+    "HT_REMOVETRAP": "可學，但陷阱觸發或換圖即消失，放置時不需回收；後續只通往停用的陷阱探查、爆破陷阱，通常不必為過路而投入。",
+    "HT_TALKIEBOX": "沒有地面留言用途，技能停用。",
+    "HT_SPRINGTRAP": "沒有其他玩家的陷阱要拆，技能停用。",
+    "HT_BLITZBEAT": "獵鷹可由弓普攻自動觸發；觸發率須按本遊戲公式與 LUK 評估。",
+    "BA_FROSTJOKER": "立即生效；同圖隊友也可能被冰凍，演奏中不能使用。",
+    "DC_SCREAM": "立即生效；同圖隊友也可能被暈眩，演奏中不能使用。",
+    "DC_UGLYDANCE": "可學，但怪物沒有 SP，掛機不施放；若要學哼唱之音、勿忘我、女神之吻或為您服務，須先點此技能 Lv 3 作過路點。",
+    "DC_DONTFORGETME": "對怪物只降低移動速度，不降低攻速。",
+    "BD_ADAPTATION": "掛機可設「演奏已超過 N 秒」主動結束目前演奏；單人歌舞結束後隊友效果再留 20 秒。輪唱時搭配各曲「隊友身上沒有」。",
+    "BD_ENCORE": "重唱上一首有效歌舞可降低起始 SP；多首歌舞輪唱時不要無條件啟用，以免重唱前曲而打亂順序。",
+    "PR_BENEDICTIO": "需要兩位同圖一起掛機的服事系隊友。",
+    "MO_TRIPLEATTACK": "普攻機率改為三連擊，可銜接連段。",
+    "MO_BODYRELOCATION": "沒有地面位置，技能可學但不施放；沒有後續技能需要它作前置。",
+    "MO_BLADESTOP": "只在怪物即將近身攻擊時依掛機規則施放。",
+    "BS_ADRENALINE": "全隊攻速增益有斧／鈍器限制，須核對隊友武器。",
+    "AM_DEMONSTRATION": "設輔助規則後，在身邊有怪物時放置持續火焰；換圖會消失。",
+    "AM_ACIDTERROR": "傷害與原版直覺不同；耗鹽酸瓶，需核對本遊戲數值。",
+    "AM_POTIONPITCHER": "掛機規則以 HP 百分比判定補血門檻。",
+    "AM_CANNIBALIZE": "植物擊殺的怪物無經驗；用於掉落時仍須計入消耗品。",
+    "AM_SPHEREMINE": "召喚後依戰鬥條件自爆；消耗刺錘瓶。",
+    "AM_BIOETHICS": "轉職後可直接學的任務技能，不花技能點。",
+    "AM_CALLHOMUN": "可設為輔助規則，在生命體安息時召喚。",
+    "AM_RESURRECTHOMUN": "可設為輔助規則，在生命體死亡時復活。",
+    "AS_POISONREACT": "受攻擊時自動反擊；須依怪物屬性與近身條件評估。",
+    "RG_SNATCHER": "非弓普攻命中才可能自動偷竊；每隻怪最多成功一次。",
+    "RG_BACKSTAP": "本遊戲無方向判定，符合其他條件即可使用。",
+    "RG_TUNNELDRIVE": "可學，但本遊戲沒有移動效果；若要學潛擊，須先點此技能 Lv 2 作過路點。",
+    "RG_GRAFFITI": "可學但放置時不施放；沒有後續技能需要它作前置。",
+    "RG_FLAGGRAFFITI": "可學但放置時不施放；後續塗鴉同樣不施放，不是有效輸出的必需過路點。",
+    "RG_CLEANER": "沒有可清除的地面圖案，可學但不施放；後續旗幟塗鴉與塗鴉也不施放。",
+    "HLIF_AVOID": "生命體可學但放置時不施放；是腦手術的前置。生命體點數與玩家 Job 點數分開。",
+    "RG_GANGSTER": "需同圖一起掛機、至少兩名已學技能的流氓坐下。",
+    "RG_COMPULSION": "NPC 自動購買也適用；與商人折扣取較大值。",
+    "RG_PLAGIARISM": "可在城鎮停掛時抄同隊隊友技能，也可被怪物技能命中後學會；新技能會覆蓋舊技能，可在職業頁鎖定。",
+    "SA_FLAMELAUNCHER": "屬性附加會取代其他武器附魔；施放失敗可能卸下武器，須計入材料與續掛風險。",
+    "SA_FROSTWEAPON": "屬性附加會取代其他武器附魔；施放失敗可能卸下武器，須計入材料與續掛風險。",
+    "SA_LIGHTNINGLOADER": "屬性附加會取代其他武器附魔；施放失敗可能卸下武器，須計入材料與續掛風險。",
+    "SA_SEISMICWEAPON": "屬性附加會取代其他武器附魔；施放失敗可能卸下武器，須計入材料與續掛風險。",
+    "BA_WHISTLE": "歌舞只惠及同圖一起掛機的隊友；演奏者自己無效果，持續消耗 SP。",
+    "BA_ASSASSINCROSS": "歌舞只惠及同圖一起掛機的隊友；演奏者自己無效果，持續消耗 SP。",
+    "BA_POEMBRAGI": "歌舞只惠及同圖一起掛機的隊友；演奏者自己無效果，持續消耗 SP。 結束後隊友效果保留 20 秒；可用「隊友身上沒有」作輪唱條件。",
+    "BA_APPLEIDUN": "歌舞只惠及同圖一起掛機的隊友；演奏者自己無效果，持續消耗 SP。",
+    "DC_HUMMING": "歌舞只惠及同圖一起掛機的隊友；演奏者自己無效果，持續消耗 SP。",
+    "DC_FORTUNEKISS": "歌舞只惠及同圖一起掛機的隊友；演奏者自己無效果，持續消耗 SP。",
+    "DC_SERVICEFORYOU": "歌舞只惠及同圖一起掛機的隊友；演奏者自己無效果，持續消耗 SP。 結束後隊友效果保留 20 秒；可用「隊友身上沒有」作輪唱條件。",
+    "BD_LULLABY": "合奏需同隊、同圖掛機且雙方都學會；兩人持續耗 SP，任一方停止即結束。",
+    "BD_RICHMANKIM": "兩位演奏者自己也享有經驗加成；同圖一起掛機的隊友同樣有效，Lv 5 為 +150%。 技能文字未明載合奏中斷後的效果留存；20 秒輪唱能否保持經驗 BUFF 須實測。",
+    "BD_ETERNALCHAOS": "合奏需同隊、同圖掛機且雙方都學會；兩人持續耗 SP，任一方停止即結束。",
+    "BD_DRUMBATTLEFIELD": "合奏需同隊、同圖掛機且雙方都學會；兩人持續耗 SP，任一方停止即結束。",
+    "BD_RINGNIBELUNGEN": "合奏需同隊、同圖掛機且雙方都學會；兩人持續耗 SP，任一方停止即結束。",
+    "BD_ROKISWEIL": "合奏需同隊、同圖掛機且雙方都學會；兩人持續耗 SP，任一方停止即結束。",
+    "BD_INTOABYSS": "合奏需同隊、同圖掛機且雙方都學會；兩人持續耗 SP，任一方停止即結束。",
+    "BD_SIEGFRIED": "合奏需同隊、同圖掛機且雙方都學會；兩人持續耗 SP，任一方停止即結束。"
+  },
+  "noIdleEffect": [
+    "DC_UGLYDANCE",
+    "HLIF_AVOID",
+    "HT_REMOVETRAP",
+    "HT_SHOCKWAVE",
+    "MO_BODYRELOCATION",
+    "RG_CLEANER",
+    "RG_FLAGGRAFFITI",
+    "RG_GRAFFITI",
+    "RG_TUNNELDRIVE",
+    "SA_CASTCANCEL"
+  ],
+  "transit": {
+    "SA_CASTCANCEL": {
+      "minLv": 1,
+      "unlocks": [
+        "SA_FREECAST"
+      ]
+    },
+    "HT_SHOCKWAVE": {
+      "minLv": 1,
+      "unlocks": [
+        "HT_CLAYMORETRAP"
+      ]
+    },
+    "DC_UGLYDANCE": {
+      "minLv": 3,
+      "unlocks": [
+        "DC_HUMMING",
+        "DC_DONTFORGETME",
+        "DC_FORTUNEKISS",
+        "DC_SERVICEFORYOU"
+      ]
+    },
+    "RG_TUNNELDRIVE": {
+      "minLv": 2,
+      "unlocks": [
+        "RG_RAID"
+      ]
+    }
+  }
+}

@@ -27,6 +27,21 @@
     return { job, first, kind, firstIds, tree, free, fixed, jobLvRange };
   }
 
+  // 資訊站的 disabled 與 pending 都不能投入點數；前置被停用時，下游技能也不可學。
+  function unavailableReason(id, seen = new Set()) {
+    const skill = data.skills[id], node = ctx.tree.get(id);
+    if (!skill || !node) return '技能不在目前職業的技能樹';
+    if (skill.status.kind !== 'ready') return `${skill.name}：${skill.status.reason || '目前無法學習'}`;
+    if (seen.has(id)) return '技能前置形成循環，請核對資訊站資料';
+    seen.add(id);
+    for (const req of Object.keys(node.requires || {})) {
+      const reason = unavailableReason(req, seen);
+      if (reason) return `${skill.name} 的前置技能無法學習：${reason}`;
+    }
+    seen.delete(id);
+    return null;
+  }
+
   // 依目前順序逐點重播，回傳等級與每一步的階段、Job Lv 與問題。
   function replay() {
     const pool1 = state.c - 1, pool2 = ctx.kind === 'second' ? state.l - 1 : 0;
@@ -88,6 +103,8 @@
       while ((replay().levels[id] || 0) > target && state.order.includes(id)) decrement(id);
       return null;
     }
+    const unavailable = unavailableReason(id);
+    if (unavailable) return unavailable;
     let first = null;
     for (let lv = target; lv > cur; lv--) {
       const modes = state.p === 'max' ? [true, false] : [false];
@@ -136,12 +153,15 @@
   function card(id, levels, cls = '', style = '') {
     const node = ctx.tree.get(id), skill = data.skills[id], lv = levels[id] || 0;
     const fixed = ctx.fixed[id] !== undefined;
-    const blocked = skill.status.kind !== 'ready';
+    const unavailable = unavailableReason(id);
+    const blocked = !!unavailable;
+    const transit = data.transit?.[id];
+    const noIdleEffect = data.noIdleEffect?.includes(id);
     const reqs = Object.entries(node.requires || {}).map(([req, need]) =>
       `<span class="req${(levels[req] || 0) >= need ? ' met' : ''}">${esc(data.skills[req].name)} ${need}</span>`).join('');
-    const tags = [node.questJobLv ? `<span class="tag quest">任務 Job ${node.questJobLv}</span>` : '', blocked ? `<span class="tag off">${skill.status.kind === 'disabled' ? '本遊戲停用' : '無法學習'}</span>` : '', data.notes?.[id] ? '<span class="tag idle">放置版重點</span>' : ''].join('');
+    const tags = [node.questJobLv ? `<span class="tag quest">任務 Job ${node.questJobLv}</span>` : '', blocked ? `<span class="tag off">${skill.status.kind === 'disabled' ? '本遊戲停用' : skill.status.kind === 'pending' ? '目前無法學習' : '前置不可學'}</span>` : '', !blocked && transit ? '<span class="tag transit">可學 · 必需過路點</span>' : '', !blocked && noIdleEffect && !transit ? '<span class="tag noeffect">掛機無實效</span>' : '', data.notes?.[id] ? '<span class="tag idle">放置版重點</span>' : ''].join('');
     return `<div class="sk-card${lv ? ' on' : ''}${lv === node.maxLv ? ' max' : ''}${blocked ? ' blocked' : ''}${selected === id ? ' sel' : ''}${cls}" data-id="${id}"${style ? ` style="${style}"` : ''}>
-      <button type="button" class="sk-name" data-act="inc" title="點一下升 1 級（自動補前置）；右鍵降 1 級">${esc(skill.name)}</button><small class="sk-id" title="${id}">${id}</small>
+      <button type="button" class="sk-name" data-act="${blocked ? 'select' : 'inc'}" title="${blocked ? '查看無法學習的原因' : '點一下升 1 級（自動補前置）；右鍵降 1 級'}">${esc(skill.name)}</button><small class="sk-id" title="${id}">${id}</small>
       <div class="sk-lv"><button type="button" data-act="dec" aria-label="${esc(skill.name)} 降 1 級"${!lv || fixed ? ' disabled' : ''}>−</button><b>${lv}<span>/${node.maxLv}</span></b><button type="button" data-act="inc" aria-label="${esc(skill.name)} 升 1 級"${lv >= node.maxLv || fixed || blocked ? ' disabled' : ''}>＋</button></div>
       ${node.maxLv > 1 && !fixed && !blocked ? `<div class="sk-pips" role="group" aria-label="${esc(skill.name)} 直接設定等級">${Array.from({ length: node.maxLv }, (_, i) => `<button type="button" data-act="set" data-lv="${i + 1 === lv ? i : i + 1}" class="${i < lv ? 'on' : ''}" aria-label="設為 Lv ${i + 1 === lv ? i : i + 1}" title="Lv ${i + 1}"></button>`).join('')}</div>` : ''}
       ${tags || reqs ? `<div class="sk-meta">${tags}${reqs}</div>` : ''}</div>`;
@@ -201,13 +221,16 @@
     if (!selected || !ctx.tree.has(selected)) return '<p class="sk-hint">點技能卡片升 1 級、右鍵降 1 級，點下方刻度可直接設定等級；前置技能會自動補齊。滑過卡片會標出前置（藍）與可解鎖技能（橘）。</p>';
     const node = ctx.tree.get(selected), skill = data.skills[selected], lv = r.levels[selected] || 0;
     const note = data.notes?.[selected];
+    const transit = data.transit?.[selected];
+    const noIdleEffect = data.noIdleEffect?.includes(selected);
     const guideJob = ctx.kind === 'second' && ctx.firstIds.has(selected) ? ctx.first : ctx.job;
     const unlocks = [...ctx.tree.values()].filter(s => s.requires?.[selected]).map(s => `${esc(data.skills[s.id].name)}（需 ${s.requires[selected]}）`);
     const reqs = Object.entries(node.requires || {}).map(([q, n]) => `${esc(data.skills[q].name)} Lv ${n}`);
     const rows = skill.descs.map((d, i) => `<li class="${i + 1 === lv ? 'cur' : ''}"><b>Lv ${i + 1}</b>${esc(d)}</li>`).join('');
     return `<h3>${esc(skill.name)} <small>${selected}</small></h3>
       <p class="sk-facts"><span>${KIND[skill.kind] || skill.kind}</span><span>最高 Lv ${node.maxLv}</span>${node.questJobLv ? `<span>任務技能 · Job ${node.questJobLv} · 不扣點</span>` : ''}</p>
-      ${skill.status.kind !== 'ready' ? `<p class="sk-warn">${esc(skill.status.reason)}</p>` : ''}
+      ${unavailableReason(selected) ? `<p class="sk-warn">${esc(unavailableReason(selected))}</p>` : ''}
+      ${transit ? `<p class="sk-transit"><strong>可學但掛機無實效 · 必需過路點</strong><br>要學 ${transit.unlocks.map(id => esc(data.skills[id].name)).join('、')}，此技能至少需 Lv ${transit.minLv}；點數仍計入 Job 技能點。</p>` : noIdleEffect ? '<p class="sk-noeffect">可學但掛機無實效；目前不是有效技能的必需過路點，是否投入須另評估。</p>' : ''}
       ${note ? `<p class="sk-note"><strong>放置版重點：</strong>${esc(note)}</p>` : ''}
       <dl><dt>前置</dt><dd>${reqs.join('、') || '無'}</dd><dt>解鎖</dt><dd>${unlocks.join('、') || '無'}</dd></dl>
       ${rows ? `<ol class="sk-descs">${rows}</ol>` : ''}
@@ -262,14 +285,17 @@
     const [min, max] = ctx.jobLvRange;
     const clamp = (v, lo, hi, d) => Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d;
     const ids = job.skillTree.map(s => s.id);
+    const decoded = [...(preset.o || '')].map(ch => ids[CODE.indexOf(ch)]).filter(x => x && !ctx.fixed[x] && (ctx.kind === 'novice' || !NOVICE.includes(x)));
+    const order = decoded.filter(x => !unavailableReason(x));
     state = {
       // 二轉預設在一轉 Job 40 轉職：一轉只需用完 39 點即可學二轉技能；可在頁面改成 41～50。
       c: clamp(Number(preset.c), min, max, ctx.kind === 'second' ? min : max),
       l: clamp(Number(preset.l), 1, job.maxJobLv, job.maxJobLv),
       p: preset.p === 'max' || (preset.p === undefined && state?.p === 'max') ? 'max' : 'need',
-      order: [...(preset.o || '')].map(ch => ids[CODE.indexOf(ch)]).filter(x => x && !ctx.fixed[x] && (ctx.kind === 'novice' || !NOVICE.includes(x))),
+      order,
     };
     if (selected && !ctx.tree.has(selected)) selected = null;
+    return decoded.length - order.length;
   }
 
   function jobPicker() {
@@ -286,7 +312,8 @@
     const act = event.target.closest('[data-act]');
     if (act) {
       const id = act.closest('[data-id]').dataset.id;
-      if (act.dataset.act === 'set') { selected = id; render(setLevel(id, Number(act.dataset.lv))); }
+      if (act.dataset.act === 'select') { selected = id; render(); }
+      else if (act.dataset.act === 'set') { selected = id; render(setLevel(id, Number(act.dataset.lv))); }
       else if (act.dataset.act === 'inc') { selected = id; render(increment(id)); }
       else if (act.dataset.act === 'dec') { selected = id; decrement(id); render(); }
       root.querySelector(`[data-id="${id}"] [data-act="${act.dataset.act}"]`)?.focus();
@@ -296,7 +323,7 @@
     const cardEl = event.target.closest('.sk-card');
     if (cardEl && !event.target.closest('a,button')) {
       selected = cardEl.dataset.id;
-      render(increment(selected));
+      render(unavailableReason(selected) ? null : increment(selected));
       return;
     }
     const tool = event.target.closest('[data-tool]')?.dataset.tool;
@@ -338,8 +365,8 @@
     $('#sk-picker').innerHTML = jobPicker();
     const load = () => {
       const params = new URLSearchParams(location.hash.slice(1));
-      setJob(params.get('j') || 'knight', Object.fromEntries(params));
-      render();
+      const removed = setJob(params.get('j') || 'knight', Object.fromEntries(params));
+      render(removed ? `分享連結中 ${removed} 個停用或無法學習的技能點已移除` : null);
     };
     load();
     // 只有使用者貼上或切換連結時才重新載入；writeHash 用 replaceState 不會觸發。

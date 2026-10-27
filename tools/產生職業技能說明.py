@@ -23,7 +23,7 @@ NOTES = {
     'SM_AUTOBERSERK': '低血量自動觸發，會提高輸出並降低防禦；掛機須注意存活率。',
     'CR_DEVOTION': '只保護同圖一起掛機且符合等級差限制的隊友。',
     'WZ_ESTIMATION': '怪物資料已在地圖資訊顯示，技能停用。',
-    'SA_CASTCANCEL': '掛機不會主動取消詠唱；可學作前置。',
+    'SA_CASTCANCEL': '可學，但掛機不會主動取消詠唱；若要學自由施法，須先點此技能 Lv 1 作過路點。',
     'SA_MAGICROD': '設為輔助規則後，可在怪物魔法命中前自動施放。',
     'SA_SPELLBREAKER': '掛機只對正在詠唱的目標施放。',
     'SA_FREECAST': '改為詠唱受傷時有機率不被打斷；原版的移動效果不適用。',
@@ -34,19 +34,20 @@ NOTES = {
     'SA_LANDPROTECTOR': '同圖隊友免受怪物地面魔法，期間也不能使用自己的地面技能。',
     'SA_DISPELL': '掛機有目標條件；可能連自己施加的異常狀態也解除。',
     'SA_ABRACADABRA': '從本遊戲已實作技能抽取，結果具不確定性。',
-    'HT_SHOCKWAVE': '怪物沒有 SP，此技能只作前置。',
+    'HT_SHOCKWAVE': '可學，但怪物沒有 SP，放置時無實際效果；若要學爆散陷阱，須先點此技能 Lv 1 作過路點。',
+    'HT_REMOVETRAP': '可學，但陷阱觸發或換圖即消失，放置時不需回收；後續只通往停用的陷阱探查、爆破陷阱，通常不必為過路而投入。',
     'HT_TALKIEBOX': '沒有地面留言用途，技能停用。',
     'HT_SPRINGTRAP': '沒有其他玩家的陷阱要拆，技能停用。',
     'HT_BLITZBEAT': '獵鷹可由弓普攻自動觸發；觸發率須按本遊戲公式與 LUK 評估。',
     'BA_FROSTJOKER': '立即生效；同圖隊友也可能被冰凍，演奏中不能使用。',
     'DC_SCREAM': '立即生效；同圖隊友也可能被暈眩，演奏中不能使用。',
-    'DC_UGLYDANCE': '怪物沒有 SP，可學但不施放，只作前置。',
+    'DC_UGLYDANCE': '可學，但怪物沒有 SP，掛機不施放；若要學哼唱之音、勿忘我、女神之吻或為您服務，須先點此技能 Lv 3 作過路點。',
     'DC_DONTFORGETME': '對怪物只降低移動速度，不降低攻速。',
-    'BD_ADAPTATION': '只在目前演奏無效時才可能依掛機規則結束演奏。',
-    'BD_ENCORE': '依掛機規則重唱上一首有效歌舞，減少 SP 消耗。',
+    'BD_ADAPTATION': '掛機可設「演奏已超過 N 秒」主動結束目前演奏；單人歌舞結束後隊友效果再留 20 秒。輪唱時搭配各曲「隊友身上沒有」。',
+    'BD_ENCORE': '重唱上一首有效歌舞可降低起始 SP；多首歌舞輪唱時不要無條件啟用，以免重唱前曲而打亂順序。',
     'PR_BENEDICTIO': '需要兩位同圖一起掛機的服事系隊友。',
     'MO_TRIPLEATTACK': '普攻機率改為三連擊，可銜接連段。',
-    'MO_BODYRELOCATION': '沒有地面位置，技能可學但不施放。',
+    'MO_BODYRELOCATION': '沒有地面位置，技能可學但不施放；沒有後續技能需要它作前置。',
     'MO_BLADESTOP': '只在怪物即將近身攻擊時依掛機規則施放。',
     'BS_ADRENALINE': '全隊攻速增益有斧／鈍器限制，須核對隊友武器。',
     'AM_DEMONSTRATION': '設輔助規則後，在身邊有怪物時放置持續火焰；換圖會消失。',
@@ -60,10 +61,11 @@ NOTES = {
     'AS_POISONREACT': '受攻擊時自動反擊；須依怪物屬性與近身條件評估。',
     'RG_SNATCHER': '非弓普攻命中才可能自動偷竊；每隻怪最多成功一次。',
     'RG_BACKSTAP': '本遊戲無方向判定，符合其他條件即可使用。',
-    'RG_TUNNELDRIVE': '本遊戲沒有移動，只作潛擊前置。',
-    'RG_GRAFFITI': '可學但不會施放。',
-    'RG_FLAGGRAFFITI': '可學但不會施放。',
-    'RG_CLEANER': '沒有可清除的地面圖案，可學但不會施放。',
+    'RG_TUNNELDRIVE': '可學，但本遊戲沒有移動效果；若要學潛擊，須先點此技能 Lv 2 作過路點。',
+    'RG_GRAFFITI': '可學但放置時不施放；沒有後續技能需要它作前置。',
+    'RG_FLAGGRAFFITI': '可學但放置時不施放；後續塗鴉同樣不施放，不是有效輸出的必需過路點。',
+    'RG_CLEANER': '沒有可清除的地面圖案，可學但不施放；後續旗幟塗鴉與塗鴉也不施放。',
+    'HLIF_AVOID': '生命體可學但放置時不施放；是腦手術的前置。生命體點數與玩家 Job 點數分開。',
     'RG_GANGSTER': '需同圖一起掛機、至少兩名已學技能的流氓坐下。',
     'RG_COMPULSION': 'NPC 自動購買也適用；與商人折扣取較大值。',
     'RG_PLAGIARISM': '可在城鎮停掛時抄同隊隊友技能，也可被怪物技能命中後學會；新技能會覆蓋舊技能，可在職業頁鎖定。',
@@ -78,13 +80,42 @@ for sid in ['BD_LULLABY', 'BD_RICHMANKIM', 'BD_ETERNALCHAOS', 'BD_DRUMBATTLEFIEL
             'BD_RINGNIBELUNGEN', 'BD_ROKISWEIL', 'BD_INTOABYSS', 'BD_SIEGFRIED']:
     NOTES[sid] = '合奏需同隊、同圖掛機且雙方都學會；兩人持續耗 SP，任一方停止即結束。'
 NOTES['BD_RICHMANKIM'] = '兩位演奏者自己也享有經驗加成；同圖一起掛機的隊友同樣有效，Lv 5 為 +150%。'
+NOTES['BD_RICHMANKIM'] += ' 技能文字未明載合奏中斷後的效果留存；20 秒輪唱能否保持經驗 BUFF 須實測。'
+NOTES['BA_POEMBRAGI'] += ' 結束後隊友效果保留 20 秒；可用「隊友身上沒有」作輪唱條件。'
+NOTES['DC_SERVICEFORYOU'] += ' 結束後隊友效果保留 20 秒；可用「隊友身上沒有」作輪唱條件。'
+
+# 可學但放置時無實效，仍需作後續技能前置的玩家技能。等級與解鎖目標依當日技能樹驗證。
+NO_IDLE_EFFECT = {
+    'SA_CASTCANCEL', 'HT_SHOCKWAVE', 'HT_REMOVETRAP', 'DC_UGLYDANCE',
+    'MO_BODYRELOCATION', 'RG_CLEANER', 'RG_FLAGGRAFFITI', 'RG_GRAFFITI',
+    'RG_TUNNELDRIVE', 'HLIF_AVOID',
+}
+TRANSIT_TARGETS = {
+    'SA_CASTCANCEL': ['SA_FREECAST'],
+    'HT_SHOCKWAVE': ['HT_CLAYMORETRAP'],
+    'DC_UGLYDANCE': ['DC_HUMMING', 'DC_DONTFORGETME', 'DC_FORTUNEKISS', 'DC_SERVICEFORYOU'],
+    'RG_TUNNELDRIVE': ['RG_RAID'],
+}
+TRANSIT = {}
+for sid, targets in TRANSIT_TARGETS.items():
+    assert SKILLS[sid]['status']['kind'] == 'ready', f'{sid} 的可學狀態已改變'
+    levels = set()
+    for target in targets:
+        assert SKILLS[target]['status']['kind'] == 'ready', f'{target} 的可學狀態已改變'
+        requirements = {node['requires'][sid]
+                        for job in DATA['jobs'] for node in job['skillTree']
+                        if node['id'] == target and sid in node.get('requires', {})}
+        assert requirements, f'{sid} 已不是 {target} 的前置'
+        levels.update(requirements)
+    assert len(levels) == 1, f'{sid} 的過路等級須重新核對：{levels}'
+    TRANSIT[sid] = {'minLv': levels.pop(), 'unlocks': targets}
 
 def link(sid):
     return f"[{SKILLS[sid]['name']}（{sid}）](https://ro-idle.app/info/database?type=skills&id={sid})"
 
 def rows(ids, tree):
-    result = ['| 技能（ID） | 最高 Lv | 類型 | 前置／任務條件 | 放置版重點 |',
-              '| --- | ---: | --- | --- | --- |']
+    result = ['| 技能（ID） | 最高 Lv | 類型 | 資訊站狀態 | 前置／任務條件 | 放置版重點 |',
+              '| --- | ---: | --- | --- | --- | --- |']
     for sid in ids:
         node = tree[sid]
         skill = SKILLS[sid]
@@ -92,9 +123,10 @@ def rows(ids, tree):
         if node.get('questJobLv'):
             req += f"；任務 Job {node['questJobLv']}，不扣點"
         note = NOTES.get(sid, '各級效果與消耗請見技能直達頁。')
+        status = {'ready': '可學', 'disabled': '本遊戲停用', 'pending': '目前無法學習'}.get(skill['status']['kind'], '待查證')
         if skill['status']['kind'] != 'ready' and sid not in NOTES:
             note = f"資訊站標示「{skill['status']['kind']}」；{skill['status'].get('reason', '暫不可用')}"
-        result.append(f"| {link(sid)} | {node['maxLv']} | {KIND.get(skill['kind'], skill['kind'])} | {req} | {note} |")
+        result.append(f"| {link(sid)} | {node['maxLv']} | {KIND.get(skill['kind'], skill['kind'])} | {status} | {req} | {note} |")
     return '\n'.join(result)
 
 OUT = ROOT / '技能'
@@ -107,7 +139,7 @@ for job in DATA['jobs']:
     if job['id'] == 'supernovice':
         own = [sid for sid in own if sid not in ('NV_BASIC', 'NV_FIRSTAID')]
     lines = [f"# RO 放置仙境：{job['name']}技能說明", '', f"**最後查證：{DATA['queried']}**", '',
-             f"依[資訊站技能資料庫](https://ro-idle.app/info/database?type=skills)與[{job['name']}職業頁](https://ro-idle.app/info/database?type=jobs&id={job['id']})整理。表中最高等級、前置與可用狀態屬已查證資料；「放置版重點」是依技能描述整理的操作摘要，不代表傷害或收益實測。各級數值、SP、詠唱、冷卻、武器與材料限制請點技能名稱核對。", '']
+             f"依[資訊站技能資料庫](https://ro-idle.app/info/database?type=skills)與[{job['name']}職業頁](https://ro-idle.app/info/database?type=jobs&id={job['id']})整理。表中最高等級、前置與可用狀態屬已查證資料；「可學」只代表資料庫允許學習，不等於放置版能施放或值得配點。「放置版重點」是依技能描述整理的操作摘要，不代表傷害或收益實測。各級數值、SP、詠唱、冷卻、武器與材料限制請點技能名稱核對。", '']
     if parent:
         lines += [f"本職業由{parent['name']}轉職；繼承的一轉技能請見[{parent['name']}技能說明]({parent['name']}技能說明.md)。", '']
     if job['id'] == 'supernovice':
@@ -121,8 +153,8 @@ for job in DATA['jobs']:
         homun = [sid for sid in SKILLS if sid.startswith(('HAMI_', 'HFLI_', 'HLIF_', 'HVAN_'))]
         lines += ['## 生命體技能（未列於鍊金術師技能樹）', '',
                   '以下技能出現在技能資料庫，但非鍊金術師可直接投入 Job 點數的技能；生命體取得、成長與施放條件須另核對。', '',
-                  '| 技能（ID） | 最高 Lv | 類型 |', '| --- | ---: | --- |']
-        lines += [f"| {link(sid)} | {SKILLS[sid]['maxLv']} | {KIND.get(SKILLS[sid]['kind'], SKILLS[sid]['kind'])} |" for sid in homun]
+                  '| 技能（ID） | 最高 Lv | 類型 | 放置版用途 |', '| --- | ---: | --- | --- |']
+        lines += [f"| {link(sid)} | {SKILLS[sid]['maxLv']} | {KIND.get(SKILLS[sid]['kind'], SKILLS[sid]['kind'])} | {NOTES.get(sid, '各級效果請見技能直達頁。')} |" for sid in homun]
         lines += ['']
     (OUT / f"{job['name']}技能說明.md").write_text('\n'.join(lines))
 
@@ -135,5 +167,6 @@ other_lines = ['# RO 放置仙境：資料庫其他技能', '', f"**最後查證
 other_lines += [f"| {link(sid)} | {SKILLS[sid]['maxLv']} | {KIND.get(SKILLS[sid]['kind'], SKILLS[sid]['kind'])} |" for sid in sorted(other_ids)]
 (OUT / '資料庫其他技能.md').write_text('\n'.join(other_lines) + '\n')
 (ROOT / 'data' / f"ro-idle技能重點_{DATA['queried']}.json").write_text(
-    json.dumps({'queried': DATA['queried'], 'source': DATA['source'], 'notes': NOTES}, ensure_ascii=False, indent=2) + '\n')
+    json.dumps({'queried': DATA['queried'], 'source': DATA['source'], 'notes': NOTES,
+                'noIdleEffect': sorted(NO_IDLE_EFFECT), 'transit': TRANSIT}, ensure_ascii=False, indent=2) + '\n')
 print(f"產生 {len(DATA['jobs'])} 份職業技能說明與 1 份其他技能說明，來源 {SNAPSHOT.name}")

@@ -175,9 +175,11 @@
 
 資料來源：[巫師職業頁](https://ro-idle.app/info/database?type=jobs&id=wizard)、[隕石術](https://ro-idle.app/info/database?type=skills&id=WZ_METEOR)、[火之獵殺](https://ro-idle.app/info/database?type=skills&id=WZ_SIGHTRASHER)、[雷鳴術](https://ro-idle.app/info/database?type=skills&id=WZ_JUPITEL)、[水球術](https://ro-idle.app/info/database?type=skills&id=WZ_WATERBALL)、[崩裂術](https://ro-idle.app/info/database?type=skills&id=WZ_HEAVENDRIVE)。
 
-### 放置版技能說明（2026-10-25 核對）
+### 放置版技能說明（2026-10-27 複核）
 
 本流派的技能樹、前置與放置版調整見[魔法師技能說明](../../../技能/魔法師技能說明.md)、[巫師技能說明](../../../技能/巫師技能說明.md)；各級效果請點技能 ID 連至資訊站核對。怪物情報 WZ_ESTIMATION 已因地圖資訊可直接查看而停用；火狩 MG_SIGHT 掛機只在附近有隱身怪物時施放。
+
+**技能配置複核（2026-10-27）**：魔法師 Job 40／50 與巫師主表的前置、點數已核對；停用的怪物情報 `WZ_ESTIMATION` 不在配點中。火狩 `MG_SIGHT` Lv1 雖非日常輸出，仍須保留作火之獵殺前置。
 
 ## 配裝建議
 
