@@ -1,6 +1,7 @@
 // 技能配點模擬器：資料來自 data/ro-idle技能樹資料_*.json，由 build.cjs 輸出為 skills-data.json。
 // 點數規則依資訊站前端的學習判定：每升 1 Job Lv 得 1 點；一轉 Job 40 以上且點數用完才能轉職；
 // 二轉專屬技能須在一轉期間的點數全部投入一轉技能後才能學；任務技能不扣點。
+// 模擬器允許先點二轉技能（前置一轉技能會自動補上），計算學習順序時再把一轉技能點排到前面。
 (() => {
   const root = document.getElementById('skill-sim');
   if (!root) return;
@@ -42,12 +43,27 @@
     return null;
   }
 
-  // 依目前順序逐點重播，回傳等級與每一步的階段、Job Lv 與問題。
+  // 二轉職業：點擊順序不必先點完一轉。依遊戲規則重排成實際學習順序——
+  // 前 pool1 個一轉技能點（含其間的一轉任務技能）排在一轉期間，其餘維持點擊順序。
+  // 一轉技能不會以二轉技能為前置，所以前移後前置關係仍成立。
+  function learnOrder(pool1) {
+    if (ctx.kind !== 'second') return state.order.map(id => ({ id, phase: 1 }));
+    const early = [], late = [];
+    let count = 0;
+    for (const id of state.order) {
+      const first = ctx.firstIds.has(id);
+      if (first && count < pool1) { early.push({ id, phase: 1 }); if (!ctx.free(id)) count++; }
+      else late.push({ id, phase: 2 });
+    }
+    return [...early, ...late];
+  }
+
+  // 依實際學習順序逐點重播，回傳等級與每一步的階段、Job Lv 與問題。
   function replay() {
     const pool1 = state.c - 1, pool2 = ctx.kind === 'second' ? state.l - 1 : 0;
     const levels = { ...ctx.fixed };
-    let used = 0, firstSpent = 0;
-    const steps = state.order.map(id => {
+    let used = 0, firstSpent = 0, phase1 = 0, phase2 = 0;
+    const steps = learnOrder(pool1).map(({ id, phase }) => {
       const node = ctx.tree.get(id), skill = data.skills[id];
       levels[id] = (levels[id] || 0) + 1;
       const step = { id, lv: levels[id], free: ctx.free(id), issues: [] };
@@ -55,10 +71,16 @@
         used++;
         if (ctx.kind === 'second' && ctx.firstIds.has(id)) firstSpent++;
         step.point = used;
-        step.phase = used <= pool1 ? 1 : 2;
-        step.jobLv = step.phase === 1 ? used + 1 : used - pool1 + 1;
-        if (used > pool1 + pool2) step.issues.push('超過可用技能點');
-        if (ctx.kind === 'second' && !ctx.firstIds.has(id) && step.phase === 1) step.issues.push(`一轉期間的 ${pool1} 點須先投入一轉技能（在一轉 Job ${state.c} 轉職；可調整上方「轉職 Job Lv」）`);
+        if (ctx.kind === 'second') {
+          step.phase = phase;
+          step.jobLv = phase === 1 ? ++phase1 + 1 : ++phase2 + 1;
+          // 一轉期間的點數只能用在一轉技能，二轉階段最多 pool2 點。
+          if (phase === 2 && phase2 > pool2) step.issues.push(`超過${ctx.job.name}可用的 ${pool2} 點（一轉期間的點數只能用在一轉技能）`);
+        } else {
+          step.phase = 1;
+          step.jobLv = used + 1;
+          if (used > pool1) step.issues.push('超過可用技能點');
+        }
       } else {
         const q = node.questJobLv;
         const reach = ctx.kind === 'second' ? Math.max(state.c, state.l) : state.c;
@@ -71,7 +93,7 @@
       if (skill.status.kind !== 'ready') step.issues.push(skill.status.reason);
       return step;
     });
-    return { levels, used, firstSpent, pool1, pool2, steps, issues: steps.filter(s => s.issues.length) };
+    return { levels, used, firstSpent, phase1, pool1, pool2, steps, issues: steps.filter(s => s.issues.length) };
   }
 
   // 把技能提升到 target：先補齊前置（依設定補到需求等級或點滿），再以重播檢查是否合法。
@@ -248,7 +270,7 @@
     const budget = r.pool1 + r.pool2;
     const lvInput = (key, label, [min, max]) => `<label class="sk-num"><span>${label}</span><input type="number" data-key="${key}" min="${min}" max="${max}" value="${state[key]}"></label>`;
     const ready = ctx.kind === 'second'
-      ? (r.firstSpent >= r.pool1 ? `已在 ${ctx.first.name} Job ${state.c} 用完 ${r.pool1} 點，可轉職` : `${ctx.first.name}技能尚差 ${r.pool1 - r.firstSpent} 點才能轉職`)
+      ? (r.phase1 >= r.pool1 ? `已在 ${ctx.first.name} Job ${state.c} 用完 ${r.pool1} 點，可轉職` : `${ctx.first.name}技能尚差 ${r.pool1 - r.phase1} 點（轉職前須用完；可先點二轉技能，最後再補）`)
       : ctx.kind === 'first' ? (state.c >= 40 && r.used === r.pool1 ? 'Job 40 以上且點數用完，可轉二轉' : `轉二轉需 Job 40 以上且點數用完（目前剩 ${r.pool1 - r.used} 點）`)
       : ctx.kind === 'novice' ? ((r.levels.NV_BASIC || 0) >= 9 ? '基本技能 Lv 9，可轉一轉（Job 10）' : '轉一轉需 Job 10、基本技能 Lv 9')
       : '超級初心者：由初學者 Job 10、Base 45 轉職；基本技能已計入';
@@ -261,7 +283,7 @@
       </div>
       ${message ? `<p class="sk-toast" role="status">${esc(message)}</p>` : ''}
       ${ctx.kind !== 'novice' ? `<p class="sk-fixed">初學者技能（基本技能 NV_BASIC Lv 9、緊急治療 NV_FIRSTAID）在初學者頁配點，不列入本頁。</p>` : ''}
-      ${section(ctx.kind === 'second' ? `${ctx.first.name}技能` : `${job.name}技能`, ctx.kind === 'second' ? `一轉期間 ${r.pool1} 點須全部用在此區` : `可用 ${budget} 點`, ctx.kind === 'second' ? firstSec : ownSec, r.levels)}
+      ${section(ctx.kind === 'second' ? `${ctx.first.name}技能` : `${job.name}技能`, ctx.kind === 'second' ? `一轉期間 ${r.pool1} 點須全部用在此區；點二轉技能時會自動補上所需前置` : `可用 ${budget} 點`, ctx.kind === 'second' ? firstSec : ownSec, r.levels)}
       ${ctx.kind === 'second' ? section(`${job.name}技能`, `二轉 ${r.pool2} 點；未用完的二轉點數也可回補一轉技能`, ownSec, r.levels) : ''}`;
     $('#sk-detail').innerHTML = detail(r);
     $('#sk-order').innerHTML = list.length
