@@ -179,12 +179,37 @@ function card(doc, prefix = '') {
 // 技能模擬器使用 data/ 中最新的技能樹快照（tools/擷取技能樹資料.cjs 產生）。
 const skillSnapshot = fs.readdirSync(path.join(root, 'data')).filter(f => /^ro-idle技能樹資料_\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().pop();
 const skillData = skillSnapshot ? JSON.parse(fs.readFileSync(path.join(root, 'data', skillSnapshot), 'utf8')) : null;
+// 「放置版重點」（tools/產生職業技能說明.py 產生）沿用查詢日不晚於技能快照的最新一份。
+// 若沿用較舊的重點，技能狀態或等級上限有變的技能，以及與其直接前置相連的技能，
+// 暫不顯示舊重點並列為待複核，避免把「停用」等過時說明套到新資料上。
+let skillNotesDate = null;
+const staleNotes = [];
 if (skillData) {
-  const noteFile = path.join(root, 'data', `ro-idle技能重點_${skillData.queried}.json`);
-  const supplement = fs.existsSync(noteFile) ? JSON.parse(fs.readFileSync(noteFile, 'utf8')) : {};
-  skillData.notes = supplement.notes || {};
-  skillData.noIdleEffect = supplement.noIdleEffect || [];
-  skillData.transit = supplement.transit || {};
+  const noteFile = fs.readdirSync(path.join(root, 'data'))
+    .filter(f => /^ro-idle技能重點_\d{4}-\d{2}-\d{2}\.json$/.test(f) && f.slice(-15, -5) <= skillData.queried).sort().pop();
+  const supplement = noteFile ? JSON.parse(fs.readFileSync(path.join(root, 'data', noteFile), 'utf8')) : {};
+  skillNotesDate = supplement.queried || null;
+  const stale = new Set();
+  const oldTree = skillNotesDate && skillNotesDate !== skillData.queried && path.join(root, 'data', `ro-idle技能樹資料_${skillNotesDate}.json`);
+  if (oldTree && fs.existsSync(oldTree)) {
+    const old = JSON.parse(fs.readFileSync(oldTree, 'utf8')).skills;
+    const changed = Object.keys(skillData.skills).filter(id => old[id] && (old[id].status.kind !== skillData.skills[id].status.kind || old[id].maxLv !== skillData.skills[id].maxLv));
+    changed.forEach(id => stale.add(id));
+    for (const job of skillData.jobs) for (const node of job.skillTree) {
+      for (const req of Object.keys(node.requires || {})) {
+        if (changed.includes(req)) stale.add(node.id);
+        if (changed.includes(node.id)) stale.add(req);
+      }
+    }
+  }
+  const keep = id => !stale.has(id);
+  const notes = Object.fromEntries(Object.entries(supplement.notes || {}).filter(([id]) => keep(id)));
+  staleNotes.push(...Object.keys(supplement.notes || {}).filter(id => !keep(id)));
+  skillData.notes = notes;
+  skillData.noIdleEffect = (supplement.noIdleEffect || []).filter(keep);
+  skillData.transit = Object.fromEntries(Object.entries(supplement.transit || {}).filter(([id, t]) => keep(id) && t.unlocks.every(keep)));
+  // 只連到已產生的職業技能說明，轉生職業尚無說明頁時不顯示連結。
+  skillData.guides = listMarkdown(path.join(root, '技能')).map(f => path.basename(f, '.md'));
 }
 
 function renderSkills() {
@@ -192,12 +217,12 @@ function renderSkills() {
   const disabledCount = unavailable.filter(([, skill]) => skill.status.kind === 'disabled').length;
   const pendingCount = unavailable.filter(([, skill]) => skill.status.kind === 'pending').length;
   const unavailableList = unavailable.map(([id, skill]) => `<li><a href="https://ro-idle.app/info/database?type=skills&amp;id=${encodeURIComponent(id)}" target="_blank" rel="noopener noreferrer">${esc(skill.name)}（${esc(id)}）</a><span>${skill.status.kind === 'disabled' ? '本遊戲停用' : '目前無法學習'}</span><p>${esc(skill.status.reason || '資訊站未提供原因')}</p></li>`).join('');
-  const body = `<main id="main" class="article-shell tool-shell"><div class="article-top"><a href="index.html" class="back-link">← 回到攻略目錄</a><span class="eyebrow">工具 · 至二轉（進階二轉尚未開放）</span><h1>技能配點模擬器</h1><p class="article-summary">選職業、設定 Job Lv，直接點技能加點（右鍵減點），或點刻度設定等級。前置技能會自動補齊，右側記錄學習順序，可複製成攻略「技能配點」表或分享連結。</p><div class="article-meta"><span>資料查詢：<time>${esc(skillData.queried)}</time></span><a href="index.html#skill-guides">各職業技能說明 ↗</a><a href="https://ro-idle.app/info/database?type=jobs" target="_blank" rel="noopener noreferrer">RO 放置仙境資訊站 · 職業 ↗</a><a href="${repo}/blob/main/data/${encodeURIComponent(skillSnapshot)}" target="_blank" rel="noopener noreferrer">資料快照 ↗</a></div></div>
-  <div id="skill-sim" class="skill-sim" data-src="skills-data.json?v=${crypto.createHash('sha256').update(JSON.stringify(skillData)).digest('hex').slice(0, 10)}"><details class="sk-unavailable"><summary>停用技能 ${disabledCount} 項、目前無法學習 ${pendingCount} 項 · 查詢 ${esc(skillData.queried)}</summary><p>依資訊站狀態整理。這些技能與其受影響的前置路線無法投入點數；已失效分享連結中的相關點數會在載入時移除。另有 ${Object.keys(skillData.transit).length} 個可學但掛機無實效的必要過路技能，仍可投入點數；點選卡片可在技能說明欄查看最低等級與解鎖目標。</p><ul>${unavailableList}</ul></details><div id="sk-picker"></div>
+  const body = `<main id="main" class="article-shell tool-shell"><div class="article-top"><a href="index.html" class="back-link">← 回到攻略目錄</a><span class="eyebrow">工具 · 一轉、二轉與轉生二轉</span><h1>技能配點模擬器</h1><p class="article-summary">選職業、設定 Job Lv，直接點技能加點（右鍵減點），或點刻度設定等級。前置技能會自動補齊，右側記錄學習順序，可複製成攻略「技能配點」表或分享連結。</p><div class="article-meta"><span>資料查詢：<time>${esc(skillData.queried)}</time></span><a href="index.html#skill-guides">各職業技能說明 ↗</a><a href="https://ro-idle.app/info/database?type=jobs" target="_blank" rel="noopener noreferrer">RO 放置仙境資訊站 · 職業 ↗</a><a href="${repo}/blob/main/data/${encodeURIComponent(skillSnapshot)}" target="_blank" rel="noopener noreferrer">資料快照 ↗</a></div></div>
+  <div id="skill-sim" class="skill-sim" data-src="skills-data.json?v=${crypto.createHash('sha256').update(JSON.stringify(skillData)).digest('hex').slice(0, 10)}">${unavailable.length ? `<details class="sk-unavailable"><summary>停用技能 ${disabledCount} 項、目前無法學習 ${pendingCount} 項 · 查詢 ${esc(skillData.queried)}</summary><p>依資訊站狀態整理。這些技能與其受影響的前置路線無法投入點數；已失效分享連結中的相關點數會在載入時移除。另有 ${Object.keys(skillData.transit).length} 個可學但掛機無實效的必要過路技能，仍可投入點數；點選卡片可在技能說明欄查看最低等級與解鎖目標。</p><ul>${unavailableList}</ul></details>` : ''}<div id="sk-picker"></div>
   <div class="sk-tools"><button type="button" data-tool="prereq" aria-pressed="false" title="切換點技能時前置技能補到需求等級或直接點滿">前置：補到需求等級</button><button type="button" data-tool="undo">復原上一步</button><button type="button" data-tool="reset">全部重置</button><button type="button" data-tool="md">複製 Markdown 配點表</button><button type="button" data-tool="link" class="primary">複製分享連結</button></div>
   <div class="sk-layout"><div id="sk-board" class="sk-board"><p class="sk-hint">載入技能資料中…</p></div><aside class="sk-side"><section class="sk-panel"><h2>技能說明</h2><div id="sk-detail"></div></section><section class="sk-panel"><h2>學習順序</h2><div id="sk-order"></div></section></aside></div>
-  <details class="sk-rules"><summary>點數規則與資料說明</summary><ul><li>每升 1 Job Lv 得 1 技能點：初學者 Job 10 共 9 點、一轉與二轉 Job 50 各 49 點；超級初心者 Job Lv 上限 ${esc(skillData.jobs.find(j => j.id === 'supernovice')?.maxJobLv ?? '待查證')}。</li><li>一轉 Job 40 以上且技能點用完才能轉二轉；二轉職業預設在一轉 Job 40 轉職，也就是一轉技能點滿 39 點即可學二轉技能，晚轉職時可把「轉職 Job Lv」改成 41～50；二轉專屬技能須先把一轉期間的點數全部投入一轉技能（資訊站的學習判定）。二轉後多出的點數可回補一轉技能。</li><li>任務技能（標示「任務 Job N」）達到 Job Lv 即可學，不扣技能點。</li><li>「本遊戲停用」與「目前無法學習」都不可投入點數，前置被停用時下游也不可學；「可學但放置版不施放」仍可依前置需求投入。技能名稱、等級上限、前置與各級效果擷取自資訊站；「放置版重點」為本攻略依資料整理的摘要，實際掛機收益仍待實測。遊戲更新後以資訊站為準。</li><li>進階二轉（騎士領主等）尚未開放，暫不收錄；介面參考 <a href="https://ro.17173.com/content/03312017/175328149.shtml" target="_blank" rel="noopener noreferrer">17173 全職業技能樹</a> 的模擬器形式重新設計。</li></ul></details></div></main>`;
-  return `${layout({ title: '技能配點模擬器', description: 'RO 放置仙境至二轉各職業的技能配點模擬器，依資訊站技能樹資料計算點數與前置。', body, page: 'tool' })}`.replace('</head>', `<script src="skills.js?v=${asset.skills}" defer></script></head>`);
+  <details class="sk-rules"><summary>點數規則與資料說明</summary><ul><li>每升 1 Job Lv 得 1 技能點：初學者 Job 10 共 9 點、一轉與二轉 Job 50 各 49 點；超級初心者 Job Lv 上限 ${esc(skillData.jobs.find(j => j.id === 'supernovice')?.maxJobLv ?? '待查證')}。</li><li>轉生：${skillData.rebirth ? `二轉職業 Base ${skillData.rebirth.minBaseLv}、Job ${skillData.rebirth.minJobLv} 且技能點用完，費用 ${skillData.rebirth.zeny.toLocaleString('en-US')} Zeny` : '條件待查證'}，重新從進階初學者開始，只能走原本的職業系並轉成對應的轉生二轉（Job 上限 70，最多 69 點）。進階初學者的初學者技能轉生後自動學會、升 Job 不給技能點；進階一轉與一般一轉相同，每升 1 Job Lv 得 1 點（資訊站 2026-10-27 p6.1 更新說明）。轉生二轉的技能前置與「一轉點數須先用完」規則與一般二轉相同。</li><li>一轉 Job 40 以上且技能點用完才能轉二轉；二轉職業預設在一轉 Job 40 轉職，也就是一轉技能點滿 39 點即可學二轉技能，晚轉職時可把「轉職 Job Lv」改成 41～50；二轉專屬技能須先把一轉期間的點數全部投入一轉技能（資訊站的學習判定）。二轉後多出的點數可回補一轉技能。</li><li>任務技能（標示「任務 Job N」）達到 Job Lv 即可學，不扣技能點。</li><li>「本遊戲停用」與「目前無法學習」都不可投入點數，前置被停用時下游也不可學；「可學但放置版不施放」仍可依前置需求投入。技能名稱、等級上限、前置與各級效果擷取自資訊站；「放置版重點」為本攻略依資料整理的摘要，實際掛機收益仍待實測。遊戲更新後以資訊站為準。</li>${skillNotesDate && skillNotesDate !== skillData.queried ? `<li>放置版重點沿用 ${esc(skillNotesDate)} 的整理；轉生二轉新技能尚無重點。${staleNotes.length ? `${staleNotes.map(id => esc(skillData.skills[id]?.name || id)).join('、')}因技能狀態在 ${esc(skillData.queried)} 有變（例如原本停用的技能改為可學），舊重點暫不顯示，待複核。` : ''}</li>` : ''}<li>介面參考 <a href="https://ro.17173.com/content/03312017/175328149.shtml" target="_blank" rel="noopener noreferrer">17173 全職業技能樹</a> 的模擬器形式重新設計。</li></ul></details></div></main>`;
+  return `${layout({ title: '技能配點模擬器', description: 'RO 放置仙境一轉、二轉與轉生二轉各職業的技能配點模擬器，依資訊站技能樹資料計算點數與前置。', body, page: 'tool' })}`.replace('</head>', `<script src="skills.js?v=${asset.skills}" defer></script></head>`);
 }
 
 function renderHome() {
@@ -212,7 +237,7 @@ function renderHome() {
   const body = `<main id="main"><section class="hero"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow">玩家自建 · 非官方攻略索引</span><h1>先看條件，<br><em>再選攻略。</em></h1><p>把職業培養、掛機設定與裝備取捨放在同一個閱讀入口。從目前角色與遊玩目標出發，找到下一步，也看得見建議背後的資料與限制。</p><div class="hero-actions"><a class="button-primary" href="${starter ? starter.url : '#roles'}">新手先讀：初心者攻略 <span aria-hidden="true">→</span></a><a class="button-text" href="#roles">瀏覽職業攻略 ↗</a></div></div><div class="hero-board" aria-label="閱讀攻略的三個步驟"><div class="board-top"><span>攻略閱讀路徑</span><span>01 — 03</span></div><div class="board-step"><b>01</b><div><strong>確定目標</strong><span>經驗、Zeny、材料或穩定度</span></div></div><div class="board-step"><b>02</b><div><strong>對照角色</strong><span>等級、技能、裝備與補給條件</span></div></div><div class="board-step"><b>03</b><div><strong>驗證結果</strong><span>擊殺、收益、死亡與中斷紀錄</span></div></div><div class="board-foot">依條件比較，不只給單一答案。</div></div></div></section>
   <section class="intro-strip" aria-label="網站內容"><div><strong>${roles.length}</strong><span>篇職業攻略</span></div><div><strong>${skillGuides.length - 1}</strong><span>份職業技能說明</span></div><div><strong>${equipment.length}</strong><span>篇裝備分析</span></div><p>每篇標明最後查證日期；原始 Markdown 與引用來源可直接開啟。</p></section>
   <section class="content-section role-section" id="roles"><div class="section-heading"><div><span class="eyebrow">職業路線</span><h2>找到你的培養起點</h2><p>從初心者一轉前開始，或依一轉職業閱讀各二轉流派的條件與取捨。</p></div><div class="search-wrap"><label for="site-search">搜尋全部攻略</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="site-search" type="search" placeholder="搜尋職業、技能、裝備、ID…" autocomplete="off"><kbd>/</kbd></div></div></div>
-  <a class="sim-banner" href="skills.html"><span class="card-type">工具</span><strong>技能配點模擬器</strong><span>${skillData ? `${skillData.jobs.length} 個職業（至二轉）· 資訊站資料 ${skillData.queried}` : '至二轉職業'}，加點時自動補前置並記錄學習順序。</span><b aria-hidden="true">→</b></a>
+  <a class="sim-banner" href="skills.html"><span class="card-type">工具</span><strong>技能配點模擬器</strong><span>${skillData ? `${skillData.jobs.length} 個職業（含轉生二轉）· 資訊站資料 ${skillData.queried}` : '含轉生二轉職業'}，加點時自動補前置並記錄學習順序。</span><b aria-hidden="true">→</b></a>
   <div id="search-results" class="search-results" hidden aria-live="polite"></div>
   <div id="browse-content"><div class="class-nav" aria-label="依職業篩選"><button type="button" class="active" data-filter="all" aria-pressed="true">全部職業</button>${groups.map(g => `<button type="button" data-filter="${esc(g)}" aria-pressed="false">${esc(g)}</button>`).join('')}</div><div class="guide-grid" id="role-grid">${roles.map(doc => `<div data-class="${esc(doc.first)}">${card(doc)}</div>`).join('')}</div></div></section>
   <section class="content-section skill-guide-section" id="skill-guides"><div class="section-heading"><div><span class="eyebrow">技能資料</span><h2>各職業技能說明</h2><p>依職業查最高等級、前置與放置版限制；各級完整數值連至資訊站。</p></div></div><div class="guide-grid">${skillGuides.map(doc => card(doc)).join('')}</div></section>

@@ -17,9 +17,8 @@ if (!bundlePath || !/^\d{4}-\d{2}-\d{2}$/.test(date || '')) {
   process.exit(1);
 }
 const src = fs.readFileSync(bundlePath, 'utf8');
-const JOBS = ['novice', 'supernovice', 'swordman', 'mage', 'archer', 'acolyte', 'merchant', 'thief',
-  'knight', 'crusader', 'wizard', 'sage', 'hunter', 'bard', 'dancer', 'priest', 'monk',
-  'blacksmith', 'alchemist', 'assassin', 'rogue'];
+// 職業清單直接取自 bundle，轉生職業（novice_high、*_high、騎士領主等）開放後會一併收錄。
+const JOBS = [...new Set([...src.matchAll(/\{id:`([a-z_]+)`,key:`[A-Za-z_]+`,name:`/g)].map(m => m[1]))];
 
 // 從 start 處的 `{` 找到對應的 `}`，略過字串與樣板字串中的括號。
 function objectAt(start) {
@@ -70,11 +69,15 @@ for (const id of new Set(catalogIds)) {
     sp: s.sp || [], descs: s.descs || [] };
 }
 
+// 轉生條件（Base／Job 等級、費用、屬性點）；找不到時記為 null，網站顯示「待查證」。
+const rebirthAt = src.search(/\{minBaseLv:\d+,minJobLv:\d+,zeny:/);
+const rebirth = rebirthAt < 0 ? null : evalLiteral(objectAt(rebirthAt));
+
 const out = path.resolve(__dirname, '..', 'data', `ro-idle技能樹資料_${date}.json`);
 fs.writeFileSync(out, JSON.stringify({
   source: 'https://ro-idle.app/info/database?type=skills',
   queried: date,
   note: '由資訊站前端資料擷取；含技能資料庫中未列於技能樹的技能。技能點規則（Job Lv−1 點、轉職需用完點數）見各職業 jobChange 與資訊站機制頁。',
-  jobs, skills,
+  rebirth, jobs, skills,
 }, null, 1) + '\n');
 console.log(`已寫入 ${path.relative(process.cwd(), out)}：${jobs.length} 個職業、${Object.keys(skills).length} 個技能`);

@@ -2,6 +2,7 @@
 // 點數規則依資訊站前端的學習判定：每升 1 Job Lv 得 1 點；一轉 Job 40 以上且點數用完才能轉職；
 // 二轉專屬技能須在一轉期間的點數全部投入一轉技能後才能學；任務技能不扣點。
 // 模擬器允許先點二轉技能（前置一轉技能會自動補上），計算學習順序時再把一轉技能點排到前面。
+// 轉生：進階初學者的初學者技能自動學會且不給技能點；進階一轉、轉生二轉的點數規則同一般一轉、二轉。
 (() => {
   const root = document.getElementById('skill-sim');
   if (!root) return;
@@ -17,14 +18,14 @@
 
   function context(job) {
     const from = job.jobChange?.from;
-    const first = from && from !== 'novice' ? jobs[from] : null;
-    const kind = job.id === 'novice' ? 'novice' : job.id === 'supernovice' ? 'super' : first ? 'second' : 'first';
+    const first = from && !['novice', 'novice_high'].includes(from) ? jobs[from] : null;
+    const kind = job.id === 'novice' ? 'novice' : job.id === 'novice_high' ? 'novicehigh' : job.id === 'supernovice' ? 'super' : first ? 'second' : 'first';
     const firstIds = new Set(first ? first.skillTree.map(s => s.id) : []);
     const tree = new Map(job.skillTree.map(s => [s.id, s]));
     const free = id => tree.get(id)?.questJobLv !== undefined;
-    // 初學者以外，基本技能固定在初學者階段點滿 9 級，不佔用此處的點數。
-    const fixed = kind === 'novice' ? {} : { NV_BASIC: 9 };
-    const jobLvRange = kind === 'novice' ? [1, 10] : kind === 'super' ? [1, job.maxJobLv] : kind === 'second' ? [job.jobChange.minJobLv ?? 40, first.maxJobLv] : [1, job.maxJobLv];
+    // 初學者以外，基本技能固定在初學者階段點滿 9 級，不佔用此處的點數；進階初學者連緊急治療都自動學會。
+    const fixed = kind === 'novice' ? {} : kind === 'novicehigh' ? { NV_BASIC: 9, NV_FIRSTAID: 1 } : { NV_BASIC: 9 };
+    const jobLvRange = kind === 'novice' || kind === 'novicehigh' ? [1, 10] : kind === 'super' ? [1, job.maxJobLv] : kind === 'second' ? [job.jobChange.minJobLv ?? 40, first.maxJobLv] : [1, job.maxJobLv];
     return { job, first, kind, firstIds, tree, free, fixed, jobLvRange };
   }
 
@@ -60,7 +61,7 @@
 
   // 依實際學習順序逐點重播，回傳等級與每一步的階段、Job Lv 與問題。
   function replay() {
-    const pool1 = state.c - 1, pool2 = ctx.kind === 'second' ? state.l - 1 : 0;
+    const pool1 = ctx.kind === 'novicehigh' ? 0 : state.c - 1, pool2 = ctx.kind === 'second' ? state.l - 1 : 0;
     const levels = { ...ctx.fixed };
     let used = 0, firstSpent = 0, phase1 = 0, phase2 = 0;
     const steps = learnOrder(pool1).map(({ id, phase }) => {
@@ -246,6 +247,7 @@
     const transit = data.transit?.[selected];
     const noIdleEffect = data.noIdleEffect?.includes(selected);
     const guideJob = ctx.kind === 'second' && ctx.firstIds.has(selected) ? ctx.first : ctx.job;
+    const guide = data.guides?.includes(`${guideJob.baseName}技能說明`) ? `${guideJob.baseName}技能說明` : null;
     const unlocks = [...ctx.tree.values()].filter(s => s.requires?.[selected]).map(s => `${esc(data.skills[s.id].name)}（需 ${s.requires[selected]}）`);
     const reqs = Object.entries(node.requires || {}).map(([q, n]) => `${esc(data.skills[q].name)} Lv ${n}`);
     const rows = skill.descs.map((d, i) => `<li class="${i + 1 === lv ? 'cur' : ''}"><b>Lv ${i + 1}</b>${esc(d)}</li>`).join('');
@@ -256,15 +258,16 @@
       ${note ? `<p class="sk-note"><strong>放置版重點：</strong>${esc(note)}</p>` : ''}
       <dl><dt>前置</dt><dd>${reqs.join('、') || '無'}</dd><dt>解鎖</dt><dd>${unlocks.join('、') || '無'}</dd></dl>
       ${rows ? `<ol class="sk-descs">${rows}</ol>` : ''}
-      <a class="sk-src" href="guides/${encodeURIComponent(guideJob.name + '技能說明')}.html">查看${esc(guideJob.name)}技能說明 ↗</a><br>
+      ${guide ? `<a class="sk-src" href="guides/${encodeURIComponent(guide)}.html">查看${esc(guideJob.baseName)}技能說明 ↗</a><br>` : ''}
       <a class="sk-src" href="${INFO}${encodeURIComponent(selected)}" target="_blank" rel="noopener noreferrer">在資訊站查看 ↗</a>`;
   }
 
   function render(message) {
     const r = replay();
     const job = ctx.job;
-    // 基本技能與緊急治療屬於初學者，只在初學者頁顯示。
-    const pointIds = [...ctx.tree.keys()].filter(id => ctx.kind === 'novice' || !NOVICE.includes(id));
+    // 基本技能與緊急治療屬於初學者，只在初學者／進階初學者頁顯示。
+    const noviceKind = ctx.kind === 'novice' || ctx.kind === 'novicehigh';
+    const pointIds = [...ctx.tree.keys()].filter(id => noviceKind || !NOVICE.includes(id));
     const firstSec = ctx.kind === 'second' ? pointIds.filter(id => ctx.firstIds.has(id)) : [];
     const ownSec = pointIds.filter(id => !firstSec.includes(id));
     const budget = r.pool1 + r.pool2;
@@ -273,6 +276,7 @@
       ? (r.phase1 >= r.pool1 ? `已在 ${ctx.first.name} Job ${state.c} 用完 ${r.pool1} 點，可轉職` : `${ctx.first.name}技能尚差 ${r.pool1 - r.phase1} 點（轉職前須用完；可先點二轉技能，最後再補）`)
       : ctx.kind === 'first' ? (state.c >= 40 && r.used === r.pool1 ? 'Job 40 以上且點數用完，可轉二轉' : `轉二轉需 Job 40 以上且點數用完（目前剩 ${r.pool1 - r.used} 點）`)
       : ctx.kind === 'novice' ? ((r.levels.NV_BASIC || 0) >= 9 ? '基本技能 Lv 9，可轉一轉（Job 10）' : '轉一轉需 Job 10、基本技能 Lv 9')
+      : ctx.kind === 'novicehigh' ? '轉生後初學者技能自動學會，升 Job 不給技能點；Job 10 可轉進階一轉（只能走原本的職業系）'
       : '超級初心者：由初學者 Job 10、Base 45 轉職；基本技能已計入';
     const list = runs(r);
     $('#sk-board').innerHTML = `
@@ -282,7 +286,8 @@
         <div class="sk-ready ${r.issues.length ? 'bad' : ''}">${r.issues.length ? `有 ${r.issues.length} 個步驟不合規則，請調整 Job Lv 或移除標紅步驟` : esc(ready)}</div>
       </div>
       ${message ? `<p class="sk-toast" role="status">${esc(message)}</p>` : ''}
-      ${ctx.kind !== 'novice' ? `<p class="sk-fixed">初學者技能（基本技能 NV_BASIC Lv 9、緊急治療 NV_FIRSTAID）在初學者頁配點，不列入本頁。</p>` : ''}
+      ${rebirthNote()}
+      ${!noviceKind ? `<p class="sk-fixed">初學者技能（基本技能 NV_BASIC Lv 9、緊急治療 NV_FIRSTAID）在初學者頁配點，不列入本頁。</p>` : ''}
       ${section(ctx.kind === 'second' ? `${ctx.first.name}技能` : `${job.name}技能`, ctx.kind === 'second' ? `一轉期間 ${r.pool1} 點須全部用在此區；點二轉技能時會自動補上所需前置` : `可用 ${budget} 點`, ctx.kind === 'second' ? firstSec : ownSec, r.levels)}
       ${ctx.kind === 'second' ? section(`${job.name}技能`, `二轉 ${r.pool2} 點；未用完的二轉點數也可回補一轉技能`, ownSec, r.levels) : ''}`;
     $('#sk-detail').innerHTML = detail(r);
@@ -294,6 +299,15 @@
     prereq.setAttribute('aria-pressed', String(state.p === 'max'));
     prereq.textContent = state.p === 'max' ? '前置：直接點滿' : '前置：補到需求等級';
     writeHash();
+  }
+
+  // 轉生職業：註明轉生前的職業與轉生條件。
+  function rebirthNote() {
+    const of = ctx.job.jobChange?.rebirthOf;
+    if (!of && ctx.kind !== 'novicehigh') return '';
+    const cond = data.rebirth ? `二轉 Base ${data.rebirth.minBaseLv}、Job ${data.rebirth.minJobLv}、技能點用完，費用 ${data.rebirth.zeny.toLocaleString('en-US')} Zeny` : '轉生條件待查證';
+    const from = of ? `轉生前須為${of.map(id => jobs[id].name).join('／')}。` : '由二轉職業轉生而來。';
+    return `<p class="sk-fixed sk-reborn">轉生職業：${esc(from)}轉生條件：${esc(cond)}。</p>`;
   }
 
   function writeHash() {
@@ -321,11 +335,14 @@
   }
 
   function jobPicker() {
-    const btn = j => `<button type="button" data-job="${j.id}" aria-pressed="false">${esc(j.name)}</button>`;
+    const btn = j => j ? `<button type="button" data-job="${j.id}" aria-pressed="false">${esc(j.name)}</button>` : '';
     const seconds = from => Object.values(jobs).filter(j => j.jobChange?.from === from);
+    // 轉生二轉依轉生前二轉的順序排列（騎士→騎士領主、十字軍→聖殿十字軍）。
+    const reborn = id => seconds(`${id}_high`).sort((a, b) => seconds(id).findIndex(j => a.jobChange.rebirthOf?.includes(j.id)) - seconds(id).findIndex(j => b.jobChange.rebirthOf?.includes(j.id)));
+    const path = (first, list, tag = '') => first ? `<div class="sk-path">${tag}${btn(first)}<i aria-hidden="true">→</i>${list.map(btn).join('')}</div>` : '';
     return `<div class="sk-jobs" role="group" aria-label="選擇職業">
-      <div class="sk-line"><span>初學者</span>${btn(jobs.novice)}${btn(jobs.supernovice)}</div>
-      ${LINES.map(id => `<div class="sk-line"><span>${esc(jobs[id].name)}系</span>${btn(jobs[id])}<i aria-hidden="true">→</i>${seconds(id).map(btn).join('')}</div>`).join('')}</div>`;
+      <div class="sk-line"><span>初學者</span><div class="sk-path">${btn(jobs.novice)}${btn(jobs.supernovice)}${jobs.novice_high ? `<em>轉生</em>${btn(jobs.novice_high)}` : ''}</div></div>
+      ${LINES.map(id => `<div class="sk-line"><span>${esc(jobs[id].name)}系</span>${path(jobs[id], seconds(id))}${path(jobs[`${id}_high`], reborn(id), '<em>轉生</em>')}</div>`).join('')}</div>`;
   }
 
   root.addEventListener('click', async event => {
@@ -383,6 +400,8 @@
 
   fetch(root.dataset.src).then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(json => {
     data = json;
+    // 資訊站的進階初學者、進階一轉與一般職業同名，畫面上加「進階」區分；baseName 用於連到同名技能說明。
+    for (const j of json.jobs) { j.baseName = j.name; if (j.id.endsWith('_high')) j.name = `進階${j.name}`; }
     jobs = Object.fromEntries(json.jobs.map(j => [j.id, j]));
     $('#sk-picker').innerHTML = jobPicker();
     const load = () => {
