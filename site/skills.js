@@ -325,7 +325,8 @@
     const order = decoded.filter(x => !unavailableReason(x));
     state = {
       // 二轉預設在一轉 Job 40 轉職：一轉只需用完 39 點即可學二轉技能；可在頁面改成 41～50。
-      c: clamp(Number(preset.c), min, max, ctx.kind === 'second' ? min : max),
+      // 轉生二轉預設在進階一轉 Job 50 轉職（攻略建議）：轉生二轉點數固定 69 點，早轉只會少一轉點數。
+      c: clamp(Number(preset.c), min, max, ctx.kind === 'second' && !job.jobChange.rebirthOf ? min : max),
       l: clamp(Number(preset.l), 1, job.maxJobLv, job.maxJobLv),
       p: preset.p === 'max' || (preset.p === undefined && state?.p === 'max') ? 'max' : 'need',
       order,
