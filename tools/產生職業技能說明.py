@@ -14,15 +14,15 @@ KIND = {'passive': '被動', 'self': '自身／增益', 'attack': '攻擊', 'gro
 NOTES = {
     'MG_SIGHT': '掛機只在附近有隱身怪物時施放。',
     'AL_RUWACH': '掛機只在附近有隱身怪物時施放。',
-    'AL_WARP': '本遊戲以地圖選擇／蝴蝶翅膀移動，技能停用。',
-    'AL_PNEUMA': '傳送之陣停用，前置無法達成；目前不可學。',
+    'AL_WARP': '可學但不施放（本遊戲以地圖選擇／蝴蝶翅膀移動）；要學光之障壁，須先點此技能 Lv 4 作過路點。',
+    'AL_PNEUMA': '10 秒內擋下自己或隊友受到的遠程物理攻擊（弓箭、遠距離普攻與物理技能），不擋魔法與近身；前置傳送之陣 Lv 4 本身不施放。',
     'AL_BLESSING': '遇到詛咒或石化時優先解除，該次不提供屬性增益。',
     'AC_MAKINGARROW': '可設掛機輔助規則，在箭矢耗盡時用指定材料製箭並裝備；受負重限制。',
     'MC_DISCOUNT': '折扣包含 NPC 自動購買。',
-    'MC_CHANGECART': '手推車外觀在本遊戲不顯示，技能停用。',
+    'MC_CHANGECART': '任務技能，不扣點；只在角色頁「形象」更換手推車外觀（第 2～5 型需 Base 41／66／81／91），不影響掛機。',
     'SM_AUTOBERSERK': '低血量自動觸發，會提高輸出並降低防禦；掛機須注意存活率。',
     'CR_DEVOTION': '只保護同圖一起掛機且符合等級差限制的隊友。',
-    'WZ_ESTIMATION': '怪物資料已在地圖資訊顯示，技能停用。',
+    'WZ_ESTIMATION': '可學但不施放；怪物的等級、HP、屬性、種族與體型已在地圖資訊顯示，也沒有後續技能需要它作前置。',
     'SA_CASTCANCEL': '可學，但掛機不會主動取消詠唱；若要學自由施法，須先點此技能 Lv 1 作過路點。',
     'SA_MAGICROD': '設為輔助規則後，可在怪物魔法命中前自動施放。',
     'SA_SPELLBREAKER': '掛機只對正在詠唱的目標施放。',
@@ -35,9 +35,9 @@ NOTES = {
     'SA_DISPELL': '掛機有目標條件；可能連自己施加的異常狀態也解除。',
     'SA_ABRACADABRA': '從本遊戲已實作技能抽取，結果具不確定性。',
     'HT_SHOCKWAVE': '可學，但怪物沒有 SP，放置時無實際效果；若要學爆散陷阱，須先點此技能 Lv 1 作過路點。',
-    'HT_REMOVETRAP': '可學，但陷阱觸發或換圖即消失，放置時不需回收；後續只通往停用的陷阱探查、爆破陷阱，通常不必為過路而投入。',
-    'HT_TALKIEBOX': '沒有地面留言用途，技能停用。',
-    'HT_SPRINGTRAP': '沒有其他玩家的陷阱要拆，技能停用。',
+    'HT_REMOVETRAP': '可學，但陷阱觸發或換圖即消失，放置時不需回收；後續只通往同樣不施放的陷阱探查、爆破陷阱，通常不必為過路而投入。',
+    'HT_TALKIEBOX': '可學但不施放（沒有在地面留言給其他玩家的用途）；沒有後續技能需要它作前置。',
+    'HT_SPRINGTRAP': '可學但不施放（沒有其他人設置的陷阱要拆）；沒有後續技能需要它作前置。',
     'HT_BLITZBEAT': '獵鷹可由弓普攻自動觸發；觸發率須按本遊戲公式與 LUK 評估。',
     'BA_FROSTJOKER': '立即生效；同圖隊友也可能被冰凍，演奏中不能使用。',
     'DC_SCREAM': '立即生效；同圖隊友也可能被暈眩，演奏中不能使用。',
@@ -89,8 +89,11 @@ NO_IDLE_EFFECT = {
     'SA_CASTCANCEL', 'HT_SHOCKWAVE', 'HT_REMOVETRAP', 'DC_UGLYDANCE',
     'MO_BODYRELOCATION', 'RG_CLEANER', 'RG_FLAGGRAFFITI', 'RG_GRAFFITI',
     'RG_TUNNELDRIVE', 'HLIF_AVOID',
+    # 2026-10-28 起由停用改為「可以學但不會施放」。
+    'AL_WARP', 'MC_CHANGECART', 'WZ_ESTIMATION', 'HT_TALKIEBOX', 'HT_SPRINGTRAP',
 }
 TRANSIT_TARGETS = {
+    'AL_WARP': ['AL_PNEUMA'],
     'SA_CASTCANCEL': ['SA_FREECAST'],
     'HT_SHOCKWAVE': ['HT_CLAYMORETRAP'],
     'DC_UGLYDANCE': ['DC_HUMMING', 'DC_DONTFORGETME', 'DC_FORTUNEKISS', 'DC_SERVICEFORYOU'],
@@ -131,17 +134,33 @@ def rows(ids, tree):
 
 OUT = ROOT / '技能'
 OUT.mkdir(exist_ok=True)
+# 進階初學者與進階一轉的技能樹與一般職業相同且同名，不另產生說明，於一般職業頁註明。
+HIGH = {j['id'] for j in DATA['jobs'] if j['id'] == 'novice_high' or j['id'].endswith('_high')}
+for hid in HIGH:
+    assert JOBS[hid]['skillTree'] == JOBS[hid.removesuffix('_high')]['skillTree'], f'{hid} 的技能樹已與一般職業不同，須另產生說明'
+written = 0
 for job in DATA['jobs']:
+    if job['id'] in HIGH:
+        continue
     tree = {n['id']: n for n in job['skillTree']}
-    parent = JOBS.get((job.get('jobChange') or {}).get('from'))
-    parent_ids = set(n['id'] for n in parent['skillTree']) if parent else set()
-    own = [sid for sid in tree if sid not in parent_ids]
+    change = job.get('jobChange') or {}
+    # 轉生二轉：只列相對轉生前二轉新增的技能，以及前置條件不同的繼承技能。
+    reborn_of = JOBS[change['rebirthOf'][0]] if change.get('from') in HIGH and change.get('rebirthOf') else None
+    parent = JOBS.get(change.get('from', '').removesuffix('_high')) if reborn_of else JOBS.get(change.get('from'))
+    base = reborn_of or parent
+    base_nodes = {n['id']: n for n in base['skillTree']} if base else {}
+    own = [sid for sid in tree if sid not in base_nodes or (reborn_of and tree[sid] != base_nodes[sid])]
     if job['id'] == 'supernovice':
         own = [sid for sid in own if sid not in ('NV_BASIC', 'NV_FIRSTAID')]
     lines = [f"# RO 放置仙境：{job['name']}技能說明", '', f"**最後查證：{DATA['queried']}**", '',
              f"依[資訊站技能資料庫](https://ro-idle.app/info/database?type=skills)與[{job['name']}職業頁](https://ro-idle.app/info/database?type=jobs&id={job['id']})整理。表中最高等級、前置與可用狀態屬已查證資料；「可學」只代表資料庫允許學習，不等於放置版能施放或值得配點。「放置版重點」是依技能描述整理的操作摘要，不代表傷害或收益實測。各級數值、SP、詠唱、冷卻、武器與材料限制請點技能名稱核對。", '']
-    if parent:
+    if reborn_of:
+        changed = [sid for sid in own if sid in base_nodes]
+        lines += [f"本職業是{'／'.join(JOBS[r]['name'] for r in change['rebirthOf'])}的轉生職業：由進階{parent['name']}（技能樹與{parent['name']}相同）於 Job {change.get('minJobLv', '待查證')} 以上轉職，Job 上限 {job['maxJobLv']}。繼承技能請見[{parent['name']}技能說明]({parent['name']}技能說明.md)、[{reborn_of['name']}技能說明]({reborn_of['name']}技能說明.md)；下表只列轉生後新增的技能" + (f"，以及前置條件與{reborn_of['name']}不同的{'、'.join(SKILLS[sid]['name'] for sid in changed)}" if changed else '') + '。', '']
+    elif parent:
         lines += [f"本職業由{parent['name']}轉職；繼承的一轉技能請見[{parent['name']}技能說明]({parent['name']}技能說明.md)。", '']
+    if f"{job['id']}_high" in HIGH:
+        lines += [f"轉生後的進階{job['name']}技能樹與本職業相同，配點規則也相同；進階初學者另見[初學者技能說明](初學者技能說明.md)。", ''] if job['id'] != 'novice' else ['轉生後的進階初學者技能樹相同，但初學者技能轉生後自動學會，升 Job 不給技能點。', '']
     if job['id'] == 'supernovice':
         lines += ['基本技能與緊急治療見[初學者技能說明](初學者技能說明.md)。超級初心者的下表列出其餘可學技能，實際點數與轉職條件以職業頁為準。', '']
     lines += ['## 技能清單', '', rows(own, tree), '',
@@ -157,10 +176,12 @@ for job in DATA['jobs']:
         lines += [f"| {link(sid)} | {SKILLS[sid]['maxLv']} | {KIND.get(SKILLS[sid]['kind'], SKILLS[sid]['kind'])} | {NOTES.get(sid, '各級效果請見技能直達頁。')} |" for sid in homun]
         lines += ['']
     (OUT / f"{job['name']}技能說明.md").write_text('\n'.join(lines))
+    written += 1
 
 tree_ids = {node['id'] for job in DATA['jobs'] for node in job['skillTree']}
 homun_ids = {sid for sid in SKILLS if sid.startswith(('HAMI_', 'HFLI_', 'HLIF_', 'HVAN_'))}
-other_ids = set(SKILLS) - tree_ids - homun_ids
+# 沒有等級上限的條目是內部狀態（如 BERSERK_RECOVERY），不在資訊站公開的技能清單。
+other_ids = {sid for sid in SKILLS if 'maxLv' in SKILLS[sid]} - tree_ids - homun_ids
 other_lines = ['# RO 放置仙境：資料庫其他技能', '', f"**最後查證：{DATA['queried']}**", '',
                '以下技能見於[資訊站技能資料庫](https://ro-idle.app/info/database?type=skills)，但沒有列入任何玩家職業技能樹，也不是上表的生命體技能。不能據此認定玩家可以投入 Job 點數學習。', '',
                '| 技能（ID） | 最高 Lv | 類型 |', '| --- | ---: | --- |']
@@ -169,4 +190,4 @@ other_lines += [f"| {link(sid)} | {SKILLS[sid]['maxLv']} | {KIND.get(SKILLS[sid]
 (ROOT / 'data' / f"ro-idle技能重點_{DATA['queried']}.json").write_text(
     json.dumps({'queried': DATA['queried'], 'source': DATA['source'], 'notes': NOTES,
                 'noIdleEffect': sorted(NO_IDLE_EFFECT), 'transit': TRANSIT}, ensure_ascii=False, indent=2) + '\n')
-print(f"產生 {len(DATA['jobs'])} 份職業技能說明與 1 份其他技能說明，來源 {SNAPSHOT.name}")
+print(f"產生 {written} 份職業技能說明與 1 份其他技能說明，來源 {SNAPSHOT.name}")

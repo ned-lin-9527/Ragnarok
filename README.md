@@ -57,24 +57,25 @@
 
 ### 職業技能說明
 
-已依 2026-10-27 [技能資料庫](https://ro-idle.app/info/database?type=skills)整理 21 個職業的技能、最高等級、前置、可學狀態與放置版掛機限制。每項技能連到資訊站的各級完整數值；二轉頁面連結一轉技能說明。生命體技能另列於鍊金術師頁。技能資料庫共 270 筆，包含不屬於玩家職業技能樹的技能；本索引不將它們誤列為可用 Job 點數學習。
+已依 2026-10-28 [技能資料庫](https://ro-idle.app/info/database?type=skills)整理 34 個職業的技能、最高等級、前置、可學狀態與放置版掛機限制，含 13 個轉生二轉（只列轉生後新增，以及前置與轉生前二轉不同的技能）。進階初學者與進階一轉的技能樹與一般職業相同，不另開頁，於一般職業頁註明。每項技能連到資訊站的各級完整數值；二轉頁面連結一轉技能說明。生命體技能另列於鍊金術師頁。技能資料庫共 330 筆，包含不屬於玩家職業技能樹的技能；本索引不將它們誤列為可用 Job 點數學習。
 
-**停用技能盤點（2026-10-27）**：比對[當日資訊站技能快照](data/ro-idle技能樹資料_2026-10-27.json)與 2026-10-25 快照，狀態沒有增減。以下 5 項標示「本遊戲停用」；光之障壁因停用前置而標示「目前無法學習」。模擬器不允許投入這些技能或受其影響的後續技能點。
+**停用技能盤點（2026-10-28）**：比對[當日資訊站技能快照](data/ro-idle技能樹資料_2026-10-28.json)與 2026-10-27 快照，原本 5 項「本遊戲停用」與 1 項「目前無法學習」全部改為可學，目前沒有停用技能。各技能的放置版效果如下；已在攻略中提及者同步改寫。
 
-| 資訊站狀態 | 技能（ID） | 原因 |
+| 技能（ID） | 2026-10-27 | 2026-10-28 起的放置版效果 |
 | --- | --- | --- |
-| 本遊戲停用 | [傳送之陣（AL_WARP）](https://ro-idle.app/info/database?type=skills&id=AL_WARP) | 以選擇地圖、蝴蝶翅膀移動 |
-| 本遊戲停用 | [改裝手推車（MC_CHANGECART）](https://ro-idle.app/info/database?type=skills&id=MC_CHANGECART) | 放置版不顯示手推車外觀 |
-| 本遊戲停用 | [怪物情報（WZ_ESTIMATION）](https://ro-idle.app/info/database?type=skills&id=WZ_ESTIMATION) | 地圖資訊已顯示怪物資料 |
-| 本遊戲停用 | [陷阱探查（HT_TALKIEBOX）](https://ro-idle.app/info/database?type=skills&id=HT_TALKIEBOX) | 沒有地面留言用途 |
-| 本遊戲停用 | [爆破陷阱（HT_SPRINGTRAP）](https://ro-idle.app/info/database?type=skills&id=HT_SPRINGTRAP) | 沒有其他玩家設置的陷阱可拆 |
-| 目前無法學習 | [光之障壁（AL_PNEUMA）](https://ro-idle.app/info/database?type=skills&id=AL_PNEUMA) | 前置傳送之陣停用，無法達成 |
+| [傳送之陣（AL_WARP）](https://ro-idle.app/info/database?type=skills&id=AL_WARP) | 本遊戲停用 | 可學但不施放；光之障壁的前置（需 Lv 4） |
+| [光之障壁（AL_PNEUMA）](https://ro-idle.app/info/database?type=skills&id=AL_PNEUMA) | 目前無法學習 | 10 秒內擋下自己或隊友受到的遠程物理攻擊；不擋魔法與近身。全輔助祭司攻略新增為彈性方案 |
+| [改裝手推車（MC_CHANGECART）](https://ro-idle.app/info/database?type=skills&id=MC_CHANGECART) | 本遊戲停用 | 任務技能、不扣點；只換手推車外觀 |
+| [怪物情報（WZ_ESTIMATION）](https://ro-idle.app/info/database?type=skills&id=WZ_ESTIMATION) | 本遊戲停用 | 可學但不施放 |
+| [陷阱探查（HT_TALKIEBOX）](https://ro-idle.app/info/database?type=skills&id=HT_TALKIEBOX) | 本遊戲停用 | 可學但不施放 |
+| [爆破陷阱（HT_SPRINGTRAP）](https://ro-idle.app/info/database?type=skills&id=HT_SPRINGTRAP) | 本遊戲停用 | 可學但不施放 |
 
 **可學但放置版無實效的必要過路點**與停用技能不同。模擬器保留這些技能的加點，點目標技能時仍會自動補足前置；技能說明欄會標出所需最低等級與解鎖目標。
 
 | 過路技能 | 最低等級 | 解鎖的後續技能 |
 | --- | ---: | --- |
 | [取消施法（SA_CASTCANCEL）](https://ro-idle.app/info/database?type=skills&id=SA_CASTCANCEL) | 1 | 自由施法 |
+| [傳送之陣（AL_WARP）](https://ro-idle.app/info/database?type=skills&id=AL_WARP) | 4 | 光之障壁 |
 | [魔耗陷阱（HT_SHOCKWAVE）](https://ro-idle.app/info/database?type=skills&id=HT_SHOCKWAVE) | 1 | 爆散陷阱 |
 | [醜陋之舞（DC_UGLYDANCE）](https://ro-idle.app/info/database?type=skills&id=DC_UGLYDANCE) | 3 | 哼唱之音、勿忘我、女神之吻、為您服務 |
 | [潛遁（RG_TUNNELDRIVE）](https://ro-idle.app/info/database?type=skills&id=RG_TUNNELDRIVE) | 2 | 潛擊 |
@@ -166,7 +167,7 @@ node tools/擷取技能樹資料.cjs <下載的 bundle.js> <查詢日期 YYYY-MM
 
 接著執行 `python3 tools/產生職業技能說明.py` 與 `node site/build.cjs`，同步更新各職業技能說明、`data/ro-idle技能重點_YYYY-MM-DD.json`、模擬器與閱讀網站。人工整理的放置版重點維護於產生腳本，修改後也須重新執行這兩步。
 
-2026-10-28 快照已收錄轉生職業（41 個職業），但各職業技能說明與技能重點尚未依此快照重新產生。在重新產生前，網站沿用 2026-10-27 的技能重點；技能狀態有變（原本停用的技能改為可學）的技能及其直接前置相連技能，舊重點暫不顯示並在模擬器的「點數規則與資料說明」列為待複核。產生腳本目前會以職業名稱命名檔案，進階一轉與一般一轉同名，重新產生前需先決定轉生職業說明的命名方式。
+產生腳本略過進階初學者與進階一轉（腳本會先確認其技能樹與一般職業相同，不同時中止），轉生二轉以職業名稱另開頁。若技能重點的日期早於技能快照，網站會沿用較舊的重點，並暫不顯示狀態有變的技能及其直接前置相連技能的舊重點。
 
 ## 資料來源
 
