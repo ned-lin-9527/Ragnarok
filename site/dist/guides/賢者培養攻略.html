@@ -1,0 +1,1963 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121d35"><meta name="description" content="自動念咒敏智、INT／DEX 主動施法與領域／附魔輔助三路線，含配點、配裝及掛機取捨。">
+<title>賢者｜RO 放置仙境攻略</title><link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css?v=99e1c0aa29"><script src="../app.js?v=f4d0b41e24" defer></script></head>
+<body data-page="article"><a class="skip-link" href="#main">跳至主要內容</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="../index.html" aria-label="RO 放置仙境攻略首頁"><span class="brand-mark" aria-hidden="true">R<span>/</span></span><span class="brand-name">RO 放置仙境<span>玩家攻略索引</span></span></a>
+<nav class="top-nav" aria-label="主選單"><a href="../index.html#roles">職業攻略</a><a href="../index.html#skill-guides">職業技能</a><a href="../skills.html">技能模擬器</a><a href="../index.html#equipment">裝備分析</a><a href="../index.html#how-to-read">閱讀須知</a><a class="github-link" href="https://github.com/ned-lin-9527/Ragnarok" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div></header>
+<main id="main" class="article-shell"><div class="article-top"><a href="../index.html" class="back-link">← 回到攻略目錄</a><span class="eyebrow">法師 · 賢者</span><h1>賢者</h1><p class="article-summary">自動念咒敏智、INT／DEX 主動施法與領域／附魔輔助三路線，含配點、配裝及掛機取捨。</p><div class="article-meta"><span>最後查證：<time>2026-10-28</time></span><a href="https://github.com/ned-lin-9527/Ragnarok/blob/main/Role/%E6%B3%95%E5%B8%AB/%E8%B3%A2%E8%80%85/%E8%B3%A2%E8%80%85%E5%9F%B9%E9%A4%8A%E6%94%BB%E7%95%A5.md" target="_blank" rel="noopener noreferrer">查看 Markdown 原檔 ↗</a></div></div>
+  <div class="article-grid"><aside class="toc"><details class="toc-panel" open><summary>本篇目錄 <span aria-hidden="true">＋</span></summary><nav aria-label="文章章節"><a class="toc-level-2" href="#section-1">目的與適用條件</a><a class="toc-level-2" href="#section-2">流派定位與選擇</a><a class="toc-level-2" href="#section-3">關鍵機制：自動念咒、抗中斷與領域互斥</a><a class="toc-level-2" href="#section-4">轉職路線與階段定義</a><a class="toc-level-2" href="#section-5">① 轉職前（初心者／魔法師）屬性配點</a><a class="toc-level-3" href="#section-6">流派 A：自動念咒敏智型</a><a class="toc-level-3" href="#section-7">流派 B：INT／DEX 主動施法</a><a class="toc-level-3" href="#section-8">流派 C：領域／附魔輔助</a><a class="toc-level-2" href="#section-9">② 轉職前（初心者／魔法師）技能配點</a><a class="toc-level-3" href="#section-10">流派 A：自動念咒敏智型</a><a class="toc-level-3" href="#section-11">流派 B：INT／DEX 主動施法</a><a class="toc-level-3" href="#section-12">流派 C：領域／附魔輔助</a><a class="toc-level-2" href="#section-13">③ 轉職後（賢者）屬性配點</a><a class="toc-level-3" href="#section-14">流派 A：自動念咒敏智型</a><a class="toc-level-3" href="#section-15">流派 B：INT／DEX 主動施法</a><a class="toc-level-3" href="#section-16">流派 C：領域／附魔輔助</a><a class="toc-level-2" href="#section-17">④ 轉職後（賢者）技能配點</a><a class="toc-level-3" href="#section-18">流派 A：自動念咒敏智型</a><a class="toc-level-3" href="#section-19">流派 B：INT／DEX 主動施法</a><a class="toc-level-3" href="#section-20">流派 C：領域／附魔輔助</a><a class="toc-level-2" href="#section-21">配裝建議</a><a class="toc-level-3" href="#section-22">轉職前（魔法師）</a><a class="toc-level-3" href="#section-26">轉職後（賢者）</a><a class="toc-level-2" href="#section-30">掛機設定與練功地圖</a><a class="toc-level-3" href="#section-31">掛機規則（建議值）</a><a class="toc-level-3" href="#section-32">候選地圖</a><a class="toc-level-3" href="#section-33">測試方法：自詠效率、主動施法續航與隊伍領域收益</a><a class="toc-level-2" href="#section-34">比較與取捨</a><a class="toc-level-2" href="#section-35">風險與待確認事項</a><a class="toc-level-2" href="#section-36">依據與資料來源</a></nav><div class="toc-note">數值與建議請以本文「最後查證」日期及引用來源為準。</div></details></aside>
+  <article class="article-content" aria-label="攻略內容"><h2 id="section-1">目的與適用條件<a class="heading-anchor" href="#section-1" aria-label="連結至目的與適用條件">#</a></h2><p>本攻略建議未確定裝備與隊伍的新練賢者先走 <strong>INT／DEX 主動施法</strong>；想玩普攻觸發魔法再選 INT／AGI 自動念咒，有固定隊伍與材料預算才選領域／附魔輔助。</p>
+<ul>
+<li><strong>對象</strong>：一般初學者 → 魔法師 → 賢者；不含轉生後智者的完整培養路線。</li>
+<li><strong>前提</strong>：三路線分別配置，不能把各表相加；未假設稀有卡、隊友保護或無限補品。Base 檢查點與 Job 技能進度互相獨立。</li>
+<li><strong>目標</strong>：比較 Base／Job 經驗、SP 與補品收支、存活及隊伍效益，提供可照順序培養與測試的方案。</li>
+<li><strong>尚未取得的玩家資料</strong>：目前 Base／Job、是否轉生、六圍、技能、裝備／卡片、預算、隊伍、地圖及掛機目標；因此以下是一般新練路線，不能直接當作現有角色的剩餘點數表。</li>
+<li><strong>標示方式</strong>：「資訊站」是當日公開資料；「依資料計算」附公式與輸入；所有配點、等級段及測試門檻均為「建議」。本次未取得玩家實測；R 版前只作候選方向，未確認部分明記「R 版前參考／待此遊戲驗證」。</li>
+</ul>
+<h2 id="section-2">流派定位與選擇<a class="heading-anchor" href="#section-2" aria-label="連結至流派定位與選擇">#</a></h2><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>流派</th>
+<th>核心技能（本遊戲資料）</th>
+<th>主屬性</th>
+<th>SP 依賴</th>
+<th>掛機適性</th>
+<th>何時選它</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A：自動念咒敏智型</td>
+<td>自動念咒 <code>SA_AUTOSPELL</code>、進化之書 <code>SA_ADVANCEDBOOK</code>、龍知識 <code>SA_DRAGONOLOGY</code></td>
+<td>INT／AGI，少量 DEX／VIT</td>
+<td>中；每次觸發仍耗 SP</td>
+<td>須先通過近戰與續航測試</td>
+<td>喜歡書本普攻；能承受貼身傷害，且願意記錄實際觸發頻率</td>
+</tr>
+<tr>
+<td><strong>B：INT／DEX 主動施法（一般新練主推）</strong></td>
+<td>三系箭術、自由施法 <code>SA_FREECAST</code>、崩裂術 <code>WZ_HEAVENDRIVE</code></td>
+<td>INT／DEX，少量 VIT</td>
+<td>中～高，視施放頻率</td>
+<td>易建立可比較的單體基準；地系範圍另測</td>
+<td>裝備有限，想沿用魔法師練功方式；不想先投大量 AGI</td>
+</tr>
+<tr>
+<td>C：領域／附魔輔助</td>
+<td>四屬性附加、三元素領域、地元素領域 <code>SA_LANDPROTECTOR</code>、魔法效果解除 <code>SA_DISPELL</code></td>
+<td>INT／VIT／DEX</td>
+<td>SP 之外更依賴材料</td>
+<td>固定隊伍較適合，單練效率需犧牲</td>
+<td>已知道隊友攻擊屬性與敵方技能；能管理領域互斥與補給</td>
+</tr>
+</tbody></table></div>
+<p>A 不靠高 STR 作主要魔法輸出；B 不具備巫師的隕石術／暴風雪；C 也不是智者的 SP 支援配法。R 版前的高 STR 戰鬥賢者、靈魂連結自詠與隨機技能玩法只列研究方向，不另給未驗證的完整方案。隨機技能 <code>SA_ABRACADABRA</code> 在本遊戲不做變怪、召喚、升級等特殊效果，不適合當穩定掛機主軸。</p>
+<p><strong>轉換成本</strong>：A 的 AGI、B 的 DEX、C 的 VIT 投資不同；切換主要路線通常要檢查屬性與技能重置。可先共用魔法師裝備及箭術，二轉後再按測試決定。</p>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=jobs&amp;id=sage" target="_blank" rel="noopener noreferrer">賢者</a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=mage" target="_blank" rel="noopener noreferrer">魔法師</a>、<a href="https://irowiki.org/classic/Sage" target="_blank" rel="noopener noreferrer">R 版前 Sage</a>。</p>
+<h2 id="section-3">關鍵機制：自動念咒、抗中斷與領域互斥<a class="heading-anchor" href="#section-3" aria-label="連結至關鍵機制：自動念咒、抗中斷與領域互斥">#</a></h2><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>機制</th>
+<th>2026-10-28 資訊站資料</th>
+<th>對配點／掛機的影響</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自動念咒 Lv10</td>
+<td>390 秒、啟動 SP35、詠唱 3 秒；普攻含落空均有 25% 機率觸發</td>
+<td>設在輔助規則並選法術；需要實際普攻，不能拿主動箭術的段數當觸發次數</td>
+</tr>
+<tr>
+<td>可觸發法術上限</td>
+<td>Lv10 自詠：心靈爆破 3、三系箭術 3、聖靈召喚 3、火球術 2、冰凍術 1；須已學且不超過已學等級</td>
+<td>火箭術學到 10 仍不會自詠火箭術 10；高等箭術是給主動施法與一轉練功使用</td>
+</tr>
+<tr>
+<td>自詠等級與費用</td>
+<td>15% 取最高、35% 最高減 1、50% 最高的一半；消耗該級技能 SP 的 2/3，不足不發射</td>
+<td>一半等級與 SP 取整方式需實測；本攻略不宣稱零耗魔或固定每小時傷害</td>
+</tr>
+<tr>
+<td>自由施法 <code>SA_FREECAST</code></td>
+<td>每級增加 10% 受傷抗詠唱中斷，Lv10 為 100%</td>
+<td>B 優先拿滿；不是 R 版前邊走邊詠唱，也不等於免傷／免疫所有異常</td>
+</tr>
+<tr>
+<td>取消施法 <code>SA_CASTCANCEL</code></td>
+<td>掛機不主動施放</td>
+<td>只取 Lv1 當自由施法前置</td>
+</tr>
+<tr>
+<td>進化之書 Lv10</td>
+<td>使用書時 ATK +30（不受防禦影響）、攻擊動作 −5%</td>
+<td>ATK 加成不是 MATK；換杖後不能照算書本加速</td>
+</tr>
+<tr>
+<td>龍知識 Lv5</td>
+<td>INT +3、對龍族物理 +20%／魔法 +10%、受龍族傷害 −20%</td>
+<td>INT 對一般法術也有幫助；對非龍族不套用種族傷害加成</td>
+</tr>
+<tr>
+<td>魔法懲罰 <code>SA_MAGICROD</code></td>
+<td>輔助規則會在怪物魔法命中前自動用；自己正在詠唱時不行，地面技能除外</td>
+<td>A 普攻期可測吸收；B 不應期待長詠唱時同時吸收救命</td>
+</tr>
+<tr>
+<td>念咒拆除 <code>SA_SPELLBREAKER</code></td>
+<td>只對正在詠唱的目標施放；Boss 僅 10% 成功</td>
+<td>不能當 Boss 必定斷招手段</td>
+</tr>
+<tr>
+<td>屬性附加 Lv4／5</td>
+<td>Lv4 成功率 100%、20 分鐘；Lv5 為 30 分鐘；每次 SP40＋對應靈礦石 1 個</td>
+<td>改變武器屬性，不改火箭術本身屬性；會取代塗毒、撒水祈福與其他附魔。低等失敗會卸武器再自動重裝，原附魔消失</td>
+</tr>
+<tr>
+<td>火／水／風元素領域 Lv5</td>
+<td>自己及同圖一起掛機隊友的對應屬性物理／魔法傷害 +20%；另為 ATK +50／MaxHP +15%／FLEE +15；300 秒、SP40＋黃色魔力礦石</td>
+<td>三種領域與地元素領域四選一，不能把加成全部相加</td>
+</tr>
+<tr>
+<td>地元素領域 Lv5</td>
+<td>345 秒免受怪物地面魔法；施放清除全隊地面技能，期間不能設置地面技能與地面持續魔法；SP50＋藍、黃礦石各 1</td>
+<td>不是「地屬性增傷領域」。與隊伍範圍／地面技能可能衝突，須先驗證實際受影響技能</td>
+</tr>
+<tr>
+<td>魔法效果解除 Lv5</td>
+<td>可解除狀態成功率 100%；只對有增益的目標施放，會一起解除施加在牠身上的部分減益；SP1＋黃礦石</td>
+<td>並非移除所有狀態；避免抵銷隊友緩速、挑釁策略</td>
+</tr>
+</tbody></table></div>
+<p><strong>依資料計算：自詠與材料的觀測基準</strong></p>
+<ul>
+<li>若一分鐘實際做出 <code>N</code> 次普攻且自詠全程有效，SP 充足，Lv10 的期望觸發次數為 <code>0.25 × N</code>；例如實測 60 次普攻／分，期望 15 次／分。這是機率期望，不是保證，也未含魔法傷害。啟動費攤提約 <code>35 × 60 ÷ 390 = 5.38 SP／分</code>，另加每次觸發費用。</li>
+<li>元素領域 Lv5 無提早重開、無中斷地維持一小時，約需 <code>3600 ÷ 300 = 12</code> 個黃礦石；若實際買價 600 Z／個則 7,200 Z／小時，另有施法時間與 SP。600 是本次物品基準價，<strong>實際購買價／折扣須以遊戲商店核對</strong>。</li>
+<li>C 預設元素領域 Lv3 僅 180 秒，約 20 個黃礦石／小時；地元素領域 Lv5 約 10.43 次更新／小時，短時測試須按實際施放次數算整數材料。不要把 Lv5 的節省量套到 Lv3。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_AUTOSPELL" target="_blank" rel="noopener noreferrer">自動念咒</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FREECAST" target="_blank" rel="noopener noreferrer">自由施法</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_LANDPROTECTOR" target="_blank" rel="noopener noreferrer">地元素領域</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_MAGICROD" target="_blank" rel="noopener noreferrer">魔法懲罰</a>、<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>。其餘技能直達頁見④。</p>
+<h2 id="section-4">轉職路線與階段定義<a class="heading-anchor" href="#section-4" aria-label="連結至轉職路線與階段定義">#</a></h2><p>本攻略的「轉職前／後」是 <strong>魔法師 → 賢者</strong>；初學者 → 魔法師另列，不混用點數。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>階段</th>
+<th>轉職條件（資訊站）</th>
+<th>技能點</th>
+<th>要點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初學者 → 魔法師 <code>mage</code></td>
+<td>初學者 Job10、基本技能 <code>NV_BASIC</code> Lv9</td>
+<td>9 點全投基本技能</td>
+<td>沒有其他一般技能選修；①的早期 INT 是為一轉準備，不是提升初心者普攻</td>
+</tr>
+<tr>
+<td>魔法師 → 賢者 <code>sage</code></td>
+<td>魔法師 Job40 以上，用完技能點</td>
+<td>Job40：39 點；Job50：49 點</td>
+<td>三路線預設 Job50；Job40 版於②明列</td>
+</tr>
+<tr>
+<td>賢者</td>
+<td>Job 重新從 1 起算，上限 50</td>
+<td>二轉新增 49 點</td>
+<td>一轉技能保留；重置後先補足當初的一轉點數才能投二轉</td>
+</tr>
+<tr>
+<td>賢者 → 轉生 → 智者（範圍外）</td>
+<td>一般二轉 Base99／Job50、點數用完，轉生費 1,285,000 Z</td>
+<td>轉生屬性起始 100 點；進階二轉 Job 上限70</td>
+<td><strong>已開放</strong>。轉生後不得沿用本攻略的 48 點起始素質表；智者新技能需另作攻略</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Job 屬性加成</strong>：魔法師 Job50 為 INT +8／DEX +3／AGI +4／LUK +3；賢者 Job50 為 STR +5／AGI +5／VIT +3／INT +9／DEX +5／LUK +3。轉職後用目前職業加成，不永久疊上魔法師加成。龍知識的 INT 另計。</li>
+<li><strong>不扣點任務技能</strong>：初學者緊急治療 <code>NV_FIRSTAID</code>（Job4）、魔法師能量外套 <code>MG_ENERGYCOAT</code>（Job35）；當日賢者技能樹未另列專屬任務技能，不搬用 R 版前元素轉換技能。</li>
+<li>能量外套受物理傷害時另消耗 MaxSP 的 1%～3%，可能壓縮自詠／主動法術預算；要用同圖 SP 曲線決定。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=jobs&amp;id=novice" target="_blank" rel="noopener noreferrer">初學者</a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=mage" target="_blank" rel="noopener noreferrer">魔法師</a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=sage" target="_blank" rel="noopener noreferrer">賢者</a>、<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>。</p>
+<h2 id="section-5">① 轉職前（初心者／魔法師）屬性配點<a class="heading-anchor" href="#section-5" aria-label="連結至① 轉職前（初心者／魔法師）屬性配點">#</a></h2><p>下列都是<strong>不含 Job、裝備與增益的手動累計目標值</strong>，不是每階段追加值。資訊站公式：六圍各 1，初始 48 點；<code>x→x+1</code> 消耗 <code>floor((x−1)/10)+2</code>，Base <code>L→L+1</code> 得 <code>floor(L/5)+3</code> 點，手動單項上限 99。表中已投入／剩餘依此計算。Base50 不代表一定已 Job50；若仍未轉職，後續屬性按選定路線接續，技能仍留在一轉表。</p>
+<h3 id="section-6">流派 A：自動念咒敏智型<a class="heading-anchor" href="#section-6" aria-label="連結至流派 A：自動念咒敏智型">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Base Lv</th>
+<th align="right">可用總點數</th>
+<th align="right">STR</th>
+<th align="right">AGI</th>
+<th align="right">DEX</th>
+<th align="right">VIT</th>
+<th align="right">INT</th>
+<th align="right">LUK</th>
+<th align="right">已投入點數</th>
+<th align="right">剩餘點數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10</td>
+<td align="right">80</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="right">22</td>
+<td align="right">1</td>
+<td align="right">77</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="right">210</td>
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="right">20</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">1</td>
+<td align="right">200</td>
+<td align="right">10</td>
+</tr>
+<tr>
+<td>50</td>
+<td align="right">420</td>
+<td align="right">1</td>
+<td align="right">30</td>
+<td align="right">20</td>
+<td align="right">10</td>
+<td align="right">60</td>
+<td align="right">1</td>
+<td align="right">414</td>
+<td align="right">6</td>
+</tr>
+</tbody></table></div>
+<p><strong>投入順序</strong></p>
+<ol>
+<li>初學者至 Base10 先 INT22、DEX12；按基本技能完成一轉。</li>
+<li>至 Base30 以 INT40 為先、DEX20、AGI10；仍以箭術練功，不假裝已有自詠。</li>
+<li>至 Base50 拉 INT60，接 AGI30、VIT10；保留轉賢者後的普攻成長空間。</li>
+</ol>
+<p><strong>推導與前提</strong></p>
+<ul>
+<li>一轉先投 AGI 會少掉 DEX，主動詠唱比 B 慢；不願承擔這段成本可先走 B，確認重置條件後再轉 A。</li>
+<li>普攻落空也能觸發自詠，DEX20 是保留主動施法與少量物理命中的折衷，並非觸發所需門檻。</li>
+</ul>
+<h3 id="section-7">流派 B：INT／DEX 主動施法<a class="heading-anchor" href="#section-7" aria-label="連結至流派 B：INT／DEX 主動施法">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Base Lv</th>
+<th align="right">可用總點數</th>
+<th align="right">STR</th>
+<th align="right">AGI</th>
+<th align="right">DEX</th>
+<th align="right">VIT</th>
+<th align="right">INT</th>
+<th align="right">LUK</th>
+<th align="right">已投入點數</th>
+<th align="right">剩餘點數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10</td>
+<td align="right">80</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="right">22</td>
+<td align="right">1</td>
+<td align="right">77</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="right">210</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">25</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">1</td>
+<td align="right">201</td>
+<td align="right">9</td>
+</tr>
+<tr>
+<td>50</td>
+<td align="right">420</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">10</td>
+<td align="right">60</td>
+<td align="right">1</td>
+<td align="right">416</td>
+<td align="right">4</td>
+</tr>
+</tbody></table></div>
+<p><strong>投入順序</strong></p>
+<ol>
+<li>Base10 前先 INT，再補 DEX。</li>
+<li>Base30 以 INT40／DEX25 建立火箭術練功基準。</li>
+<li>Base50 先 INT60／DEX40，再補 VIT10；有死亡風險先換安全地圖與補防具。</li>
+</ol>
+<p><strong>推導與前提</strong></p>
+<ul>
+<li>INT 影響 MATK／SP，DEX 縮短主動詠唱；不把 INT 當成本遊戲詠唱公式的一部分。</li>
+<li>VIT10 是試行緩衝，不代表能承受所有敵人；此表沒有預設稀有卡提供額外 HP。</li>
+</ul>
+<h3 id="section-8">流派 C：領域／附魔輔助<a class="heading-anchor" href="#section-8" aria-label="連結至流派 C：領域／附魔輔助">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Base Lv</th>
+<th align="right">可用總點數</th>
+<th align="right">STR</th>
+<th align="right">AGI</th>
+<th align="right">DEX</th>
+<th align="right">VIT</th>
+<th align="right">INT</th>
+<th align="right">LUK</th>
+<th align="right">已投入點數</th>
+<th align="right">剩餘點數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10</td>
+<td align="right">80</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="right">22</td>
+<td align="right">1</td>
+<td align="right">77</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="right">210</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">25</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">1</td>
+<td align="right">201</td>
+<td align="right">9</td>
+</tr>
+<tr>
+<td>50</td>
+<td align="right">420</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">10</td>
+<td align="right">60</td>
+<td align="right">1</td>
+<td align="right">416</td>
+<td align="right">4</td>
+</tr>
+</tbody></table></div>
+<p><strong>投入順序</strong></p>
+<ol>
+<li>一轉先獨立練功，INT22／DEX12 起步。</li>
+<li>Base30 維持 INT40／DEX25，先取得可用輸出。</li>
+<li>Base50 到 INT60／DEX40／VIT10；二轉有隊伍需求後才大量投 VIT。</li>
+</ol>
+<p><strong>推導與前提</strong></p>
+<ul>
+<li>前期與 B 相同是刻意保留單練能力，不代表已假設有人帶練。</li>
+<li>若已有固定承傷任務，VIT 提早投入會降低輸出／縮詠唱進度；需玩家資料才能重算，不能直接把三者目標一起提高。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">配點與詠唱公式</a>。</p>
+<h2 id="section-9">② 轉職前（初心者／魔法師）技能配點<a class="heading-anchor" href="#section-9" aria-label="連結至② 轉職前（初心者／魔法師）技能配點">#</a></h2><p>初學者 9 點全部投基本技能 <code>NV_BASIC</code> Lv9，無其他一般技能選修；任務技能另計。三路線都保留三系箭術與地屬性附加前置，以下各列完整一轉順序，<strong>同一角色只選其中一表</strong>。表內 Job Lv 是完成這次投入的區間，技能等級為累計目標。</p>
+<h3 id="section-10">流派 A：自動念咒敏智型<a class="heading-anchor" href="#section-10" aria-label="連結至流派 A：自動念咒敏智型">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Job Lv</th>
+<th>技能（ID）</th>
+<th align="right">目標等級</th>
+<th>前置</th>
+<th align="right">累計點數</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2～11</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_FIREBOLT" target="_blank" rel="noopener noreferrer">火箭術 <code>MG_FIREBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">10</td>
+<td>先對地屬性怪單體練功；學滿後仍可選較低施放等級。</td>
+</tr>
+<tr>
+<td>12～21</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_SRECOVERY" target="_blank" rel="noopener noreferrer">禪心 <code>MG_SRECOVERY</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">20</td>
+<td>維持 SP 續航。</td>
+</tr>
+<tr>
+<td>22～26</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_COLDBOLT" target="_blank" rel="noopener noreferrer">冰箭術 <code>MG_COLDBOLT</code></a></td>
+<td align="right">5</td>
+<td>無</td>
+<td align="right">25</td>
+<td>火屬性敵人的備案。</td>
+</tr>
+<tr>
+<td>27～30</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">4</td>
+<td>無</td>
+<td align="right">29</td>
+<td>取得雷爆術前置。</td>
+</tr>
+<tr>
+<td>31</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_STONECURSE" target="_blank" rel="noopener noreferrer">石化術 <code>MG_STONECURSE</code></a></td>
+<td align="right">1</td>
+<td>無</td>
+<td align="right">30</td>
+<td>地屬性附加前置；不預設施放石化術。</td>
+</tr>
+<tr>
+<td>32</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_SIGHT" target="_blank" rel="noopener noreferrer">火狩 <code>MG_SIGHT</code></a></td>
+<td align="right">1</td>
+<td>無</td>
+<td align="right">31</td>
+<td>處理隱匿目標。</td>
+</tr>
+<tr>
+<td>33～39</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_THUNDERSTORM" target="_blank" rel="noopener noreferrer">雷爆術 <code>MG_THUNDERSTORM</code></a></td>
+<td align="right">7</td>
+<td>雷擊術 Lv4</td>
+<td align="right">38</td>
+<td>範圍風系備案；先學會，實際掛機另測。</td>
+</tr>
+<tr>
+<td>40</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">5</td>
+<td>無</td>
+<td align="right">39</td>
+<td>累計 39 點，Job 40 可在此轉職。</td>
+</tr>
+<tr>
+<td>41～45</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_COLDBOLT" target="_blank" rel="noopener noreferrer">冰箭術 <code>MG_COLDBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">44</td>
+<td>Job 50 版補足主動水系箭術。</td>
+</tr>
+<tr>
+<td>46～50</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">49</td>
+<td>Job 50 版補足主動風系箭術。</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>本路線理由</strong>：自詠三系箭術上限為 Lv3；Lv5～10 的投資用於一轉練功與二轉主動補刀，不能算作自詠段數。</li>
+<li><strong>Job40 轉職版</strong>：到累計39點停止，即火箭10、禪心10、冰箭5、雷擊5、雷爆7、石化1、火狩1；比 Job50 版少冰箭5與雷擊5。④所有二轉前置仍成立；若二轉後補回，須從④讓出10點，不是免費多出的一轉點數。</li>
+<li><strong>彈性點數</strong>：雷爆術的7點可改成冰凍術1（已具冰箭5前置）＋雷爆術6，供冰凍／雷擊測試；本攻略預設不投火牆，也不將冰凍成功率當成保證。三系箭術先後可按主要怪物互換，但雷爆術之前須先有雷擊術4。</li>
+</ul>
+<h3 id="section-11">流派 B：INT／DEX 主動施法<a class="heading-anchor" href="#section-11" aria-label="連結至流派 B：INT／DEX 主動施法">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Job Lv</th>
+<th>技能（ID）</th>
+<th align="right">目標等級</th>
+<th>前置</th>
+<th align="right">累計點數</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2～11</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_FIREBOLT" target="_blank" rel="noopener noreferrer">火箭術 <code>MG_FIREBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">10</td>
+<td>先對地屬性怪單體練功；學滿後仍可選較低施放等級。</td>
+</tr>
+<tr>
+<td>12～21</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_SRECOVERY" target="_blank" rel="noopener noreferrer">禪心 <code>MG_SRECOVERY</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">20</td>
+<td>維持 SP 續航。</td>
+</tr>
+<tr>
+<td>22～26</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_COLDBOLT" target="_blank" rel="noopener noreferrer">冰箭術 <code>MG_COLDBOLT</code></a></td>
+<td align="right">5</td>
+<td>無</td>
+<td align="right">25</td>
+<td>火屬性敵人的備案。</td>
+</tr>
+<tr>
+<td>27～30</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">4</td>
+<td>無</td>
+<td align="right">29</td>
+<td>取得雷爆術前置。</td>
+</tr>
+<tr>
+<td>31</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_STONECURSE" target="_blank" rel="noopener noreferrer">石化術 <code>MG_STONECURSE</code></a></td>
+<td align="right">1</td>
+<td>無</td>
+<td align="right">30</td>
+<td>地屬性附加前置；不預設施放石化術。</td>
+</tr>
+<tr>
+<td>32</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_SIGHT" target="_blank" rel="noopener noreferrer">火狩 <code>MG_SIGHT</code></a></td>
+<td align="right">1</td>
+<td>無</td>
+<td align="right">31</td>
+<td>處理隱匿目標。</td>
+</tr>
+<tr>
+<td>33～39</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_THUNDERSTORM" target="_blank" rel="noopener noreferrer">雷爆術 <code>MG_THUNDERSTORM</code></a></td>
+<td align="right">7</td>
+<td>雷擊術 Lv4</td>
+<td align="right">38</td>
+<td>範圍風系備案；先學會，實際掛機另測。</td>
+</tr>
+<tr>
+<td>40</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">5</td>
+<td>無</td>
+<td align="right">39</td>
+<td>累計 39 點，Job 40 可在此轉職。</td>
+</tr>
+<tr>
+<td>41～45</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_COLDBOLT" target="_blank" rel="noopener noreferrer">冰箭術 <code>MG_COLDBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">44</td>
+<td>Job 50 版補足主動水系箭術。</td>
+</tr>
+<tr>
+<td>46～50</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">49</td>
+<td>Job 50 版補足主動風系箭術。</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>本路線理由</strong>：三箭滿級供不同屬性地圖切換；雷爆術為風系範圍備案，崩裂術在二轉另學。</li>
+<li><strong>Job40 轉職版</strong>：到累計39點停止，即火箭10、禪心10、冰箭5、雷擊5、雷爆7、石化1、火狩1；比 Job50 版少冰箭5與雷擊5。④所有二轉前置仍成立；若二轉後補回，須從④讓出10點，不是免費多出的一轉點數。</li>
+<li><strong>彈性點數</strong>：雷爆術的7點可改成冰凍術1（已具冰箭5前置）＋雷爆術6，供冰凍／雷擊測試；本攻略預設不投火牆，也不將冰凍成功率當成保證。三系箭術先後可按主要怪物互換，但雷爆術之前須先有雷擊術4。</li>
+</ul>
+<h3 id="section-12">流派 C：領域／附魔輔助<a class="heading-anchor" href="#section-12" aria-label="連結至流派 C：領域／附魔輔助">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Job Lv</th>
+<th>技能（ID）</th>
+<th align="right">目標等級</th>
+<th>前置</th>
+<th align="right">累計點數</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2～11</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_FIREBOLT" target="_blank" rel="noopener noreferrer">火箭術 <code>MG_FIREBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">10</td>
+<td>先對地屬性怪單體練功；學滿後仍可選較低施放等級。</td>
+</tr>
+<tr>
+<td>12～21</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_SRECOVERY" target="_blank" rel="noopener noreferrer">禪心 <code>MG_SRECOVERY</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">20</td>
+<td>維持 SP 續航。</td>
+</tr>
+<tr>
+<td>22～26</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_COLDBOLT" target="_blank" rel="noopener noreferrer">冰箭術 <code>MG_COLDBOLT</code></a></td>
+<td align="right">5</td>
+<td>無</td>
+<td align="right">25</td>
+<td>火屬性敵人的備案。</td>
+</tr>
+<tr>
+<td>27～30</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">4</td>
+<td>無</td>
+<td align="right">29</td>
+<td>取得雷爆術前置。</td>
+</tr>
+<tr>
+<td>31</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_STONECURSE" target="_blank" rel="noopener noreferrer">石化術 <code>MG_STONECURSE</code></a></td>
+<td align="right">1</td>
+<td>無</td>
+<td align="right">30</td>
+<td>地屬性附加前置；不預設施放石化術。</td>
+</tr>
+<tr>
+<td>32</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_SIGHT" target="_blank" rel="noopener noreferrer">火狩 <code>MG_SIGHT</code></a></td>
+<td align="right">1</td>
+<td>無</td>
+<td align="right">31</td>
+<td>處理隱匿目標。</td>
+</tr>
+<tr>
+<td>33～39</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_THUNDERSTORM" target="_blank" rel="noopener noreferrer">雷爆術 <code>MG_THUNDERSTORM</code></a></td>
+<td align="right">7</td>
+<td>雷擊術 Lv4</td>
+<td align="right">38</td>
+<td>範圍風系備案；先學會，實際掛機另測。</td>
+</tr>
+<tr>
+<td>40</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">5</td>
+<td>無</td>
+<td align="right">39</td>
+<td>累計 39 點，Job 40 可在此轉職。</td>
+</tr>
+<tr>
+<td>41～45</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_COLDBOLT" target="_blank" rel="noopener noreferrer">冰箭術 <code>MG_COLDBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">44</td>
+<td>Job 50 版補足主動水系箭術。</td>
+</tr>
+<tr>
+<td>46～50</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=MG_LIGHTNINGBOLT" target="_blank" rel="noopener noreferrer">雷擊術 <code>MG_LIGHTNINGBOLT</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">49</td>
+<td>Job 50 版補足主動風系箭術。</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>本路線理由</strong>：保留單練箭術及四屬性附加前置；一轉不為尚未確認的團隊任務犧牲全部輸出。</li>
+<li><strong>Job40 轉職版</strong>：到累計39點停止，即火箭10、禪心10、冰箭5、雷擊5、雷爆7、石化1、火狩1；比 Job50 版少冰箭5與雷擊5。④所有二轉前置仍成立；若二轉後補回，須從④讓出10點，不是免費多出的一轉點數。</li>
+<li><strong>彈性點數</strong>：雷爆術的7點可改成冰凍術1（已具冰箭5前置）＋雷爆術6，供冰凍／雷擊測試；本攻略預設不投火牆，也不將冰凍成功率當成保證。三系箭術先後可按主要怪物互換，但雷爆術之前須先有雷擊術4。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=jobs&amp;id=mage" target="_blank" rel="noopener noreferrer">魔法師技能樹</a>；以上各列有技能直達頁。</p>
+<h2 id="section-13">③ 轉職後（賢者）屬性配點<a class="heading-anchor" href="#section-13" aria-label="連結至③ 轉職後（賢者）屬性配點">#</a></h2><p>沿用①的手動值追加，沒有重置，也沒有把 Job 加成算成可花點數。以下 Base60 起的目標僅對一般未轉生角色適用。</p>
+<h3 id="section-14">流派 A：自動念咒敏智型<a class="heading-anchor" href="#section-14" aria-label="連結至流派 A：自動念咒敏智型">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Base Lv</th>
+<th align="right">可用總點數</th>
+<th align="right">STR</th>
+<th align="right">AGI</th>
+<th align="right">DEX</th>
+<th align="right">VIT</th>
+<th align="right">INT</th>
+<th align="right">LUK</th>
+<th align="right">已投入點數</th>
+<th align="right">剩餘點數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>60</td>
+<td align="right">555</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">20</td>
+<td align="right">10</td>
+<td align="right">70</td>
+<td align="right">1</td>
+<td align="right">542</td>
+<td align="right">13</td>
+</tr>
+<tr>
+<td>70</td>
+<td align="right">710</td>
+<td align="right">1</td>
+<td align="right">50</td>
+<td align="right">20</td>
+<td align="right">10</td>
+<td align="right">80</td>
+<td align="right">1</td>
+<td align="right">690</td>
+<td align="right">20</td>
+</tr>
+<tr>
+<td>80</td>
+<td align="right">885</td>
+<td align="right">1</td>
+<td align="right">60</td>
+<td align="right">20</td>
+<td align="right">10</td>
+<td align="right">89</td>
+<td align="right">1</td>
+<td align="right">848</td>
+<td align="right">37</td>
+</tr>
+<tr>
+<td>90</td>
+<td align="right">1080</td>
+<td align="right">1</td>
+<td align="right">74</td>
+<td align="right">20</td>
+<td align="right">20</td>
+<td align="right">95</td>
+<td align="right">1</td>
+<td align="right">1055</td>
+<td align="right">25</td>
+</tr>
+<tr>
+<td>99</td>
+<td align="right">1273</td>
+<td align="right">1</td>
+<td align="right">88</td>
+<td align="right">25</td>
+<td align="right">25</td>
+<td align="right">99</td>
+<td align="right">1</td>
+<td align="right">1270</td>
+<td align="right">3</td>
+</tr>
+</tbody></table></div>
+<p><strong>投入順序</strong></p>
+<ol>
+<li>Base50～70 先 INT60→80、AGI30→50，DEX20／VIT10 暫留。</li>
+<li>Base70～90 推 INT95、AGI74；後段補 VIT20，對照貼身補品消耗。</li>
+<li>Base99 目標 INT99／AGI88／DEX25／VIT25；先滿足存活再決定是否追高攻速。</li>
+</ol>
+<p><strong>推導與前提</strong></p>
+<ul>
+<li>以普攻頻率與 MATK 共同成長為原則；沒有手持武器、增益與面板 ASPD，不能宣稱達成特定攻速。</li>
+<li>本表不為賢者的日記的 STR50 條件投入 STR；其攻速收益需與犧牲 INT／AGI 的代價比較。</li>
+<li>DEX 不會把自詠箭術上限由3變10，AGI 也不會增加每次普攻的25%觸發率。</li>
+</ul>
+<h3 id="section-15">流派 B：INT／DEX 主動施法<a class="heading-anchor" href="#section-15" aria-label="連結至流派 B：INT／DEX 主動施法">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Base Lv</th>
+<th align="right">可用總點數</th>
+<th align="right">STR</th>
+<th align="right">AGI</th>
+<th align="right">DEX</th>
+<th align="right">VIT</th>
+<th align="right">INT</th>
+<th align="right">LUK</th>
+<th align="right">已投入點數</th>
+<th align="right">剩餘點數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>60</td>
+<td align="right">555</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">50</td>
+<td align="right">10</td>
+<td align="right">70</td>
+<td align="right">1</td>
+<td align="right">554</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>70</td>
+<td align="right">710</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">55</td>
+<td align="right">20</td>
+<td align="right">80</td>
+<td align="right">1</td>
+<td align="right">706</td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td>80</td>
+<td align="right">885</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">67</td>
+<td align="right">20</td>
+<td align="right">89</td>
+<td align="right">1</td>
+<td align="right">885</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>90</td>
+<td align="right">1080</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">79</td>
+<td align="right">25</td>
+<td align="right">95</td>
+<td align="right">1</td>
+<td align="right">1072</td>
+<td align="right">8</td>
+</tr>
+<tr>
+<td>99</td>
+<td align="right">1273</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">90</td>
+<td align="right">35</td>
+<td align="right">99</td>
+<td align="right">1</td>
+<td align="right">1268</td>
+<td align="right">5</td>
+</tr>
+</tbody></table></div>
+<p><strong>投入順序</strong></p>
+<ol>
+<li>Base50～70 先 INT80、DEX55，再把 VIT補到20。</li>
+<li>Base70～90 推 INT95／DEX79／VIT25。</li>
+<li>Base99 到 INT99／DEX90／VIT35；不把自由施法抗中斷當作省略生存的理由。</li>
+</ol>
+<p><strong>推導與前提</strong></p>
+<ul>
+<li>一般主動技能詠唱毫秒 = <code>floor(基礎毫秒 × max(0,150−總DEX) ÷150)</code>，其後另套裝備等修正。總DEX含 Job及裝備。</li>
+<li>例：手動DEX90＋賢者Job50加成5，未有其他修正時火箭10詠唱 = <code>floor(7000×55/150)=2566 ms</code>；這不是含延遲、搜尋與補給的每次擊殺時間。</li>
+<li>自由施法10處理受傷中斷，DEX仍能縮短詠唱；兩者功能不同。</li>
+</ul>
+<h3 id="section-16">流派 C：領域／附魔輔助<a class="heading-anchor" href="#section-16" aria-label="連結至流派 C：領域／附魔輔助">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Base Lv</th>
+<th align="right">可用總點數</th>
+<th align="right">STR</th>
+<th align="right">AGI</th>
+<th align="right">DEX</th>
+<th align="right">VIT</th>
+<th align="right">INT</th>
+<th align="right">LUK</th>
+<th align="right">已投入點數</th>
+<th align="right">剩餘點數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>60</td>
+<td align="right">555</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">35</td>
+<td align="right">65</td>
+<td align="right">1</td>
+<td align="right">547</td>
+<td align="right">8</td>
+</tr>
+<tr>
+<td>70</td>
+<td align="right">710</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">50</td>
+<td align="right">46</td>
+<td align="right">70</td>
+<td align="right">1</td>
+<td align="right">706</td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td>80</td>
+<td align="right">885</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">60</td>
+<td align="right">56</td>
+<td align="right">75</td>
+<td align="right">1</td>
+<td align="right">884</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>90</td>
+<td align="right">1080</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">65</td>
+<td align="right">70</td>
+<td align="right">80</td>
+<td align="right">1</td>
+<td align="right">1075</td>
+<td align="right">5</td>
+</tr>
+<tr>
+<td>99</td>
+<td align="right">1273</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">70</td>
+<td align="right">85</td>
+<td align="right">80</td>
+<td align="right">1</td>
+<td align="right">1253</td>
+<td align="right">20</td>
+</tr>
+</tbody></table></div>
+<p><strong>投入順序</strong></p>
+<ol>
+<li>Base50～70 逐步 INT70／DEX50／VIT46，以維持領域與存活為先。</li>
+<li>Base70～90 到 INT80／DEX65／VIT70。</li>
+<li>Base99 把 VIT提到85、DEX70；保留20點等待隊伍需求，不勉強花完。</li>
+</ol>
+<p><strong>推導與前提</strong></p>
+<ul>
+<li>這是已確認需要輔助的隊伍方案；若仍長期單練，採B更容易維持輸出。</li>
+<li>VIT提高HP與物理軟防禦，不能替代對應種族／屬性的減傷裝備。</li>
+<li>INT80是續航與保留箭術的折衷；沒有角色實測，不保證免SP藥或最省成本。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=sage" target="_blank" rel="noopener noreferrer">賢者 Job 加成</a>。</p>
+<h2 id="section-17">④ 轉職後（賢者）技能配點<a class="heading-anchor" href="#section-17" aria-label="連結至④ 轉職後（賢者）技能配點">#</a></h2><p>下列每表均為<strong>賢者新增49點</strong>，不包含一轉49點與初心者9點。Job40一轉版也能滿足三表前置；但回補一轉箭術須扣除這49點的部分配置。所有「可學」不等於必須設成常駐規則。</p>
+<h3 id="section-18">流派 A：自動念咒敏智型<a class="heading-anchor" href="#section-18" aria-label="連結至流派 A：自動念咒敏智型">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Job Lv</th>
+<th>技能（ID）</th>
+<th align="right">目標等級</th>
+<th>前置</th>
+<th align="right">累計點數</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2～3</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_ADVANCEDBOOK" target="_blank" rel="noopener noreferrer">進化之書 <code>SA_ADVANCEDBOOK</code></a></td>
+<td align="right">2</td>
+<td>無</td>
+<td align="right">2</td>
+<td>開取消施法。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_CASTCANCEL" target="_blank" rel="noopener noreferrer">取消施法 <code>SA_CASTCANCEL</code></a></td>
+<td align="right">1</td>
+<td>進化之書 Lv2</td>
+<td align="right">3</td>
+<td>必要過路，不設掛機規則。</td>
+</tr>
+<tr>
+<td>5～8</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FREECAST" target="_blank" rel="noopener noreferrer">自由施法 <code>SA_FREECAST</code></a></td>
+<td align="right">4</td>
+<td>取消施法 Lv1</td>
+<td align="right">7</td>
+<td>自詠前置；受傷抗中斷40%。</td>
+</tr>
+<tr>
+<td>9～18</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_AUTOSPELL" target="_blank" rel="noopener noreferrer">自動念咒 <code>SA_AUTOSPELL</code></a></td>
+<td align="right">10</td>
+<td>自由施法 Lv4</td>
+<td align="right">17</td>
+<td>Job18取得完整25%觸發率。</td>
+</tr>
+<tr>
+<td>19～26</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_ADVANCEDBOOK" target="_blank" rel="noopener noreferrer">進化之書 <code>SA_ADVANCEDBOOK</code></a></td>
+<td align="right">10</td>
+<td>無</td>
+<td align="right">25</td>
+<td>持書普攻加成，並開龍知識。</td>
+</tr>
+<tr>
+<td>27～31</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_DRAGONOLOGY" target="_blank" rel="noopener noreferrer">龍知識 <code>SA_DRAGONOLOGY</code></a></td>
+<td align="right">5</td>
+<td>進化之書 Lv9</td>
+<td align="right">30</td>
+<td>INT+3，龍族另有收益。</td>
+</tr>
+<tr>
+<td>32～37</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FREECAST" target="_blank" rel="noopener noreferrer">自由施法 <code>SA_FREECAST</code></a></td>
+<td align="right">10</td>
+<td>取消施法 Lv1</td>
+<td align="right">36</td>
+<td>保護自詠重開與主動補刀的詠唱。</td>
+</tr>
+<tr>
+<td>38～39</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FLAMELAUNCHER" target="_blank" rel="noopener noreferrer">火屬性附加 <code>SA_FLAMELAUNCHER</code></a></td>
+<td align="right">2</td>
+<td>火箭術 Lv1、進化之書 Lv5</td>
+<td align="right">38</td>
+<td>火領域前置；Lv2附魔不列常駐。</td>
+</tr>
+<tr>
+<td>40～44</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_VOLCANO" target="_blank" rel="noopener noreferrer">火元素領域 <code>SA_VOLCANO</code></a></td>
+<td align="right">5</td>
+<td>火屬性附加 Lv2</td>
+<td align="right">43</td>
+<td>火箭自詠地圖可測；須黃礦石。</td>
+</tr>
+<tr>
+<td>45</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_MAGICROD" target="_blank" rel="noopener noreferrer">魔法懲罰 <code>SA_MAGICROD</code></a></td>
+<td align="right">1</td>
+<td>進化之書 Lv4</td>
+<td align="right">44</td>
+<td>可測非地面魔法吸收。</td>
+</tr>
+<tr>
+<td>46～48</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_SPELLBREAKER" target="_blank" rel="noopener noreferrer">念咒拆除 <code>SA_SPELLBREAKER</code></a></td>
+<td align="right">3</td>
+<td>魔法懲罰 Lv1</td>
+<td align="right">47</td>
+<td>解除前置，對詠唱怪才用。</td>
+</tr>
+<tr>
+<td>49～50</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_DISPELL" target="_blank" rel="noopener noreferrer">魔法效果解除 <code>SA_DISPELL</code></a></td>
+<td align="right">2</td>
+<td>念咒拆除 Lv3</td>
+<td align="right">49</td>
+<td>70%可解除狀態成功率，按需使用。</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>階段切換</strong>：Job18前仍以主動箭術為主；自詠成形後先在舊安全地圖改普攻，不同時換裝、換圖與大量引怪。</li>
+<li><strong>彈性方案</strong>：若不需要後段自由施法4→10的6點，可把魔法效果解除2→5用3點、主掛屬性附加2→5用3點；代價是自詠重開／補刀仍可能被打斷。火領域整條可對等換成水／風附加2＋領域5，必須同步改觸發箭術與材料。</li>
+</ul>
+<h3 id="section-19">流派 B：INT／DEX 主動施法<a class="heading-anchor" href="#section-19" aria-label="連結至流派 B：INT／DEX 主動施法">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Job Lv</th>
+<th>技能（ID）</th>
+<th align="right">目標等級</th>
+<th>前置</th>
+<th align="right">累計點數</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2～3</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_ADVANCEDBOOK" target="_blank" rel="noopener noreferrer">進化之書 <code>SA_ADVANCEDBOOK</code></a></td>
+<td align="right">2</td>
+<td>無</td>
+<td align="right">2</td>
+<td>開取消施法。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_CASTCANCEL" target="_blank" rel="noopener noreferrer">取消施法 <code>SA_CASTCANCEL</code></a></td>
+<td align="right">1</td>
+<td>進化之書 Lv2</td>
+<td align="right">3</td>
+<td>必要過路。</td>
+</tr>
+<tr>
+<td>5～14</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FREECAST" target="_blank" rel="noopener noreferrer">自由施法 <code>SA_FREECAST</code></a></td>
+<td align="right">10</td>
+<td>取消施法 Lv1</td>
+<td align="right">13</td>
+<td>Job14完成受傷抗中斷。</td>
+</tr>
+<tr>
+<td>15～17</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_ADVANCEDBOOK" target="_blank" rel="noopener noreferrer">進化之書 <code>SA_ADVANCEDBOOK</code></a></td>
+<td align="right">5</td>
+<td>無</td>
+<td align="right">16</td>
+<td>地屬性附加前置；持杖時書加成本身無效。</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_SEISMICWEAPON" target="_blank" rel="noopener noreferrer">地屬性附加 <code>SA_SEISMICWEAPON</code></a></td>
+<td align="right">1</td>
+<td>石化術 Lv1、進化之書 Lv5</td>
+<td align="right">17</td>
+<td>只作地震術前置。</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=WZ_EARTHSPIKE" target="_blank" rel="noopener noreferrer">地震術 <code>WZ_EARTHSPIKE</code></a></td>
+<td align="right">1</td>
+<td>地屬性附加 Lv1</td>
+<td align="right">18</td>
+<td>崩裂術前置，單體地系備用。</td>
+</tr>
+<tr>
+<td>20～24</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=WZ_HEAVENDRIVE" target="_blank" rel="noopener noreferrer">崩裂術 <code>WZ_HEAVENDRIVE</code></a></td>
+<td align="right">5</td>
+<td>地震術 Lv1</td>
+<td align="right">23</td>
+<td>地屬性範圍輸出；看怪物屬性開規則。</td>
+</tr>
+<tr>
+<td>25～28</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_ADVANCEDBOOK" target="_blank" rel="noopener noreferrer">進化之書 <code>SA_ADVANCEDBOOK</code></a></td>
+<td align="right">9</td>
+<td>無</td>
+<td align="right">27</td>
+<td>龍知識前置。</td>
+</tr>
+<tr>
+<td>29～33</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_DRAGONOLOGY" target="_blank" rel="noopener noreferrer">龍知識 <code>SA_DRAGONOLOGY</code></a></td>
+<td align="right">5</td>
+<td>進化之書 Lv9</td>
+<td align="right">32</td>
+<td>INT+3，完整共32點。</td>
+</tr>
+<tr>
+<td>34</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_MAGICROD" target="_blank" rel="noopener noreferrer">魔法懲罰 <code>SA_MAGICROD</code></a></td>
+<td align="right">1</td>
+<td>進化之書 Lv4</td>
+<td align="right">33</td>
+<td>開拆咒；主動詠唱時不能自動吸收。</td>
+</tr>
+<tr>
+<td>35～37</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_SPELLBREAKER" target="_blank" rel="noopener noreferrer">念咒拆除 <code>SA_SPELLBREAKER</code></a></td>
+<td align="right">3</td>
+<td>魔法懲罰 Lv1</td>
+<td align="right">36</td>
+<td>解鎖魔法效果解除。</td>
+</tr>
+<tr>
+<td>38～42</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_DISPELL" target="_blank" rel="noopener noreferrer">魔法效果解除 <code>SA_DISPELL</code></a></td>
+<td align="right">5</td>
+<td>念咒拆除 Lv3</td>
+<td align="right">41</td>
+<td>按需解除敵方增益，不無條件灑材料。</td>
+</tr>
+<tr>
+<td>43～44</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FLAMELAUNCHER" target="_blank" rel="noopener noreferrer">火屬性附加 <code>SA_FLAMELAUNCHER</code></a></td>
+<td align="right">2</td>
+<td>火箭術 Lv1、進化之書 Lv5</td>
+<td align="right">43</td>
+<td>火領域前置。</td>
+</tr>
+<tr>
+<td>45～49</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_VOLCANO" target="_blank" rel="noopener noreferrer">火元素領域 <code>SA_VOLCANO</code></a></td>
+<td align="right">5</td>
+<td>火屬性附加 Lv2</td>
+<td align="right">48</td>
+<td>主掛火箭術時按成本測火增傷。</td>
+</tr>
+<tr>
+<td>50</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_MAGICROD" target="_blank" rel="noopener noreferrer">魔法懲罰 <code>SA_MAGICROD</code></a></td>
+<td align="right">2</td>
+<td>進化之書 Lv4</td>
+<td align="right">49</td>
+<td>最後1點提升吸收窗口與回SP比例。</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Job40／50差異</strong>：早轉的一轉冰箭／雷擊只有5；先用合適等級仍可練功。若要補成10，應重新刪減本表10點，不能維持本表49點再加10點。</li>
+<li><strong>彈性方案</strong>：火附加2＋火領域5合計7點可全換水或風對應技能。若不買材料，可取消這7點，將地震術1→5（4點）＋魔法懲罰2→5（3點）；維持49點且無新前置。</li>
+<li><strong>冰凍＋雷擊</strong>：資訊站有此範本；採②的冰凍術1替代方案後才設定。Boss／抗性、冰凍被其他傷害解除等仍須實測，不能把全程冰凍當生存前提。</li>
+</ul>
+<h3 id="section-20">流派 C：領域／附魔輔助<a class="heading-anchor" href="#section-20" aria-label="連結至流派 C：領域／附魔輔助">#</a></h3><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>Job Lv</th>
+<th>技能（ID）</th>
+<th align="right">目標等級</th>
+<th>前置</th>
+<th align="right">累計點數</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2～6</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_ADVANCEDBOOK" target="_blank" rel="noopener noreferrer">進化之書 <code>SA_ADVANCEDBOOK</code></a></td>
+<td align="right">5</td>
+<td>無</td>
+<td align="right">5</td>
+<td>四屬性附加共同前置。</td>
+</tr>
+<tr>
+<td>7～10</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FLAMELAUNCHER" target="_blank" rel="noopener noreferrer">火屬性附加 <code>SA_FLAMELAUNCHER</code></a></td>
+<td align="right">4</td>
+<td>火箭術 Lv1、進化之書 Lv5</td>
+<td align="right">9</td>
+<td>火附加100%成功；先選隊伍最需要屬性。</td>
+</tr>
+<tr>
+<td>11～13</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_VOLCANO" target="_blank" rel="noopener noreferrer">火元素領域 <code>SA_VOLCANO</code></a></td>
+<td align="right">3</td>
+<td>火屬性附加 Lv2</td>
+<td align="right">12</td>
+<td>地領域前置；火傷+17%、ATK+30、180秒。</td>
+</tr>
+<tr>
+<td>14～17</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FROSTWEAPON" target="_blank" rel="noopener noreferrer">水屬性附加 <code>SA_FROSTWEAPON</code></a></td>
+<td align="right">4</td>
+<td>冰箭術 Lv1、進化之書 Lv5</td>
+<td align="right">16</td>
+<td>水附加100%成功。</td>
+</tr>
+<tr>
+<td>18～20</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_DELUGE" target="_blank" rel="noopener noreferrer">水元素領域 <code>SA_DELUGE</code></a></td>
+<td align="right">3</td>
+<td>水屬性附加 Lv2</td>
+<td align="right">19</td>
+<td>地領域前置；水傷+17%、MaxHP+12%、180秒。</td>
+</tr>
+<tr>
+<td>21～24</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_LIGHTNINGLOADER" target="_blank" rel="noopener noreferrer">風屬性附加 <code>SA_LIGHTNINGLOADER</code></a></td>
+<td align="right">4</td>
+<td>雷擊術 Lv1、進化之書 Lv5</td>
+<td align="right">23</td>
+<td>風附加100%成功。</td>
+</tr>
+<tr>
+<td>25～27</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_VIOLENTGALE" target="_blank" rel="noopener noreferrer">風元素領域 <code>SA_VIOLENTGALE</code></a></td>
+<td align="right">3</td>
+<td>風屬性附加 Lv2</td>
+<td align="right">26</td>
+<td>地領域前置；風傷+17%、FLEE+9、180秒。</td>
+</tr>
+<tr>
+<td>28～32</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_LANDPROTECTOR" target="_blank" rel="noopener noreferrer">地元素領域 <code>SA_LANDPROTECTOR</code></a></td>
+<td align="right">5</td>
+<td>火元素領域 Lv3、水元素領域 Lv3、風元素領域 Lv3</td>
+<td align="right">31</td>
+<td>按隊伍需求防敵方地面魔法；共31點。</td>
+</tr>
+<tr>
+<td>33～36</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_SEISMICWEAPON" target="_blank" rel="noopener noreferrer">地屬性附加 <code>SA_SEISMICWEAPON</code></a></td>
+<td align="right">4</td>
+<td>石化術 Lv1、進化之書 Lv5</td>
+<td align="right">35</td>
+<td>地附加100%成功。</td>
+</tr>
+<tr>
+<td>37</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_MAGICROD" target="_blank" rel="noopener noreferrer">魔法懲罰 <code>SA_MAGICROD</code></a></td>
+<td align="right">1</td>
+<td>進化之書 Lv4</td>
+<td align="right">36</td>
+<td>拆咒前置與非詠唱期自保。</td>
+</tr>
+<tr>
+<td>38～40</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_SPELLBREAKER" target="_blank" rel="noopener noreferrer">念咒拆除 <code>SA_SPELLBREAKER</code></a></td>
+<td align="right">3</td>
+<td>魔法懲罰 Lv1</td>
+<td align="right">39</td>
+<td>解除前置。</td>
+</tr>
+<tr>
+<td>41～45</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_DISPELL" target="_blank" rel="noopener noreferrer">魔法效果解除 <code>SA_DISPELL</code></a></td>
+<td align="right">5</td>
+<td>念咒拆除 Lv3</td>
+<td align="right">44</td>
+<td>解除可解除的增益。</td>
+</tr>
+<tr>
+<td>46</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_CASTCANCEL" target="_blank" rel="noopener noreferrer">取消施法 <code>SA_CASTCANCEL</code></a></td>
+<td align="right">1</td>
+<td>進化之書 Lv2</td>
+<td align="right">45</td>
+<td>自由施法前置。</td>
+</tr>
+<tr>
+<td>47～50</td>
+<td><a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FREECAST" target="_blank" rel="noopener noreferrer">自由施法 <code>SA_FREECAST</code></a></td>
+<td align="right">4</td>
+<td>取消施法 Lv1</td>
+<td align="right">49</td>
+<td>末4點改善領域重開的受傷中斷。</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Job40／50差異</strong>：與其他兩路相同，早轉少冰箭5＋雷擊5，四附魔的前置仍足夠；本表不借用失去的10點。</li>
+<li><strong>彈性方案</strong>：隊伍不需要地元素領域時，可先停在0、把5點改成主用元素領域3→5（2點）＋自由施法4→7（3點）；總49點。不要先點完地領域再當成能免費抽回。</li>
+<li><strong>取得優先序</strong>：表中先火系只是供重現的範例；若隊友主打水／風，三組附加與領域整組交換順序，不改最終49點。技能未開齊前，只保證已完成的輔助功能。</li>
+</ul>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=jobs&amp;id=sage" target="_blank" rel="noopener noreferrer">賢者技能樹</a>；上述各表已逐項依2026-10-28快照核對上限、前置與點數。</p>
+<h2 id="section-21">配裝建議<a class="heading-anchor" href="#section-21" aria-label="連結至配裝建議">#</a></h2><p>R 版前的候選組合是A的書本／攻速與INT裝、B的INT／DEX杖裝、C的盾牌／生存裝。以下逐項以本遊戲資料核對。<strong>洞數不等於MATK加成</strong>；武器物理種族卡也不能直接當成自詠魔法增傷。R 版前提及的 Principles of Magic、Ledger of Death 等裝備，本次未在公開裝備條目確認，列為「R 版前參考／待此遊戲驗證」，不當必備。</p>
+<p>表內價錢為查詢日NPC標價（另註基準價者除外），掉率為基準萬分率換算，並非角色實際掉率。已核對下列普通裝備可供魔法師／賢者使用；書只供賢者階段，其他職業亦可能能用。裝備門檻寫Base，非Job。價格與掉率查詢日期：2026-10-28。</p>
+<h3 id="section-22">轉職前（魔法師）<a class="heading-anchor" href="#section-22" aria-label="連結至轉職前（魔法師）">#</a></h3><h4 id="section-23">流派 A：自動念咒敏智型<a class="heading-anchor" href="#section-23" aria-label="連結至流派 A：自動念咒敏智型">#</a></h4><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>部位</th>
+<th>過渡或目標裝備（Base限制）</th>
+<th>替代品</th>
+<th>取得方式（價格或基準掉率）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>武器</td>
+<td>智慧魔杖[2] #1607（12）→言靈魔杖[1] #1610（24）</td>
+<td>沿用已取得、符合限制的杖</td>
+<td>吉芬／朱諾商人9,500／45,000 Z</td>
+<td>INT+2／+3、均MATK+15%；先買過渡杖，不必等稀有書</td>
+</tr>
+<tr>
+<td>盾</td>
+<td>鐵盾[0] #2101（1）→鐵盾[1] #2102（1）</td>
+<td>暫留[0]，沒有卡時不急換</td>
+<td>[0]普隆德拉等500 Z；[1]蟲蛹 #1008 0.02%</td>
+<td>DEF3，洞版為之後卡片保留空間</td>
+</tr>
+<tr>
+<td>鎧甲</td>
+<td>絲質外袍[0] #2321（1）→[1] #2322（1）</td>
+<td>沿用可穿防具</td>
+<td>吉芬等8,000 Z；克瑞米 #1018 掉[1] 0.1%</td>
+<td>DEF3／MDEF+10；洞版可插HP卡</td>
+</tr>
+<tr>
+<td>頭上</td>
+<td>已有頭飾→頭箍[1] #2233（1）</td>
+<td>蘋果頭飾[0] #2285（30）</td>
+<td>頭箍：蛇女伊絲 #1029 0.05%；蘋果：邪骸弓箭手 #1016 0.03%</td>
+<td>頭箍DEF3／MDEF+3；蘋果DEX+3縮主動詠唱</td>
+</tr>
+<tr>
+<td>披肩</td>
+<td>披肩[0] #2503（1）→[1] #2504（1）</td>
+<td>先用[0]</td>
+<td>普隆德拉等5,000 Z；鬼女 #1170 掉[1] 0.05%</td>
+<td>DEF2，有卡再追洞版</td>
+</tr>
+<tr>
+<td>鞋</td>
+<td>長靴[0] #2403（1）→[1] #2404（1）</td>
+<td>先用[0]</td>
+<td>普隆德拉等3,500 Z；僵屍 #1026 掉[1] 0.15%</td>
+<td>DEF2，有洞可處理SP需求</td>
+</tr>
+<tr>
+<td>飾品×2</td>
+<td>有掉再用智力耳環[0] #2602（20）</td>
+<td>髮夾[1] #2607（1）；無裝亦可前進</td>
+<td>耳環：獸人女戰士 #1273 0.01%；髮夾：鐘怪 #1193 0.01%（選常駐來源）</td>
+<td>INT+2或MaxSP+10；不以低掉率飾品作轉職門檻</td>
+</tr>
+<tr>
+<td>頭中／下</td>
+<td>待補</td>
+<td>不指定能力裝</td>
+<td>本次未逐件確認候選與取得方式</td>
+<td>不預算額外能力值</td>
+</tr>
+</tbody></table></div>
+<p><strong>取得優先序與配點配合</strong>：仍是魔法師，先用MATK杖練功；書 #1550 的職業限制不含魔法師，不能提前換書。</p>
+<h4 id="section-24">流派 B：INT／DEX 主動施法<a class="heading-anchor" href="#section-24" aria-label="連結至流派 B：INT／DEX 主動施法">#</a></h4><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>部位</th>
+<th>過渡或目標裝備（Base限制）</th>
+<th>替代品</th>
+<th>取得方式（價格或基準掉率）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>武器</td>
+<td>智慧魔杖[2] #1607（12）→言靈魔杖[1] #1610（24）</td>
+<td>沿用已取得、符合限制的杖</td>
+<td>吉芬／朱諾商人9,500／45,000 Z</td>
+<td>INT+2／+3、均MATK+15%；先買過渡杖，不必等稀有書</td>
+</tr>
+<tr>
+<td>盾</td>
+<td>鐵盾[0] #2101（1）→鐵盾[1] #2102（1）</td>
+<td>暫留[0]，沒有卡時不急換</td>
+<td>[0]普隆德拉等500 Z；[1]蟲蛹 #1008 0.02%</td>
+<td>DEF3，洞版為之後卡片保留空間</td>
+</tr>
+<tr>
+<td>鎧甲</td>
+<td>絲質外袍[0] #2321（1）→[1] #2322（1）</td>
+<td>沿用可穿防具</td>
+<td>吉芬等8,000 Z；克瑞米 #1018 掉[1] 0.1%</td>
+<td>DEF3／MDEF+10；洞版可插HP卡</td>
+</tr>
+<tr>
+<td>頭上</td>
+<td>已有頭飾→頭箍[1] #2233（1）</td>
+<td>蘋果頭飾[0] #2285（30）</td>
+<td>頭箍：蛇女伊絲 #1029 0.05%；蘋果：邪骸弓箭手 #1016 0.03%</td>
+<td>頭箍DEF3／MDEF+3；蘋果DEX+3縮主動詠唱</td>
+</tr>
+<tr>
+<td>披肩</td>
+<td>披肩[0] #2503（1）→[1] #2504（1）</td>
+<td>先用[0]</td>
+<td>普隆德拉等5,000 Z；鬼女 #1170 掉[1] 0.05%</td>
+<td>DEF2，有卡再追洞版</td>
+</tr>
+<tr>
+<td>鞋</td>
+<td>長靴[0] #2403（1）→[1] #2404（1）</td>
+<td>先用[0]</td>
+<td>普隆德拉等3,500 Z；僵屍 #1026 掉[1] 0.15%</td>
+<td>DEF2，有洞可處理SP需求</td>
+</tr>
+<tr>
+<td>飾品×2</td>
+<td>有掉再用智力耳環[0] #2602（20）</td>
+<td>髮夾[1] #2607（1）；無裝亦可前進</td>
+<td>耳環：獸人女戰士 #1273 0.01%；髮夾：鐘怪 #1193 0.01%（選常駐來源）</td>
+<td>INT+2或MaxSP+10；不以低掉率飾品作轉職門檻</td>
+</tr>
+<tr>
+<td>頭中／下</td>
+<td>待補</td>
+<td>不指定能力裝</td>
+<td>本次未逐件確認候選與取得方式</td>
+<td>不預算額外能力值</td>
+</tr>
+</tbody></table></div>
+<p><strong>取得優先序與配點配合</strong>：優先杖＋盾；SP穩定後才追DEX頭飾，不為最終配卡延誤轉職。</p>
+<h4 id="section-25">流派 C：領域／附魔輔助<a class="heading-anchor" href="#section-25" aria-label="連結至流派 C：領域／附魔輔助">#</a></h4><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>部位</th>
+<th>過渡或目標裝備（Base限制）</th>
+<th>替代品</th>
+<th>取得方式（價格或基準掉率）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>武器</td>
+<td>智慧魔杖[2] #1607（12）→言靈魔杖[1] #1610（24）</td>
+<td>沿用已取得、符合限制的杖</td>
+<td>吉芬／朱諾商人9,500／45,000 Z</td>
+<td>INT+2／+3、均MATK+15%；先買過渡杖，不必等稀有書</td>
+</tr>
+<tr>
+<td>盾</td>
+<td>鐵盾[0] #2101（1）→鐵盾[1] #2102（1）</td>
+<td>暫留[0]，沒有卡時不急換</td>
+<td>[0]普隆德拉等500 Z；[1]蟲蛹 #1008 0.02%</td>
+<td>DEF3，洞版為之後卡片保留空間</td>
+</tr>
+<tr>
+<td>鎧甲</td>
+<td>絲質外袍[0] #2321（1）→[1] #2322（1）</td>
+<td>沿用可穿防具</td>
+<td>吉芬等8,000 Z；克瑞米 #1018 掉[1] 0.1%</td>
+<td>DEF3／MDEF+10；洞版可插HP卡</td>
+</tr>
+<tr>
+<td>頭上</td>
+<td>已有頭飾→頭箍[1] #2233（1）</td>
+<td>蘋果頭飾[0] #2285（30）</td>
+<td>頭箍：蛇女伊絲 #1029 0.05%；蘋果：邪骸弓箭手 #1016 0.03%</td>
+<td>頭箍DEF3／MDEF+3；蘋果DEX+3縮主動詠唱</td>
+</tr>
+<tr>
+<td>披肩</td>
+<td>披肩[0] #2503（1）→[1] #2504（1）</td>
+<td>先用[0]</td>
+<td>普隆德拉等5,000 Z；鬼女 #1170 掉[1] 0.05%</td>
+<td>DEF2，有卡再追洞版</td>
+</tr>
+<tr>
+<td>鞋</td>
+<td>長靴[0] #2403（1）→[1] #2404（1）</td>
+<td>先用[0]</td>
+<td>普隆德拉等3,500 Z；僵屍 #1026 掉[1] 0.15%</td>
+<td>DEF2，有洞可處理SP需求</td>
+</tr>
+<tr>
+<td>飾品×2</td>
+<td>有掉再用智力耳環[0] #2602（20）</td>
+<td>髮夾[1] #2607（1）；無裝亦可前進</td>
+<td>耳環：獸人女戰士 #1273 0.01%；髮夾：鐘怪 #1193 0.01%（選常駐來源）</td>
+<td>INT+2或MaxSP+10；不以低掉率飾品作轉職門檻</td>
+</tr>
+<tr>
+<td>頭中／下</td>
+<td>待補</td>
+<td>不指定能力裝</td>
+<td>本次未逐件確認候選與取得方式</td>
+<td>不預算額外能力值</td>
+</tr>
+</tbody></table></div>
+<p><strong>取得優先序與配點配合</strong>：一轉仍用箭術；先取得盾／鎧甲，再把預算保留給二轉材料。</p>
+<h3 id="section-26">轉職後（賢者）<a class="heading-anchor" href="#section-26" aria-label="連結至轉職後（賢者）">#</a></h3><h4 id="section-27">流派 A：自動念咒敏智型<a class="heading-anchor" href="#section-27" aria-label="連結至流派 A：自動念咒敏智型">#</a></h4><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>部位</th>
+<th>過渡或目標裝備（Base限制）</th>
+<th>替代品</th>
+<th>取得方式（價格或基準掉率）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>武器</td>
+<td>書[3] #1550（14）→賢者的日記[2] #1560（60）</td>
+<td>沿用言靈魔杖 #1610；聖言之書[2] #1551（27）可比較</td>
+<td>書：吉芬／朱諾書商30,000 Z、不可折扣；聖言：闇神官 #1117 0.1%；日記見下方MVP限制</td>
+<td>書ATK85但無MATK加成；日記MATK+15%，INT達70額外+5%；不為STR50攻速條件硬改配點</td>
+</tr>
+<tr>
+<td>盾</td>
+<td>鐵盾[1] #2102（1）</td>
+<td>[0] #2101</td>
+<td>蟲蛹 #1008 0.02%；[0]500 Z</td>
+<td>保留生存；依地圖選盾卡，尚未選定種族卡，不計額外減傷</td>
+</tr>
+<tr>
+<td>鎧甲</td>
+<td>絲質外袍[1] #2322（1）＋蟲蛹卡 #4003</td>
+<td>羅達蛙卡 #4014</td>
+<td>克瑞米0.1%；兩卡由同名怪掉、基準各0.01%</td>
+<td>+700HP；若更缺SP改+400HP／+50SP</td>
+</tr>
+<tr>
+<td>頭上</td>
+<td>頭箍[1] #2233（1）＋長老樹精卡 #4052</td>
+<td>沿用蘋果頭飾 #2285（30）</td>
+<td>蛇女伊絲0.05%；長老樹精 #1033 卡0.01%</td>
+<td>INT+2；自詠主軸不以DEX頭作唯一目標</td>
+</tr>
+<tr>
+<td>披肩</td>
+<td>披肩[1] #2504（1）＋禿鷹卡 #4015 → 白幽靈卡 #4102</td>
+<td>獸人嬰兒卡 #4375、幽靈劍士卡 #4133；精煉+9以上才評估九尾狐卡 #4159</td>
+<td>披肩鬼女0.05%；各同名怪卡基準0.01%</td>
+<td>入門FLEE+10→+20；白幽靈受念傷+50%。獸嬰+0～+8為FLEE+10／無屬傷−10%，+9～+10為+15／−15%；九尾AGI+2且+9起FLEE+20</td>
+</tr>
+<tr>
+<td>鞋</td>
+<td>長靴[1] #2404（1）＋鬼女卡 #4100</td>
+<td>轉轉蛋卡 #4070</td>
+<td>僵屍0.15%；同名怪卡各0.01%</td>
+<td>MaxSP+15%／自然回SP+3%；替代為自然回SP+15%，以實測選擇</td>
+</tr>
+<tr>
+<td>飾品×2</td>
+<td>智力耳環 #2602（20）</td>
+<td>髮夾[1] #2607（1）＋庫克雷卡 #4027</td>
+<td>耳環獸人女戰士0.01%；髮夾鐘怪0.01%；庫克雷 #1070 卡0.01%</td>
+<td>INT+2與AGI+2取捨；未達生存／SP門檻先留INT</td>
+</tr>
+<tr>
+<td>頭中／下</td>
+<td>待補</td>
+<td>暫不投資</td>
+<td>未逐件確認</td>
+<td>不計能力加成</td>
+</tr>
+</tbody></table></div>
+<p><strong>武器取捨</strong>：書 #1550沒有MATK+15%，因此買到書不代表必勝過原本的杖。兩者須比較同角色普攻數、實際魔法傷害與SP。聖言之書 #1551只有INT+2，亦不能把較高ATK誤算為自詠增傷。</p>
+<p><strong>賢者的日記取得限制</strong>：神官 瑪嘉雷特 #1649 是Lv99、HP1,092,910的MVP，基準掉率35%；在活體實驗研究所地下3樓 <code>lhz_dun03</code> 的同組MVP排程中，資料列重生基準100分鐘、變動欄位30分鐘，實際刷新仍須觀察。這不是新轉賢者可穩刷的常駐來源，也不是每100分鐘保證一本；交易價與箱子取得機率待查證。日記可作長期／交易目標，不能當A流派起跑條件。</p>
+<p><strong>優先序</strong>：先安全防具與SP→書／杖A/B測試→INT或FLEE卡→日記；不為九尾狐卡先冒險衝+9，精煉失敗與卡片損失風險另核對。</p>
+<h4 id="section-28">流派 B：INT／DEX 主動施法<a class="heading-anchor" href="#section-28" aria-label="連結至流派 B：INT／DEX 主動施法">#</a></h4><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>部位</th>
+<th>過渡或目標裝備（Base限制）</th>
+<th>替代品</th>
+<th>取得方式（價格或基準掉率）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>武器</td>
+<td>智慧魔杖[2] #1607（12）→言靈魔杖[1] #1610（24）</td>
+<td>日記[2] #1560（60），僅已有時比較</td>
+<td>吉芬／朱諾9,500／45,000 Z；日記見A的MVP限制</td>
+<td>MATK+15%、INT+2→+3；杖不享進化之書，技能點是解鎖前置的成本</td>
+</tr>
+<tr>
+<td>盾</td>
+<td>鐵盾[0] #2101（1）→[1] #2102（1）</td>
+<td>繼續[0]</td>
+<td>500 Z／蟲蛹0.02%</td>
+<td>先保留盾；對應種族卡待地圖確認</td>
+</tr>
+<tr>
+<td>鎧甲</td>
+<td>絲質外袍[1] #2322（1）＋羅達蛙卡 #4014</td>
+<td>蟲蛹卡 #4003</td>
+<td>克瑞米0.1%；同名怪卡各0.01%</td>
+<td>HP+400／SP+50；只缺生存改HP+700</td>
+</tr>
+<tr>
+<td>頭上</td>
+<td>蘋果頭飾 #2285（30）</td>
+<td>頭箍[1] #2233（1）＋長老樹精卡 #4052</td>
+<td>邪骸弓箭手0.03%；頭箍蛇女伊絲0.05%、長老樹精卡0.01%</td>
+<td>DEX+3縮詠唱；替代為INT+2，依實際施法與傷害取捨</td>
+</tr>
+<tr>
+<td>披肩</td>
+<td>披肩[1] #2504（1）＋幽靈劍士卡 #4133</td>
+<td>先用[0] #2503</td>
+<td>鬼女0.05%；幽靈劍士 #1163 卡0.01%；[0]5,000 Z</td>
+<td>受無屬傷−20%；不保證減免所有怪物技能</td>
+</tr>
+<tr>
+<td>鞋</td>
+<td>長靴[1] #2404（1）＋鬼女卡 #4100</td>
+<td>轉轉蛋卡 #4070</td>
+<td>僵屍0.15%；同名怪卡各0.01%</td>
+<td>SP存量／續航比較，不照搬其他職業估算勝負</td>
+</tr>
+<tr>
+<td>飾品×2</td>
+<td>髮夾[1] #2607（1）＋傑洛米卡 #4064</td>
+<td>智力耳環 #2602（20）</td>
+<td>鐘怪髮夾0.01%；傑洛米 #1178 卡0.01%；耳環獸人女戰士0.01%</td>
+<td>每副DEX+3、MaxSP+10；INT不足以少一發擊殺時可留耳環</td>
+</tr>
+<tr>
+<td>頭中／下</td>
+<td>待補</td>
+<td>暫不投資</td>
+<td>未逐件確認</td>
+<td>不預算能力加成</td>
+</tr>
+</tbody></table></div>
+<p><strong>優先序</strong>：言靈魔杖＋盾→HP／SP問題→DEX目標裝；自由施法10已處理受傷中斷，不預設再買抗中斷卡一定有收益。</p>
+<h4 id="section-29">流派 C：領域／附魔輔助<a class="heading-anchor" href="#section-29" aria-label="連結至流派 C：領域／附魔輔助">#</a></h4><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>部位</th>
+<th>過渡或目標裝備（Base限制）</th>
+<th>替代品</th>
+<th>取得方式（價格或基準掉率）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>武器</td>
+<td>智慧魔杖[2] #1607（12）或言靈魔杖[1] #1610（24）</td>
+<td>沿用已取得的單手杖</td>
+<td>吉芬／朱諾9,500／45,000 Z</td>
+<td>留INT／SP與單練能力；不為持書普攻花主要預算</td>
+</tr>
+<tr>
+<td>盾</td>
+<td>鐵盾[1] #2102（1）</td>
+<td>[0] #2101</td>
+<td>蟲蛹0.02%／商店500 Z</td>
+<td>種族／體型卡須依隊伍目標決定，未選卡前不計減傷</td>
+</tr>
+<tr>
+<td>鎧甲</td>
+<td>絲質外袍[1] #2322（1）＋蟲蛹卡 #4003</td>
+<td>羅達蛙卡 #4014</td>
+<td>克瑞米0.1%；同名怪卡各0.01%</td>
+<td>優先避免死亡斷輔助；HP足夠才換SP折衷</td>
+</tr>
+<tr>
+<td>頭上</td>
+<td>蘋果頭飾 #2285（30）</td>
+<td>頭箍[1] #2233（1）＋長老樹精卡 #4052</td>
+<td>邪骸弓箭手0.03%；蛇女伊絲0.05%、長老樹精卡0.01%</td>
+<td>縮短領域5秒基礎詠唱；INT裝改善續航</td>
+</tr>
+<tr>
+<td>披肩</td>
+<td>披肩[1] #2504（1）＋幽靈劍士卡 #4133</td>
+<td>先用[0] #2503</td>
+<td>鬼女0.05%；幽靈劍士卡0.01%；[0]5,000 Z</td>
+<td>配合VIT路線減低無屬性受傷；地領域不防所有物理傷害</td>
+</tr>
+<tr>
+<td>鞋</td>
+<td>長靴[1] #2404（1）＋鬼女卡 #4100</td>
+<td>轉轉蛋卡 #4070</td>
+<td>僵屍0.15%；同名怪卡各0.01%</td>
+<td>供頻繁附魔／領域續航；材料成本仍另計</td>
+</tr>
+<tr>
+<td>飾品×2</td>
+<td>髮夾[1] #2607（1）＋傑洛米卡 #4064</td>
+<td>智力耳環 #2602（20）</td>
+<td>鐘怪0.01%、傑洛米卡0.01%；耳環獸人女戰士0.01%</td>
+<td>施法空窗與SP取捨；取得前沿用現有裝</td>
+</tr>
+<tr>
+<td>頭中／下</td>
+<td>待補</td>
+<td>暫不投資</td>
+<td>未逐件確認</td>
+<td>不預算能力加成</td>
+</tr>
+</tbody></table></div>
+<p><strong>優先序</strong>：生存與材料庫存→縮短領域詠唱→稀有卡；元素領域不是靠精煉武器提高其標示增傷。材料火／水／風／地靈礦石分別為 #990／#991／#992／#993；黃／藍礦石為 #715／#717，先查庫存與實際購買管道，不把物品基準買價當成每個NPC都有賣。</p>
+<p>資料來源：<a href="https://ro-idle.app/info/database?type=equipment" target="_blank" rel="noopener noreferrer">裝備資料庫</a>、<a href="https://ro-idle.app/info/database?type=items" target="_blank" rel="noopener noreferrer">道具資料庫</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1649" target="_blank" rel="noopener noreferrer">神官 瑪嘉雷特 #1649</a>、<a href="https://ro-idle.app/info/database?type=maps&amp;id=lhz_dun03" target="_blank" rel="noopener noreferrer">活體研究所地下3樓</a>。文末列各目標裝直達頁，完整限制／掉落／商店見當日快照。</p>
+<h2 id="section-30">掛機設定與練功地圖<a class="heading-anchor" href="#section-30" aria-label="連結至掛機設定與練功地圖">#</a></h2><h3 id="section-31">掛機規則（建議值）<a class="heading-anchor" href="#section-31" aria-label="連結至掛機規則（建議值）">#</a></h3><p>數值為起始測試門檻，並非已證明最佳；先選經驗、Zeny、材料或隊伍穩定其中一個主要目標。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>規則</th>
+<th>設定</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A：自詠</td>
+<td>輔助自動念咒Lv10，指定火箭／冰箭／雷擊之一，自己無此BUFF才補；保留普攻</td>
+<td>地怪選火箭、火怪冰箭、水怪雷擊。混屬圖先限定目標，不假設自詠規則會每隻怪智慧換屬</td>
+</tr>
+<tr>
+<td>A：主動技能</td>
+<td>第一輪比較先停用常駐主動箭術，只留必要自保</td>
+<td>長詠唱會佔用本來可普攻的時間；第二輪再加補刀看是否更好</td>
+</tr>
+<tr>
+<td>B：主動箭術</td>
+<td>依敵屬性設單體箭術；先試SP≥30%，技能等級選能有效擊殺的等級</td>
+<td>不是學10就永遠放10；低HP怪避免過量傷害／長詠唱</td>
+</tr>
+<tr>
+<td>B：範圍</td>
+<td>崩裂術先測敵人≥2、SP≥40%；優先對風屬性，雷爆術則對水屬性候選</td>
+<td>先用單體建立基準，再少量引怪；自由施法不提供減傷</td>
+</tr>
+<tr>
+<td>C：附魔</td>
+<td>選定一位隊友／自己與一個有效武器屬性，缺少對應BUFF才補</td>
+<td>四屬性規則不要同時互相覆蓋；先確認沒有要保留的撒水／塗毒</td>
+</tr>
+<tr>
+<td>A／B／C：元素領域</td>
+<td>一次只啟用一種；僅在該BUFF缺少且有材料時更新</td>
+<td>C預設Lv3的效益與耗材不同於A／B的Lv5；先算全隊淨收益</td>
+</tr>
+<tr>
+<td>C：地元素領域</td>
+<td>隊伍確認敵方地面魔法是主要威脅、且接受己方地面技能封鎖後才啟用</td>
+<td>不與三元素領域輪流覆寫；先核對隊友範圍技、陷阱、地面支援受影響狀況</td>
+</tr>
+<tr>
+<td>反制技能</td>
+<td>魔法懲罰放輔助；念咒拆除／魔法效果解除有對應敵方條件才啟用</td>
+<td>拆咒對Boss僅10%；解除可能移除己方施加的減益</td>
+</tr>
+<tr>
+<td>能量外套</td>
+<td>先關閉作SP基準；受物理壓力大時另測開啟</td>
+<td>受擊額外耗SP可能讓自詠停發或妨礙領域</td>
+</tr>
+<tr>
+<td>HP／逃生</td>
+<td>初測HP≤60%補血、≤30%逃生；被圍3隻先撤</td>
+<td>是建議起點，須依單次最大受傷調整；不等到系統1小時3死才停測</td>
+</tr>
+<tr>
+<td>SP／補給</td>
+<td>先記錄自然回復與禪心；不足再用預算內SP補品／降低技能頻率</td>
+<td>不預設有祭司回SP；準備可執行的補給或停止條件</td>
+</tr>
+<tr>
+<td>材料</td>
+<td>黃礦石可參考「少於5補到30」；地領域另補藍礦石</td>
+<td>30個黃礦石重90；附魔材料的來源、庫存與預算另外設定。補不到下限不可繼續依賴輔助</td>
+</tr>
+<tr>
+<td>負重</td>
+<td>建議45%回城處理，補給後仍低於50%</td>
+<td>達50%自然回復與禪心停止；自動補給回城不需蝴蝶翅膀，與主動逃生用途分開</td>
+</tr>
+<tr>
+<td>離線</td>
+<td>先在線確認，再以相同條件短期離線測試</td>
+<td>同引擎補算，依然會耗材料、死亡、回城；隊伍有人在線時整隊仍推進</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-32">候選地圖<a class="heading-anchor" href="#section-32" aria-label="連結至候選地圖">#</a></h3><p>以下Base段只是試行起點；沒有玩家裝備與實測，無法保證安全或收益。地圖出現數是遭遇權重，不是每小時擊殺數。怪物資料於2026-10-28重查。</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>參考Base段／目標</th>
+<th>地圖（ID）與已查證目標</th>
+<th>路線與設定</th>
+<th>改圖／風險條件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初學者／一轉前</td>
+<td><a href="https://ro-idle.app/info/database?type=maps&amp;id=gef_fild04" target="_blank" rel="noopener noreferrer">吉芬原野04 <code>gef_fild04</code></a>，蟲蛹 #1008</td>
+<td>三路線完成基本技能9；詳見<a href="%E5%88%9D%E5%BF%83%E8%80%85%E4%B8%80%E8%BD%89%E5%89%8D%E5%9F%B9%E9%A4%8A%E6%94%BB%E7%95%A5.html">初心者攻略</a></td>
+<td>INT起手不提升普攻傷害；不宣稱固定轉職分鐘數</td>
+</tr>
+<tr>
+<td>約18～30，一轉火箭</td>
+<td><a href="https://ro-idle.app/info/database?type=maps&amp;id=prt_fild03" target="_blank" rel="noopener noreferrer">普隆德拉原野03 <code>prt_fild03</code></a>，溜溜猴 #1057 Lv21、HP879、地1；狸貓 #1056 Lv18、HP641、地1</td>
+<td>三路線先單體火箭；A二轉後也可回來測自詠基準</td>
+<td>狸貓可隱匿；地圖其他怪與技能不能只按主怪估算</td>
+</tr>
+<tr>
+<td>約18～30，替代地怪</td>
+<td><a href="https://ro-idle.app/info/database?type=maps&amp;id=mjo_dun01" target="_blank" rel="noopener noreferrer">妙勒尼廢礦1樓 <code>mjo_dun01</code></a>，土撥鼠 #1145 Lv18、HP1109、地2；白鼠 #1175</td>
+<td>先指定土撥鼠火箭；不預設白鼠同樣受火剋制</td>
+<td>土撥鼠有隱匿／地屬攻擊；受傷過高回更安全目標</td>
+</tr>
+<tr>
+<td>約30～50，準備轉職</td>
+<td><a href="https://ro-idle.app/info/database?type=maps&amp;id=yuno_fild10" target="_blank" rel="noopener noreferrer">朱諾原野 <code>yuno_fild10</code></a>，巨象甲蟲 #1494 Lv34、HP1874、地1</td>
+<td>A／B／C一轉用火箭；高DEF也不能直接推算哪種自詠武器勝出</td>
+<td>另有主動赤蒼蠅 #1035 Lv42；只限定目標不保證不被主動怪攻擊</td>
+</tr>
+<tr>
+<td>約55～75，單體火系</td>
+<td>同圖邪惡向日葵 #1368 Lv56、HP8071、地3、攻擊射程3</td>
+<td>B先主動火箭；A僅在貼身生存已通過測試後比較；C可支援火隊</td>
+<td>固定不移動不代表近戰安全，不能把巫師隕石術收益搬到賢者</td>
+</tr>
+<tr>
+<td>約55～75，水系替代</td>
+<td><a href="https://ro-idle.app/info/database?type=maps&amp;id=yuno_fild08" target="_blank" rel="noopener noreferrer">朱諾 啟 海伊洛學院 <code>yuno_fild08</code></a>，七彩大嘴鳥 #1369 Lv58、HP8054、火2</td>
+<td>B主動冰箭；A需把自詠改冰箭；C配合水隊</td>
+<td>混有地3邪惡向日葵；不固定火箭通打。此圖適合哪路以短測決定</td>
+</tr>
+<tr>
+<td>固定隊伍／反制練習</td>
+<td>隊伍實際地圖待提供</td>
+<td>C先核對怪物技能及隊友技能，再決定領域／解除</td>
+<td>未有敵方地面法術資料前，不指定高危地圖為「輔助最佳練功點」</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-33">測試方法：自詠效率、主動施法續航與隊伍領域收益<a class="heading-anchor" href="#section-33" aria-label="連結至測試方法：自詠效率、主動施法續航與隊伍領域收益">#</a></h3><ol>
+<li>記錄日期、是否轉生、Base／Job、手動／總六圍、面板ASPD與MATK、技能等級、裝備精煉／卡、地圖目標、隊友、活動倍率、開始HP／SP、藥品、材料及負重。先以10分鐘無死亡、無補給失敗為安全門檻。</li>
+<li><strong>A武器測試</strong>：同角色在同地圖交替「言靈魔杖普攻自詠」與「書普攻自詠」，不改其他裝備；每方案30分鐘、至少3輪，交錯先後。記錄普攻總數（含落空）、自詠次數、主動技能次數、SP缺額與擊殺。<code>觸發比例=自詠次數÷有效普攻次數</code>，不足SP時另列，不能直接判定技能25%有誤。</li>
+<li><strong>B模式測試</strong>：同角色比較單體箭術與範圍模式，每方案同樣3×30分鐘；範圍只改技能規則與約定的引怪上限。記錄中斷、死亡、擊殺、EXP與補品。B／A使用不同屬性時不得把差異全歸功於一個技能；跨流派測試應用重置前後完整資料。</li>
+<li><strong>C隊伍測試</strong>：固定隊員／地圖，比較「不開領域」與「只開指定元素領域」；地元素領域獨立測，不和增傷領域疊在同組。記錄全隊EXP、死亡、地面技能能否施放、材料與補品。含實際買價與回城成本，不能只看隊伍單發傷害。</li>
+<li>統一換算：<code>EXP／小時=實得EXP÷測試分鐘×60</code>；<code>Zeny淨收益／小時=(取得Zeny＋實際出售收入−補品−材料−補給／倉庫費)÷分鐘×60</code>。未售出物品單列數量，不虛估市場收入；報平均與各輪範圍。</li>
+<li><strong>建議採用門檻</strong>：3輪皆零死亡、無補給中斷、SP不反覆見底；主要目標的平均改善至少10%，且不超過預算才採用。若各輪優劣互換或差異在波動範圍內，延長測試，不能當作已證實提升10%。地領域若讓隊伍重要技能無法施放，立即回到基準設定。</li>
+<li>設定穩定後再做一組30分鐘在線／30分鐘離線對照；核對摘要、材料、回城與死亡。這是測試設計，目前沒有實測結果。</li>
+</ol>
+<h2 id="section-34">比較與取捨<a class="heading-anchor" href="#section-34" aria-label="連結至比較與取捨">#</a></h2><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>決策點</th>
+<th>本攻略的選擇</th>
+<th>替代方案</th>
+<th>何時改用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一般起步</td>
+<td>B主動施法</td>
+<td>A自動念咒</td>
+<td>已證明貼身安全、實際普攻與自詠收益符合目標</td>
+</tr>
+<tr>
+<td>轉職時機</td>
+<td>魔法師Job50、49點</td>
+<td>Job40、39點</td>
+<td>急需自詠／抗中斷／隊伍支援，接受少10點一轉資源</td>
+</tr>
+<tr>
+<td>A武器</td>
+<td>商店書與既有杖先測</td>
+<td>賢者的日記</td>
+<td>已取得或買價可接受；不為MVP掉率冒險自刷</td>
+</tr>
+<tr>
+<td>B範圍技</td>
+<td>按敵屬性測崩裂／雷爆</td>
+<td>純單體箭術</td>
+<td>怪少、引怪不安全、屬性不利或SP淨消耗高</td>
+</tr>
+<tr>
+<td>輔助投入</td>
+<td>有隊伍需求才選C</td>
+<td>B兼單一元素領域</td>
+<td>不需要四附魔、地領域或大量VIT時</td>
+</tr>
+<tr>
+<td>領域</td>
+<td>同時只保留一種</td>
+<td>地元素領域</td>
+<td>敵方地面魔法是主要致死來源，且隊友可接受技能封鎖</td>
+</tr>
+<tr>
+<td>附魔等級</td>
+<td>C先Lv4</td>
+<td>Lv5</td>
+<td>降低20分鐘更新為30分鐘較有價值，且可讓出技能點</td>
+</tr>
+<tr>
+<td>鎧甲卡</td>
+<td>低HP先蟲蛹</td>
+<td>羅達蛙</td>
+<td>存活足夠但SP存量成為瓶頸</td>
+</tr>
+<tr>
+<td>重置／轉生</td>
+<td>先核對可用次數與費用</td>
+<td>沿既有路線小幅調整</td>
+<td>高等重置成本超出預算，或很快就要轉生時</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>已查證的重置條件</strong>：普隆德拉重置師；先停掛、關攤。Base69以下屬性重置免費且不限次；Base70起每角色第一次300萬Z，之後每次多100萬。技能重置頁說明每轉職一次送一次（一轉1次、二轉2次）；實際剩餘次數依角色已用情況，不能認定新讀者還有2次。用完後方式及費用須讀遊戲內重置師。</li>
+<li>技能重置會停用掛機技能規則、移除增益；重置後重設觸發法術、領域、材料與補給。屬性重置不會額外補回Job40早轉少掉的10點。</li>
+<li><strong>短期／長期</strong>：A前期AGI會放慢主動施法成長；C把點投入領域與VIT會犧牲單練。B能作比較基準，但並未證明一定勝過裝備成形的A。</li>
+<li><strong>轉生機會成本</strong>：現在可以轉生為智者，需Base99／Job50且技能點用完，花1,285,000 Z並重新練等；裝備、庫存與Zeny保留，起始點數與技能路線改變。不要只為短期賢者階段預先購買昂貴專用裝而不比較轉生目標。</li>
+</ul>
+<h2 id="section-35">風險與待確認事項<a class="heading-anchor" href="#section-35" aria-label="連結至風險與待確認事項">#</a></h2><p>最大的不確定性是玩家實際攻速、貼身承傷與SP收支；技能描述可以確認機制，不能替代三流派在同一目標下的效率實測。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 取得玩家Base／Job、是否轉生、配點、技能、裝備、預算與隊伍，確認應用A／B／C或已有角色銜接表。</li>
+<li><input disabled="" type="checkbox"> 實測自詠半級與SP費用的取整、觸發動作是否影響下一次普攻，以及重開BUFF的實際空窗。</li>
+<li><input disabled="" type="checkbox"> 以相同配點測書 #1550與杖 #1610；如已有日記 #1560，加入第三組，不假造DPS提升。</li>
+<li><input disabled="" type="checkbox"> 驗證混屬怪時自詠規則如何選技能；未確認前採固定主怪／單一觸發屬性。</li>
+<li><input disabled="" type="checkbox"> 核對隊伍地面技能與地元素領域衝突清單，包含範圍法術、陷阱與地面支援。</li>
+<li><input disabled="" type="checkbox"> 查主用靈礦石的實際取得／購買來源、黃藍礦石購買價、折扣及每日預算；確認自動補給能到下限。</li>
+<li><input disabled="" type="checkbox"> 依主要地圖補盾牌卡、頭中／下段裝備與現有精煉條件；確認卡片卸除與精煉損失成本。</li>
+<li><input disabled="" type="checkbox"> 複測冰凍＋雷擊、魔法懲罰與能量外套在該敵人的時序、SP及存活效果。</li>
+<li><input disabled="" type="checkbox"> 完成在線／離線各輪的收益與材料對照；目前沒有玩家實測紀錄。</li>
+</ul>
+<p><strong>其他風險</strong>：版本更新可改技能與掉落；基準掉率、遭遇權重與EXP均不等於玩家每小時收益。高MDEF、混屬性、主動怪與超重會使結果偏離；自由施法不免傷，地元素領域不免所有魔法。本站技能模擬器目前仍以其頁面標示日期的資料為準，本攻略當日快照不代表全站其他職業資料已同步複查。</p>
+<h2 id="section-36">依據與資料來源<a class="heading-anchor" href="#section-36" aria-label="連結至依據與資料來源">#</a></h2><p>查詢日期：<strong>2026-10-28</strong>。本攻略數值來自當日資訊站公開前端資料與玩法說明，未登入角色、未進行戰鬥實測；R版前資料只用於流派與典型裝備候選。</p>
+<ul>
+<li><a href="https://ro-idle.app/info/database?type=jobs&amp;id=novice" target="_blank" rel="noopener noreferrer">初學者 <code>novice</code></a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=mage" target="_blank" rel="noopener noreferrer">魔法師 <code>mage</code></a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=sage" target="_blank" rel="noopener noreferrer">賢者 <code>sage</code></a>：轉職、Job加成與技能前置。</li>
+<li><a href="https://ro-idle.app/info/database?type=skills" target="_blank" rel="noopener noreferrer">技能資料庫</a>：②④每列提供技能直達頁；<a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_AUTOSPELL" target="_blank" rel="noopener noreferrer">自動念咒</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_FREECAST" target="_blank" rel="noopener noreferrer">自由施法</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=SA_LANDPROTECTOR" target="_blank" rel="noopener noreferrer">地元素領域</a>是關鍵機制。</li>
+<li><a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>、<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">更新紀錄</a>：素質、詠唱、負重、賢者設定、回城補給、重置、轉生與離線。</li>
+<li><a href="https://ro-idle.app/info/database?type=equipment&amp;id=1550" target="_blank" rel="noopener noreferrer">書 #1550</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=1551" target="_blank" rel="noopener noreferrer">聖言之書 #1551</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=1560" target="_blank" rel="noopener noreferrer">賢者的日記 #1560</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=1607" target="_blank" rel="noopener noreferrer">智慧魔杖 #1607</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=1610" target="_blank" rel="noopener noreferrer">言靈魔杖 #1610</a>：限制、數值與來源。</li>
+<li><a href="https://ro-idle.app/info/database?type=equipment&amp;id=2102" target="_blank" rel="noopener noreferrer">鐵盾 #2102</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=2322" target="_blank" rel="noopener noreferrer">絲質外袍 #2322</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=2233" target="_blank" rel="noopener noreferrer">頭箍 #2233</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=2285" target="_blank" rel="noopener noreferrer">蘋果頭飾 #2285</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=2504" target="_blank" rel="noopener noreferrer">披肩 #2504</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=2404" target="_blank" rel="noopener noreferrer">長靴 #2404</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=2602" target="_blank" rel="noopener noreferrer">智力耳環 #2602</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=2607" target="_blank" rel="noopener noreferrer">髮夾 #2607</a>。</li>
+<li><a href="https://ro-idle.app/info/database?type=items&amp;id=4003" target="_blank" rel="noopener noreferrer">蟲蛹卡 #4003</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4014" target="_blank" rel="noopener noreferrer">羅達蛙卡 #4014</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4052" target="_blank" rel="noopener noreferrer">長老樹精卡 #4052</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4133" target="_blank" rel="noopener noreferrer">幽靈劍士卡 #4133</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4100" target="_blank" rel="noopener noreferrer">鬼女卡 #4100</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4070" target="_blank" rel="noopener noreferrer">轉轉蛋卡 #4070</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4064" target="_blank" rel="noopener noreferrer">傑洛米卡 #4064</a>。其他卡片名稱、ID、效果及掉落亦保存在快照。</li>
+<li><a href="https://ro-idle.app/info/database?type=items&amp;id=715" target="_blank" rel="noopener noreferrer">黃色魔力礦石 #715</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=717" target="_blank" rel="noopener noreferrer">藍色魔力礦石 #717</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=990" target="_blank" rel="noopener noreferrer">火靈礦石 #990</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=991" target="_blank" rel="noopener noreferrer">水靈礦石 #991</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=992" target="_blank" rel="noopener noreferrer">風靈礦石 #992</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=993" target="_blank" rel="noopener noreferrer">地靈礦石 #993</a>。</li>
+<li><a href="https://ro-idle.app/info/database?type=monsters&amp;id=1494" target="_blank" rel="noopener noreferrer">巨象甲蟲 #1494</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1368" target="_blank" rel="noopener noreferrer">邪惡向日葵 #1368</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1369" target="_blank" rel="noopener noreferrer">七彩大嘴鳥 #1369</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1649" target="_blank" rel="noopener noreferrer">神官 瑪嘉雷特 #1649</a>；各練功地圖直達頁見上表。</li>
+<li><a href="https://github.com/ned-lin-9527/Ragnarok/blob/main/data/ro-idle%E8%B3%A2%E8%80%85%E6%94%BB%E7%95%A5%E8%B3%87%E6%96%99_2026-10-28.json" target="_blank" rel="noopener noreferrer">本次賢者資料快照</a>：保留3職業、36技能、裝備／材料、商店、怪物掉落、地圖與玩法原文；附原bundle SHA-256。<a href="https://github.com/ned-lin-9527/Ragnarok/blob/main/tools/%E6%93%B7%E5%8F%96%E8%B3%A2%E8%80%85%E6%94%BB%E7%95%A5%E8%B3%87%E6%96%99.cjs" target="_blank" rel="noopener noreferrer">擷取腳本</a>可在重新下載資訊站bundle後重現。</li>
+<li><a href="https://irowiki.org/classic/Sage" target="_blank" rel="noopener noreferrer">iRO Wiki Classic：Sage</a>：<strong>R版前參考</strong>，只用於INT／DEX、INT／AGI、輔助流派及書／杖／盾裝候選。本文實際配點數字為本遊戲公式下的建議，並未搬用該站靈魂連結、攻速表、技能或裝備套裝效果。</li>
+</ul>
+<div class="article-end"><span>閱讀完畢</span><a href="../index.html">探索其他攻略 →</a></div></article></div>
+  <section class="related"><h2>延伸閱讀</h2><div class="related-grid"><a class="guide-card" href="../guides/ID%E5%B7%AB%E5%B8%AB%E5%9F%B9%E9%A4%8A%E6%94%BB%E7%95%A5.html"><span class="card-type">法師 · 巫師</span><h3>ID巫師</h3><p>以 INT／DEX 為核心的法術輸出路線。</p><span class="card-bottom"><span>查證 2026-10-27</span><span aria-hidden="true">↗</span></span></a><a class="guide-card" href="../guides/%E8%A3%9D%E5%82%99%E9%80%90%E4%BB%B6%E4%BF%9D%E7%95%99%E5%88%A4%E5%AE%9A.html"><span class="card-type">裝備分析</span><h3>458 件裝備逐件保留判定</h3><p>逐件查詢 458 件裝備的 ID、用途與掛機保留優先序。</p><span class="card-bottom"><span>查證 2026-10-22</span><span aria-hidden="true">↗</span></span></a><a class="guide-card" href="../guides/%E5%90%84%E9%A1%9E%E5%9E%8B%E8%A3%9D%E5%82%99%E4%BF%9D%E7%95%99%E8%88%87%E8%B3%A3%E5%87%BA%E6%B8%85%E5%96%AE.html"><span class="card-type">裝備分析</span><h3>各類型裝備保留與賣出清單</h3><p>依裝備類型快速判斷保留、條件留與可賣多餘。</p><span class="card-bottom"><span>查證 2026-10-22</span><span aria-hidden="true">↗</span></span></a></div></section></main><footer class="site-footer"><div><strong>RO 放置仙境攻略手冊</strong><p>非官方玩家整理。攻略會隨遊戲資料與實測更新，使用前請核對最後查證日期。</p></div><div class="footer-links"><a href="https://ro-idle.app/info" target="_blank" rel="noopener noreferrer">遊戲資訊站 ↗</a><a href="https://github.com/ned-lin-9527/Ragnarok" target="_blank" rel="noopener noreferrer">原始資料與回報 ↗</a></div></footer>
+</body></html>
