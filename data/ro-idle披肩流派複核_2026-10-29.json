@@ -1,0 +1,810 @@
+{
+  "queried": "2026-10-29",
+  "source": "https://ro-idle.app/info",
+  "bundleUrl": "https://ro-idle.app/assets/index-D8flTwRv.js",
+  "bundleSha256": "934246d77ca585dcdb0632dbefc2c0caf8e07461389f7b42641709726d9d4477",
+  "note": "培養攻略披肩流派複核。僅擷取相關公開資料；rate 為萬分率，1 = 基準0.01%，不是角色實際掉率。襯衫／三角褲的物品描述同時列出套裝效果與未開放提示，與 mechanics item-combos 的生效說明存在矛盾，需遊戲面板驗證。",
+  "items": [
+    {
+      "id": 2339,
+      "key": "G_Strings",
+      "name": "三角褲",
+      "weight": 10,
+      "buy": 1000,
+      "sell": 500,
+      "desc": "防禦力 4\n套裝（三角褲＋襯衫）：AGI +5；迴避 +10\n套裝（三角褲＋襯衫）：目前未開放，襯衫還沒開放。",
+      "unidentifiedName": "鎧甲",
+      "category": "equipment",
+      "slots": [
+        "armor"
+      ],
+      "def": 4,
+      "equipLevel": 1,
+      "jobs": "all",
+      "cardSlots": 0,
+      "refineable": true
+    },
+    {
+      "id": 2502,
+      "key": "Hood_",
+      "name": "連帽披肩",
+      "weight": 20,
+      "buy": 1000,
+      "sell": 500,
+      "desc": "防禦力 1",
+      "unidentifiedName": "斗篷",
+      "category": "equipment",
+      "slots": [
+        "garment"
+      ],
+      "def": 1,
+      "equipLevel": 1,
+      "jobs": "all",
+      "cardSlots": 1,
+      "refineable": true
+    },
+    {
+      "id": 2503,
+      "key": "Muffler",
+      "name": "披肩",
+      "weight": 40,
+      "buy": 5000,
+      "sell": 2500,
+      "desc": "防禦力 2",
+      "unidentifiedName": "斗篷",
+      "category": "equipment",
+      "slots": [
+        "garment"
+      ],
+      "def": 2,
+      "equipLevel": 1,
+      "jobs": [
+        "acolyte",
+        "alchemist",
+        "archer",
+        "assassin",
+        "bard",
+        "dancer",
+        "blacksmith",
+        "crusader",
+        "hunter",
+        "knight",
+        "mage",
+        "merchant",
+        "monk",
+        "priest",
+        "rogue",
+        "sage",
+        "swordman",
+        "thief",
+        "wizard",
+        "acolyte_high",
+        "creator",
+        "archer_high",
+        "assassin_cross",
+        "clown",
+        "gypsy",
+        "whitesmith",
+        "paladin",
+        "sniper",
+        "lord_knight",
+        "mage_high",
+        "merchant_high",
+        "champion",
+        "high_priest",
+        "stalker",
+        "professor",
+        "swordman_high",
+        "thief_high",
+        "high_wizard"
+      ],
+      "cardSlots": 0,
+      "refineable": true
+    },
+    {
+      "id": 2504,
+      "key": "Muffler_",
+      "name": "披肩",
+      "weight": 40,
+      "buy": 5000,
+      "sell": 2500,
+      "desc": "防禦力 2",
+      "unidentifiedName": "斗篷",
+      "category": "equipment",
+      "slots": [
+        "garment"
+      ],
+      "def": 2,
+      "equipLevel": 1,
+      "jobs": [
+        "acolyte",
+        "alchemist",
+        "archer",
+        "assassin",
+        "bard",
+        "dancer",
+        "blacksmith",
+        "crusader",
+        "hunter",
+        "knight",
+        "mage",
+        "merchant",
+        "monk",
+        "priest",
+        "rogue",
+        "sage",
+        "swordman",
+        "thief",
+        "wizard",
+        "acolyte_high",
+        "creator",
+        "archer_high",
+        "assassin_cross",
+        "clown",
+        "gypsy",
+        "whitesmith",
+        "paladin",
+        "sniper",
+        "lord_knight",
+        "mage_high",
+        "merchant_high",
+        "champion",
+        "high_priest",
+        "stalker",
+        "professor",
+        "swordman_high",
+        "thief_high",
+        "high_wizard"
+      ],
+      "cardSlots": 1,
+      "refineable": true
+    },
+    {
+      "id": 2522,
+      "key": "Undershirt",
+      "name": "襯衫",
+      "weight": 15,
+      "buy": 20000,
+      "sell": 10000,
+      "desc": "防禦力 2\nMDEF +1\n套裝（三角褲＋襯衫）：AGI +5；迴避 +10\n套裝（三角褲＋襯衫）：目前未開放，三角褲還沒開放。",
+      "unidentifiedName": "披肩",
+      "category": "equipment",
+      "slots": [
+        "garment"
+      ],
+      "def": 2,
+      "equipLevel": 1,
+      "jobs": "all",
+      "cardSlots": 0,
+      "refineable": true,
+      "bonuses": {
+        "mdef": 1
+      }
+    },
+    {
+      "id": 4015,
+      "key": "Condor_Card",
+      "name": "禿鷹卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\n迴避 +10",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "flee": 10
+      }
+    },
+    {
+      "id": 4056,
+      "key": "Dustiness_Card",
+      "name": "獵蠅卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\n迴避 +5\n受到風屬性的傷害 −30%",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "subElement": {
+          "wind": 30
+        },
+        "flee": 5
+      }
+    },
+    {
+      "id": 4081,
+      "key": "Hode_Card",
+      "name": "蚯蚓卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\n迴避 +5\n受到地屬性的傷害 −30%",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "subElement": {
+          "earth": 30
+        },
+        "flee": 5
+      }
+    },
+    {
+      "id": 4095,
+      "key": "Marse_Card",
+      "name": "烏賊卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\n迴避 +5\n受到水屬性的傷害 −30%",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "subElement": {
+          "water": 30
+        },
+        "flee": 5
+      }
+    },
+    {
+      "id": 4102,
+      "key": "Whisper_Card",
+      "name": "白幽靈卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\n迴避 +20\n受到念屬性的傷害 +50%",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "flee": 20,
+        "subElement": {
+          "ghost": -50
+        }
+      }
+    },
+    {
+      "id": 4109,
+      "key": "Jakk_Card",
+      "name": "南瓜先生卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\n迴避 +5\n受到火屬性的傷害 −30%",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "subElement": {
+          "fire": 30
+        },
+        "flee": 5
+      }
+    },
+    {
+      "id": 4133,
+      "key": "Daydric_Card",
+      "name": "幽靈劍士卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\n受到無屬性的傷害 −20%",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "subElement": {
+          "neutral": 20
+        }
+      }
+    },
+    {
+      "id": 4159,
+      "key": "Nine_Tail_Card",
+      "name": "九尾狐卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\nAGI +2\n精煉 +9～+10：迴避 +20",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "stats": {
+          "agi": 2
+        }
+      },
+      "byRefine": [
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          }
+        },
+        {
+          "stats": {
+            "agi": 2
+          },
+          "flee": 20
+        },
+        {
+          "stats": {
+            "agi": 2
+          },
+          "flee": 20
+        }
+      ]
+    },
+    {
+      "id": 4375,
+      "key": "Orc_Baby_Card",
+      "name": "獸人嬰兒卡片",
+      "weight": 1,
+      "buy": 20,
+      "sell": 10,
+      "desc": "插在披肩上\n精煉 +0～+8：迴避 +10、受到無屬性的傷害 −10%\n精煉 +9～+10：迴避 +15、受到無屬性的傷害 −15%",
+      "category": "card",
+      "slotType": "garment",
+      "bonuses": {
+        "subElement": {
+          "neutral": 10
+        },
+        "flee": 10
+      },
+      "byRefine": [
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 10
+          },
+          "flee": 10
+        },
+        {
+          "subElement": {
+            "neutral": 15
+          },
+          "flee": 15
+        },
+        {
+          "subElement": {
+            "neutral": 15
+          },
+          "flee": 15
+        }
+      ]
+    }
+  ],
+  "monsters": [
+    {
+      "id": 1009,
+      "name": "禿鷹",
+      "lv": 5,
+      "card": {
+        "itemId": 4015,
+        "rate": 1
+      }
+    },
+    {
+      "id": 1104,
+      "name": "松鼠",
+      "lv": 17,
+      "drops": [
+        {
+          "itemId": 2502,
+          "rate": 20
+        }
+      ]
+    },
+    {
+      "id": 1114,
+      "name": "獵蠅",
+      "lv": 21,
+      "card": {
+        "itemId": 4056,
+        "rate": 1
+      }
+    },
+    {
+      "id": 1127,
+      "name": "蚯蚓",
+      "lv": 26,
+      "card": {
+        "itemId": 4081,
+        "rate": 1
+      }
+    },
+    {
+      "id": 1130,
+      "name": "南瓜先生",
+      "lv": 38,
+      "card": {
+        "itemId": 4109,
+        "rate": 1
+      }
+    },
+    {
+      "id": 1144,
+      "name": "烏賊",
+      "lv": 31,
+      "card": {
+        "itemId": 4095,
+        "rate": 1
+      }
+    },
+    {
+      "id": 1154,
+      "name": "帕莎納",
+      "lv": 61,
+      "drops": [
+        {
+          "itemId": 2522,
+          "rate": 100
+        }
+      ]
+    },
+    {
+      "id": 1163,
+      "name": "幽靈劍士",
+      "lv": 52,
+      "card": {
+        "itemId": 4133,
+        "rate": 1
+      }
+    },
+    {
+      "id": 1170,
+      "name": "鬼女",
+      "lv": 33,
+      "drops": [
+        {
+          "itemId": 2504,
+          "rate": 5
+        }
+      ]
+    },
+    {
+      "id": 1178,
+      "name": "傑洛米",
+      "lv": 23,
+      "drops": [
+        {
+          "itemId": 2339,
+          "rate": 200
+        }
+      ]
+    },
+    {
+      "id": 1179,
+      "name": "白幽靈",
+      "lv": 34,
+      "card": {
+        "itemId": 4102,
+        "rate": 1
+      }
+    },
+    {
+      "id": 1180,
+      "name": "九尾狐",
+      "lv": 51,
+      "card": {
+        "itemId": 4159,
+        "rate": 1
+      }
+    },
+    {
+      "id": 1199,
+      "name": "朽魔",
+      "lv": 43,
+      "drops": [
+        {
+          "itemId": 2502,
+          "rate": 15
+        }
+      ]
+    },
+    {
+      "id": 1246,
+      "name": "甜餅人",
+      "lv": 28,
+      "drops": [
+        {
+          "itemId": 2502,
+          "rate": 25
+        }
+      ]
+    },
+    {
+      "id": 1506,
+      "name": "假面鬼",
+      "lv": 55,
+      "drops": [
+        {
+          "itemId": 2502,
+          "rate": 50
+        },
+        {
+          "itemId": 2504,
+          "rate": 2
+        }
+      ]
+    },
+    {
+      "id": 1637,
+      "name": "闇●神官",
+      "lv": 90,
+      "drops": [
+        {
+          "itemId": 2504,
+          "rate": 10
+        }
+      ]
+    },
+    {
+      "id": 1654,
+      "name": "闇●商人",
+      "lv": 66,
+      "drops": [
+        {
+          "itemId": 2504,
+          "rate": 1
+        }
+      ]
+    },
+    {
+      "id": 1686,
+      "name": "獸人嬰兒",
+      "lv": 21,
+      "card": {
+        "itemId": 4375,
+        "rate": 1
+      }
+    }
+  ],
+  "shops": [
+    {
+      "id": "Armor Dealer#prt",
+      "town": "prontera",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#alb",
+      "town": "alberta",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#ama",
+      "town": "amatsu",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#cmd",
+      "town": "comodo",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#gon",
+      "town": "gonryun",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#iz",
+      "town": "izlude",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#moc",
+      "town": "morocc",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#pay",
+      "town": "payon",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#nif",
+      "town": "niflheim",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        },
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#lou",
+      "town": "louyang",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#ayo",
+      "town": "ayothaya",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    },
+    {
+      "id": "Armor Dealer#lhz",
+      "town": "lighthalzen",
+      "name": "防具商人",
+      "items": [
+        {
+          "itemId": 2503,
+          "price": 5000
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "id": "item-combos",
+      "group": "裝備與成長",
+      "title": "套裝與卡片組合是否生效？",
+      "text": "已開放的組合須同時穿戴全部組件；卡片必須插在穿戴中的裝備上，放背包或倉庫不算。人物頁顯示生效中的套裝，數值包含在面板與實戰中；缺少任何一件即失效，同一組不因多帶相同卡片重複加算。襯衫＋三角褲額外AGI +5、迴避 +10（加上AGI帶來的迴避後共多15）。武器與箭矢組合須裝弓及指定箭種。道具說明標示組合與效果；仍缺效果的組合整組保持未開放，例如天使五件，不能只拿到HP／SP部分加成。"
+    },
+    {
+      "id": "hit",
+      "group": "能力與戰鬥",
+      "title": "HIT、FLEE、暴擊和完全迴避有什麼不同？",
+      "text": "基本 HIT = Base Lv + DEX，基本 FLEE = Base Lv + AGI，再加裝備、技能與狀態修正。一般物理命中率先算 80 + 玩家 HIT − 怪物 FLEE，再套命中加成，最後限制在 5%～95%；個別技能另有加成或必中判定。基本暴擊 = 1 + floor(LUK × 0.3)，對怪物還扣除目標 LUK × 0.2；拳刃的面板暴擊另有倍增；拳刃普通攻擊另有附加傷害（本次傷害 ×（1 + 2 × 二刀連擊等級）%），戰鬥紀錄會分開列出「拳刃＋附加」兩個數字。基本完全迴避 = 1 + floor(LUK ÷ 10)，與 FLEE 是不同判定，不能視為對所有技能都有效。"
+    },
+    {
+      "id": "defense",
+      "group": "能力與戰鬥",
+      "title": "DEF、MDEF 與 VIT／INT 都會減傷嗎？",
+      "text": "會，但不能把所有欄位直接相加成減傷百分比。裝備形成硬 DEF／MDEF，VIT 參與物理軟防禦，INT 參與魔法軟防禦。玩家硬 DEF／MDEF 面板目前上限 99；技能、暴擊、無視防禦與穿透效果可能採不同路徑。配裝請同時考慮最大 HP、迴避、屬性與怪物技能，不要只比較單一 DEF。"
+    },
+    {
+      "id": "refine",
+      "group": "裝備與成長",
+      "title": "精煉有套用嗎？安全值與失敗風險？",
+      "text": "有，裝備穿在身上才套用，最高 +10。武器依武器等級增加精煉 ATK，過精煉還有隨機加成；防具每級提供 0.7 硬 DEF，先合計身上防具的精煉加成再四捨五入。畫面上的防禦力（道具說明、人物面板、裝備比較）為了好讀，防具精煉每級顯示 +1（例如防禦力 2 的 +7 顯示 9），實際減傷照每級 0.7 計算（+7 實際約 +5）；人物面板 DEF 的說明會寫出實際的裝備 DEF。安全值、每階成功率、材料及費用請看下方各件裝備的精煉表；標示失敗損壞時，裝備與已插卡片會一起失去，材料與費用仍會消耗。精煉的目標等級比安全值多 4 級以上（例如鎧甲安全 +4，衝 +8 起；Lv1 武器不會）時，成功或失敗都會在所有玩家的標題列顯示幾秒（不進聊天欄）。"
+    }
+  ]
+}
