@@ -1,6 +1,6 @@
 # RO 放置仙境：ID巫師培養攻略
 
-**最後查證：2026-11-03**
+**最後查證：2026-11-04**
 
 ## 目的與適用條件
 
@@ -258,9 +258,37 @@
 
 其餘超魔導師新技能（吸魂術、魔擊術、魔力增幅、念力連擊、重力原野）全部點入。
 
-轉生後屬性配點（起始 100 點、超魔導師 Job 70 加成）本次未展開，列為待補；不要把③的一般角色屬性表直接套用到轉生角色。
-
 資料來源：[超魔導師職業頁](https://ro-idle.app/info/database?type=jobs&id=high_wizard)、[超魔導師技能說明](../../../技能/超魔導師技能說明.md)、[吸魂術](https://ro-idle.app/info/database?type=skills&id=HW_SOULDRAIN)、[魔力增幅](https://ro-idle.app/info/database?type=skills&id=HW_MAGICPOWER)、[重力原野](https://ro-idle.app/info/database?type=skills&id=HW_GRAVITATION)、[念力連擊](https://ro-idle.app/info/database?type=skills&id=HW_NAPALMVULCAN)、[聖靈召喚](https://ro-idle.app/info/database?type=skills&id=MG_SOULSTRIKE)、[暗之障壁](https://ro-idle.app/info/database?type=skills&id=MG_SAFETYWALL)。
+
+### 轉生後屬性配點
+
+轉生後 Base 99 共 1,325 點，比③多 52 點；本攻略維持③的方向，多出的點數投入 DEX 90→93、VIT 35→39，剩 5 點。
+
+| Base Lv | 可用總點數 | STR | AGI | DEX | VIT | INT | LUK | 剩餘 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 100 | 1 | 1 | 21 | 1 | 21 | 1 | 0 |
+| 60 | 607 | 1 | 1 | 57 | 11 | 70 | 1 | 3 |
+| 70 | 762 | 1 | 1 | 62 | 20 | 80 | 1 | 6 |
+| 80 | 937 | 1 | 1 | 73 | 20 | 89 | 1 | 2 |
+| 90 | 1,132 | 1 | 1 | 84 | 26 | 95 | 1 | 8 |
+| 99 | 1,325 | 1 | 1 | 93 | 39 | 99 | 1 | 5 |
+
+**投入順序**
+
+1. **轉生後 Base 1**：先把 100 點投入 DEX 21／INT 21（上表第一列），讓進階初學者與進階魔法師的練功較快。
+2. **Base 2～60**：每級新得的點數照①、③的順序補，追上表中 Base 60 列後照表推進。
+3. **多出的 52 點**：DEX 從 90 補到 93 再縮短詠唱，剩下的給 VIT。INT 已到 99。
+
+**推導與前提**
+
+- **點數**：資訊站[玩法與公式](https://ro-idle.app/info/mechanics)寫明轉生後六項屬性回到 1、給 100 點（一般新角色 48 點）。每級新得的點數本攻略照 R 版前規則推定與一般角色相同（`floor(升級前 Base ÷ 5) + 3`），所以同 Base 一律多 52 點；資訊站沒有寫明這點，**待遊戲內核對**，實際可用點數不同時，照同一順序增減。
+- **成本與上限**：每加 1 點花 `floor((目前值 − 1) ÷ 10) + 2`，屬性上限 99；表中六圍是手動投入值，不含 Job、裝備與增益。
+- **Job 加成**：進階魔法師與一般魔法師相同（Job 50：AGI +4、DEX +3、INT +8、LUK +3）。超魔導師 Job 70 為 STR +3、AGI +8、DEX +9、VIT +5、INT +17、LUK +3；對照巫師 Job 50 為 STR +1、AGI +8、DEX +6、VIT +1、INT +12、LUK +2。
+- **Base 99 面板（只含 Job 70 加成）**：本表約 STR 4、AGI 9、DEX 102、VIT 44、INT 116、LUK 4。
+- **HP／SP**：轉生職業的 HP、SP 是原職業的 1.25 倍（資訊站玩法與公式），同樣的 VIT、INT 撐得比③久；實測存活與 SP 已足夠時，可把表中後補的 VIT、INT 改投主屬性。
+- **轉生時**：自動配點會被關掉（更新紀錄 p6.2），轉生後要重新設定自動配點的順序；練到 Base 99 約要一般職業 3 倍的經驗，每個階段都比③久。
+
+資料來源：[玩法與公式](https://ro-idle.app/info/mechanics)、[超魔導師職業頁](https://ro-idle.app/info/database?type=jobs&id=high_wizard)、[魔法師職業頁](https://ro-idle.app/info/database?type=jobs&id=mage)、[更新紀錄](https://ro-idle.app/info/updates)。
 
 ## 配裝建議
 
@@ -412,11 +440,13 @@ Base 60（MaxSP 約 979）時鬼女約 +32／分、轉轉蛋約 +22／分，結�
 - [ ] 轉生後實測：重力原野（p6.41 起不能疊加、持續期間不能喝藥水）的安全 HP 門檻與死亡次數；魔力增幅 Lv 10 接在隕石術前的 SP 收支與擊殺差異
 - [ ] 轉生後實測：吸魂術對隕石術一輪 SP 曲線與禪心回復的實際差異、單體擊殺回 SP 的觸發率（含念力連擊是否觸發）；重力原野與暗之障壁的施放頻率、每小時藍色魔力礦石消耗、施放期間受到的傷害與 EXP／小時；暗之障壁在放置版能否擋下貼身怪的攻擊；藍色魔力礦石購買管道與價格。
 - [ ] 決定超魔導師最後 2 點（Job 69～70）的用途，例如雷鳴術 3→5 或火之獵殺 2→4。
-- [ ] 補轉生後屬性配點（起始 100 點、超魔導師 Job 70 加成）。
+- [ ] 遊戲內核對轉生後每級獲得的屬性點是否與一般角色相同（⑤「轉生後屬性配點」以相同推算，同 Base 比③多 52 點）
 
 **其他風險**：地圖混怪可能讓單一屬性規則失效；高 MDEF、主動怪及遠程怪會顯著改變結論；基準 EXP、屬性倍率與掉率不等於角色實得值；超重、死亡與詠唱被打斷都會放大離線收益波動。
 
 ## 依據與資料來源
+
+2026-11-04 新增⑤「轉生後屬性配點」：依[資訊站玩法與公式](https://ro-idle.app/info/mechanics)的轉生規則（屬性回到 1、給 100 點）與配點成本，以及資訊站前端的各職業 Job 加成表計算；每級新得點數與一般角色相同屬 R 版前規則推定，待遊戲內核對。
 
 2026-11-03 依[資訊站更新紀錄](https://ro-idle.app/info/updates) p6.2、p6.6、p6.28、p6.41，逐級核對[重力原野](https://ro-idle.app/info/database?type=skills&id=HW_GRAVITATION)、[魔力增幅](https://ro-idle.app/info/database?type=skills&id=HW_MAGICPOWER)、[吸魂術](https://ro-idle.app/info/database?type=skills&id=HW_SOULDRAIN)技能頁，補上重力原野不能疊加與持續期間不能用道具的限制，改寫魔力增幅與吸魂術的計算；配點表未變，其餘項目保留原查證日期。
 
