@@ -173,7 +173,7 @@
 </tbody></table></div>
 <ul>
 <li><strong>Job 屬性加成</strong>：魔法師 Job50 為 INT +8／DEX +3／AGI +4／LUK +3；賢者 Job50 為 STR +5／AGI +5／VIT +3／INT +9／DEX +5／LUK +3。轉職後用目前職業加成，不永久疊上魔法師加成。龍知識的 INT 另計。</li>
-<li><strong>不扣點任務技能</strong>：初學者緊急治療 <code>NV_FIRSTAID</code>（Job4）、魔法師能量外套 <code>MG_ENERGYCOAT</code>（Job35）；當日賢者技能樹未另列專屬任務技能，不搬用 R 版前元素轉換技能。</li>
+<li><strong>不扣點任務技能</strong>：初學者緊急治療 <code>NV_FIRSTAID</code>（Job4）、魔法師能量外套 <code>MG_ENERGYCOAT</code>（Job35）；當日賢者技能樹未另列專屬任務技能，不搬用 R 版前元素轉換技能。2026-10-29（p6.11）起，轉二轉後可在職業頁直接學一轉任務技能，不必練到上列 Job 等級，也不扣技能點。</li>
 <li>能量外套受物理傷害時另消耗 MaxSP 的 1%～3%，可能壓縮自詠／主動法術預算；要用同圖 SP 曲線決定。</li>
 </ul>
 <p>資料來源：<a href="https://ro-idle.app/info/database?type=jobs&amp;id=novice" target="_blank" rel="noopener noreferrer">初學者</a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=mage" target="_blank" rel="noopener noreferrer">魔法師</a>、<a href="https://ro-idle.app/info/database?type=jobs&amp;id=sage" target="_blank" rel="noopener noreferrer">賢者</a>、<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>。</p>
@@ -1806,6 +1806,29 @@
 </tr>
 </tbody></table></div>
 <p><strong>武器取捨</strong>：書 #1550沒有MATK+15%，因此買到書不代表必勝過原本的杖。兩者須比較同角色普攻數、實際魔法傷害與SP。聖言之書 #1551只有INT+2，亦不能把較高ATK誤算為自詠增傷。</p>
+<p><strong>新開放武器與套裝（2026-11-03 查證，更新紀錄 p6.22）</strong>：</p>
+<div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
+<thead>
+<tr>
+<th>裝備</th>
+<th>本遊戲資料</th>
+<th>取得（基準掉率）</th>
+<th>本攻略的用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://ro-idle.app/info/database?type=equipment&amp;id=1564" target="_blank" rel="noopener noreferrer">大百科全書 [2] #1564</a></td>
+<td>書、武器等級 3、ATK 110、2 洞、Base 70，限祭司、賢者、神官、智者；INT +3、DEX +2、MATK +15%、暴擊 +（20＋LUK×2÷10）</td>
+<td>邪靈魔導士 Lv64 0.1%</td>
+<td>A：一樣是書，ATK 110 高於書 #1550 的 85，又補上 #1550 沒有的 MATK +15%，在日記之前當中期目標。B／C：列出的能力涵蓋言靈魔杖的 INT +3、MATK +15%，再多 DEX +2，Base 70 起可取代言靈魔杖</td>
+</tr>
+<tr>
+<td><a href="https://ro-idle.app/info/database?type=equipment&amp;id=1629" target="_blank" rel="noopener noreferrer">紳士的權杖 [1] #1629</a>＋<a href="https://ro-idle.app/info/database?type=equipment&amp;id=5045" target="_blank" rel="noopener noreferrer">魔術師帽 [0] #5045</a></td>
+<td>權杖：手杖、武器等級 4、ATK 40、Base 50，DEX +1、MATK +15%。帽：頭上、Base 50，AGI +1、DEX +1、MaxSP +50。套裝再加 INT +2、DEX +2、SP 自然回復 +5%、MATK +武器精煉值%</td>
+<td>權杖：鴞裊男爵 Lv75 0.02%。帽：鴞裊男爵 0.05%、鴞裊首領 Lv75 0.01%，或克魔島 Kachua 以 3 克拉鑽石 0.009% 換到</td>
+<td>合計 INT +2、DEX +4、AGI +1、MaxSP +50、SP 自然回復 +5%、MATK +15%＋精煉值%，占武器與頭上，Base 50 就能用。B 和「大百科＋蘋果頭飾」（INT +3、DEX +5、MATK +15%）相比，INT、DEX 各少 1，換到 MaxSP、SP 回復與精煉 MATK；掉率低，有取得再用</td>
+</tr>
+</tbody></table></div>
 <p><strong>賢者的日記取得限制</strong>：神官 瑪嘉雷特 #1649 是Lv99、HP1,092,910的MVP，基準掉率35%；在活體實驗研究所地下3樓 <code>lhz_dun03</code> 的同組MVP排程中，資料列重生基準100分鐘、變動欄位30分鐘，實際刷新仍須觀察。這不是新轉賢者可穩刷的常駐來源，也不是每100分鐘保證一本；交易價與箱子取得機率待查證。日記可作長期／交易目標，不能當A流派起跑條件。</p>
 <p><strong>優先序</strong>：先安全防具與SP→書／杖A/B測試→INT或披肩防護測試（迴避／抗性）→日記；不為九尾狐卡先冒險衝+9，精煉失敗與卡片損失風險另核對。</p>
 <h4 id="section-32">流派 B：INT／DEX 主動施法<a class="heading-anchor" href="#section-32" aria-label="連結至流派 B：INT／DEX 主動施法">#</a></h4><div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
@@ -2182,7 +2205,8 @@
 <li><input disabled="" type="checkbox"> 補轉生後屬性配點（起始100點、智者Job70加成）。</li>
 </ul>
 <p><strong>其他風險</strong>：版本更新可改技能與掉落；基準掉率、遭遇權重與EXP均不等於玩家每小時收益。高MDEF、混屬性、主動怪與超重會使結果偏離；自由施法不免傷，地元素領域不免所有魔法。本站技能模擬器目前仍以其頁面標示日期的資料為準，本攻略當日快照不代表全站其他職業資料已同步複查。</p>
-<h2 id="section-40">依據與資料來源<a class="heading-anchor" href="#section-40" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-03 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> p6.28（智者技能改回原版數值）逐級核對<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_HPCONVERSION" target="_blank" rel="noopener noreferrer">HP轉換</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_MEMORIZE" target="_blank" rel="noopener noreferrer">速讀術</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_MINDBREAKER" target="_blank" rel="noopener noreferrer">精神撼動</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_DOUBLECASTING" target="_blank" rel="noopener noreferrer">雙倍投擲</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_SOULCHANGE" target="_blank" rel="noopener noreferrer">心神互換</a>技能頁，改寫⑤的HP轉換與速讀術計算；配點表未變，其餘項目保留原查證日期。</p>
+<h2 id="section-40">依據與資料來源<a class="heading-anchor" href="#section-40" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-03 依更新紀錄 p6.22 查證<a href="https://ro-idle.app/info/database?type=equipment&amp;id=1564" target="_blank" rel="noopener noreferrer">大百科全書 #1564</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=1629" target="_blank" rel="noopener noreferrer">紳士的權杖 #1629</a>、<a href="https://ro-idle.app/info/database?type=equipment&amp;id=5045" target="_blank" rel="noopener noreferrer">魔術師帽 #5045</a>的效果、職業限制與掉落；p6.11 起二轉可直接學一轉任務技能。</p>
+<p>2026-11-03 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> p6.28（智者技能改回原版數值）逐級核對<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_HPCONVERSION" target="_blank" rel="noopener noreferrer">HP轉換</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_MEMORIZE" target="_blank" rel="noopener noreferrer">速讀術</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_MINDBREAKER" target="_blank" rel="noopener noreferrer">精神撼動</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_DOUBLECASTING" target="_blank" rel="noopener noreferrer">雙倍投擲</a>、<a href="https://ro-idle.app/info/database?type=skills&amp;id=PF_SOULCHANGE" target="_blank" rel="noopener noreferrer">心神互換</a>技能頁，改寫⑤的HP轉換與速讀術計算；配點表未變，其餘項目保留原查證日期。</p>
 <p>2026-10-29 複核披肩選卡：A 自動念咒敏智才列迴避候選；B 主動施法與 C 輔助採抗性，補上換裝條件。依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>及<a href="https://github.com/ned-lin-9527/Ragnarok/blob/main/data/ro-idle%E6%8A%AB%E8%82%A9%E6%B5%81%E6%B4%BE%E8%A4%87%E6%A0%B8_2026-10-29.json" target="_blank" rel="noopener noreferrer">披肩流派複核快照</a>查證；僅更新本次披肩相關內容，其餘資料保留原查證日期。選卡與測試門檻是攻略建議，非角色實測。</p>
 <p>查詢日期：<strong>2026-10-28</strong>。本攻略數值來自當日資訊站公開前端資料與玩法說明，未登入角色、未進行戰鬥實測；R版前資料只用於流派與典型裝備候選。</p>
 <ul>

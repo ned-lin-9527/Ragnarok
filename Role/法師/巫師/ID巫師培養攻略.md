@@ -77,7 +77,7 @@
 | 巫師 → 轉生 → 進階初學者 → 進階魔法師 → 超魔導師 `high_wizard` | 轉生：巫師 Base 99、Job 50、技能點用完，1,285,000 Zeny；超魔導師：進階魔法師 Job 40 以上、點數用完 | 進階魔法師建議 Job 50 轉（49 點，配置與②不同，改點聖靈召喚 7、暗之障壁 7）；超魔導師 Job 70：69 點，比巫師多 20 點 | 進階初學者自動取得初學者技能、無技能點；轉生屬性起始 100 點。技能配點見⑤。 |
 
 - **Job 屬性加成**：魔法師 Job 50 累計 INT +8、DEX +3、AGI +4、LUK +3；巫師 Job 50 累計 INT +12、DEX +6、AGI +8、STR +1、VIT +1、LUK +2。這不是永久累加；轉職後只採目前職業及 Job 等級的加成。
-- **任務技能不扣一般技能點**：初學者緊急治療 `NV_FIRSTAID`（Job 4）；魔法師能量外套 `MG_ENERGYCOAT`（Job 35）。能量外套受物理攻擊時按剩餘 SP 減傷，且每次受擊消耗 MaxSP；SP 緊缺時不要無條件常駐。
+- **任務技能不扣一般技能點**：初學者緊急治療 `NV_FIRSTAID`（Job 4）；魔法師能量外套 `MG_ENERGYCOAT`（Job 35）。能量外套受物理攻擊時按剩餘 SP 減傷，且每次受擊消耗 MaxSP；SP 緊缺時不要無條件常駐。2026-10-29（p6.11）起，轉二轉後可在職業頁直接學一轉任務技能，不必練到上列 Job 等級，也不扣技能點。
 - **重置銜接**：技能重置後，須先重投當初取得的一轉點數（Job 40 轉為 39 點；Job 50 轉為 49 點），才能再加二轉技能。
 
 資料來源：[初學者](https://ro-idle.app/info/database?type=jobs&id=novice)、[魔法師](https://ro-idle.app/info/database?type=jobs&id=mage)、[巫師](https://ro-idle.app/info/database?type=jobs&id=wizard)、[玩法與公式](https://ro-idle.app/info/mechanics)。
