@@ -731,7 +731,7 @@
 </ol>
 <p><strong>推導與前提</strong></p>
 <ul>
-<li><strong>點數</strong>：資訊站<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>寫明轉生後六項屬性回到 1、給 100 點（一般新角色 48 點）。每級新得的點數本攻略照 R 版前規則推定與一般角色相同（<code>floor(升級前 Base ÷ 5) + 3</code>），所以同 Base 一律多 52 點；資訊站沒有寫明這點，** 待遊戲內核對**，實際可用點數不同時，照同一順序增減。</li>
+<li><strong>點數</strong>：資訊站<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>寫明轉生後六項屬性回到 1、給 100 點（一般新角色 48 點）。每級新得的點數依同頁公式為 <code>floor(升級前 Base ÷ 5) + 3</code>，公式沒有區分轉生角色（2026-11-05 查證），所以同 Base 一律多 52 點。</li>
 <li><strong>成本與上限</strong>：每加 1 點花 <code>floor((目前值 − 1) ÷ 10) + 2</code>，屬性上限 99；表中六圍是手動投入值，不含 Job、裝備與增益。</li>
 <li><strong>Job 加成</strong>：進階盜賊與一般盜賊相同（Job 50：STR +4、AGI +4、DEX +4、VIT +2、INT +1、LUK +3）。神行太保 Job 70 為 STR +9、AGI +11、DEX +12、VIT +4、INT +3、LUK +6；對照流氓 Job 50 為 STR +6、AGI +7、DEX +7、VIT +6、INT +4。</li>
 <li><strong>Base 99 面板（只含 Job 70 加成）</strong>：本表約 STR 89、AGI 101、DEX 70、VIT 40、INT 4、LUK 7。</li>
@@ -951,7 +951,7 @@
 <li><strong>偷竊也能拿裝備</strong>：強奪會從怪物掉落表偷東西，可以偷到有洞裝備，但永遠偷不到卡片。</li>
 <li><strong>黑蛇卡片</strong>（可讓非短劍武器使用二刀連擊）對本流派沒有用途，因為本來就拿短劍。</li>
 <li><strong>頭部裝備</strong>：可用無邊帽[1]、防風皮革眼鏡[1]。尚未查證推薦的頭部卡片，待補。</li>
-<li><strong>體型修正</strong>：R 版前短劍對小型 100%、中型 75%、大型 50%。此遊戲的數字請對照資訊站「武器體型修正表」，待確認。</li>
+<li><strong>體型修正（資訊站玩法與公式，2026-11-05 查證）</strong>：短劍對小型 100%、中型 75%、大型 50%，與 R 版前相同；這是武器傷害部分的基準修正，不代表整個最終傷害直接乘這個數字。</li>
 </ul>
 <p>資料來源：<a href="https://ro-idle.app/info/database?type=equipment" target="_blank" rel="noopener noreferrer">資訊站裝備資料</a>、<a href="https://ro-idle.app/info/database?type=monsters" target="_blank" rel="noopener noreferrer">資訊站怪物資料</a>。</p>
 <h2 id="section-15">掛機設定與練功地圖<a class="heading-anchor" href="#section-15" aria-label="連結至掛機設定與練功地圖">#</a></h2><p>掛機以普攻為主（強奪、二刀連擊、六合拳都靠普攻觸發），背刺加上「SP 門檻」條件，並保留隱匿的 SP 當逃生。負重必須保持在 50% 以下，否則自然回復會停止，而強奪會讓背包快速變重。</p>
@@ -1144,7 +1144,6 @@
 <li><input disabled="" type="checkbox"> 提供目前角色資料：職業、Base／Job 等級、素質、裝備（影響配點進度與地圖選擇）</li>
 <li><input disabled="" type="checkbox"> 確認屬性是否可以重置及費用</li>
 <li><input disabled="" type="checkbox"> 確認戰鬥中是否照常自然回 SP（本文假設會）</li>
-<li><input disabled="" type="checkbox"> 確認本遊戲短劍的體型修正數字</li>
 <li><input disabled="" type="checkbox"> 確認六合拳與二刀連擊的判定順序</li>
 <li><input disabled="" type="checkbox"> 確認六合拳觸發時是否仍會觸發強奪</li>
 <li><input disabled="" type="checkbox"> 確認六合拳的動作時間是否比普攻長</li>
@@ -1152,7 +1151,6 @@
 <li><input disabled="" type="checkbox"> 補上頭部裝備卡片</li>
 <li><input disabled="" type="checkbox"> 實測艾音布羅克原野 06 的擊殺數與鳥人哈比出現時的死亡風險</li>
 <li><input disabled="" type="checkbox"> 轉生後實測蒼鷹之眼 10、背刺 10 對命中率與擊殺數的影響；若改走霸王魂，記錄觸發次數、重放頻率、SP 消耗與死亡變化</li>
-<li><input disabled="" type="checkbox"> 遊戲內核對轉生後每級獲得的屬性點是否與一般角色相同（⑤「轉生後屬性配點」以相同推算，同 Base 比③多 52 點）</li>
 <li><input disabled="" type="checkbox"> 補神行太保的 MaxSP／回復</li>
 </ul>
 <p><strong>其他風險</strong></p>
@@ -1161,7 +1159,8 @@
 <li>攻速公式是從資訊站程式推得，攻速加成的細節未納入。</li>
 <li>遊戲更新後，請優先複查六合拳是否仍可抄襲，以及背刺、強奪的數值與轉職條件。</li>
 </ul>
-<h2 id="section-21">依據與資料來源<a class="heading-anchor" href="#section-21" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-05 補上高等候選地圖：依資訊站前端地圖與怪物資料篩選主動怪比例與怪物等級，再到資訊站核對<a href="https://ro-idle.app/info/database?type=maps&amp;id=ein_fild06" target="_blank" rel="noopener noreferrer">艾音布羅克原野 06</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1372" target="_blank" rel="noopener noreferrer">魔羌</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1148" target="_blank" rel="noopener noreferrer">米杜沙</a>等直達頁。</p>
+<h2 id="section-21">依據與資料來源<a class="heading-anchor" href="#section-21" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-05 依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>結清推定：每級屬性點公式 <code>floor(Base ÷ 5) + 3</code> 不分轉生角色、武器體型修正表與最大 HP 公式已公開；相關段落改為已查證。</p>
+<p>2026-11-05 補上高等候選地圖：依資訊站前端地圖與怪物資料篩選主動怪比例與怪物等級，再到資訊站核對<a href="https://ro-idle.app/info/database?type=maps&amp;id=ein_fild06" target="_blank" rel="noopener noreferrer">艾音布羅克原野 06</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1372" target="_blank" rel="noopener noreferrer">魔羌</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1148" target="_blank" rel="noopener noreferrer">米杜沙</a>等直達頁。</p>
 <p>2026-11-05 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> 2026-11-04 功能更新，補上人物頁「未湊齊的套裝」的用法。</p>
 <p>2026-11-04 新增⑤「轉生後屬性配點」：依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>的轉生規則（屬性回到 1、給 100 點）與配點成本，以及資訊站前端的各職業 Job 加成表計算；每級新得點數與一般角色相同屬 R 版前規則推定，待遊戲內核對。</p>
 <p>2026-11-03 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> p6.11（二轉直接學一轉任務技能）、p6.23（盜賊套卡、闇●盜賊卡片、金屬波利卡片開放）補充配裝；套卡效果與掉落依各卡片直達頁。</p>
@@ -1177,7 +1176,7 @@
 <li><a href="https://ro-idle.app/info/database?type=equipment" target="_blank" rel="noopener noreferrer">資訊站－裝備資料</a>：短劍、防具、卡片、商店價格</li>
 <li><a href="https://ro-idle.app/info/database?type=monsters" target="_blank" rel="noopener noreferrer">資訊站－怪物資料</a>、<a href="https://ro-idle.app/info/database?type=maps" target="_blank" rel="noopener noreferrer">地圖資料</a>：掉落、地圖怪物組成</li>
 <li><a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站－玩法與公式</a>：配點、自然回復、命中與迴避、ASPD、負重、流氓玩法與抄襲操作</li>
-<li>R 版前參考（待此遊戲驗證）：短劍流氓的配裝思路、短劍體型修正</li>
+<li>R 版前參考（待此遊戲驗證）：短劍流氓的配裝思路</li>
 </ul>
 <div class="article-end"><span>閱讀完畢</span><a href="../index.html">探索其他攻略 →</a></div></article></div>
   <section class="related"><h2>延伸閱讀</h2><div class="related-grid"><a class="guide-card" href="../guides/%E4%BA%8C%E5%88%80%E9%80%A3%E6%93%8A%E9%9B%99%E5%88%80%E5%88%BA%E5%AE%A2%E5%9F%B9%E9%A4%8A%E6%94%BB%E7%95%A5.html"><span class="card-type">盜賊 · 刺客</span><h3>二刀連擊雙刀刺客</h3><p>雙短劍與二刀連擊，重視命中和配卡取捨。</p><span class="card-bottom"><span>查證 2026-11-05</span><span aria-hidden="true">↗</span></span></a><a class="guide-card" href="../guides/%E7%88%86%E5%88%BA%E5%88%BA%E5%AE%A2%E5%9F%B9%E9%A4%8A%E6%94%BB%E7%95%A5.html"><span class="card-type">盜賊 · 刺客</span><h3>爆刺刺客</h3><p>拳刃爆擊與雙短劍路線，含四階段配點及現有角色銜接。</p><span class="card-bottom"><span>查證 2026-11-05</span><span aria-hidden="true">↗</span></span></a><a class="guide-card" href="../guides/%E8%A3%9D%E5%82%99%E9%80%90%E4%BB%B6%E4%BF%9D%E7%95%99%E5%88%A4%E5%AE%9A.html"><span class="card-type">裝備分析</span><h3>458 件裝備逐件保留判定</h3><p>逐件查詢 458 件裝備的 ID、用途與掛機保留優先序。</p><span class="card-bottom"><span>查證 2026-10-22</span><span aria-hidden="true">↗</span></span></a></div></section></main><footer class="site-footer"><div><strong>RO 放置仙境攻略手冊</strong><p>非官方玩家整理。攻略會隨遊戲資料與實測更新，使用前請核對最後查證日期。</p></div><div class="footer-links"><a href="https://ro-idle.app/info" target="_blank" rel="noopener noreferrer">遊戲資訊站 ↗</a><a href="https://github.com/ned-lin-9527/Ragnarok" target="_blank" rel="noopener noreferrer">原始資料與回報 ↗</a></div></footer>

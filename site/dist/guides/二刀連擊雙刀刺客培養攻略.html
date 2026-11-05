@@ -87,8 +87,8 @@
 </tr>
 <tr>
 <td>兩把武器的卡片</td>
-<td>資訊站程式沒有看到左右手分開計算卡片，推測兩把武器的卡片效果合併套用在兩隻手</td>
-<td>推測，待實測</td>
+<td>左手武器上的種族、體型、屬性加傷卡片算在<strong>右手</strong> 那一下，和右手的同類卡片相加；<strong>左手那一下不吃卡片加成</strong></td>
+<td>資訊站玩法與公式（2026-11-05 查證）</td>
 </tr>
 <tr>
 <td>中毒</td>
@@ -130,7 +130,7 @@
 </tbody></table></div>
 <ul>
 <li>喝覺醒藥水（攻速 +15%）後雙刀約 164.4，和參考文章的「雙刀攻速 164（含覺醒）」一致。</li>
-<li><strong>R 版前參考</strong>：參考文章指出體型修正只影響武器 ATK，不影響素質 ATK，所以 STR 高時體型懲罰的影響只剩一成左右。本遊戲的計算順序未查到，待驗證。</li>
+<li><strong>R 版前參考</strong>：參考文章指出體型修正只影響武器 ATK，不影響素質 ATK，所以 STR 高時體型懲罰的影響只剩一成左右。資訊站玩法與公式寫明體型修正是「這是武器傷害部分的基準修正，不代表整個最終傷害直接乘這個數字」，與參考文章一致（2026-11-05 查證）；短劍對小型 100%、中型 75%、大型 50%。</li>
 </ul>
 <h2 id="section-4">轉職路線與階段定義<a class="heading-anchor" href="#section-4" aria-label="連結至轉職路線與階段定義">#</a></h2><p>路線為初心者 → 盜賊（一轉）→ 刺客（二轉）。建議盜賊練到 Job 50 再轉職。「轉職前」指盜賊階段（單手短劍＋二刀連擊），「轉職後」指刺客階段（雙刀）。</p>
 <div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
@@ -667,7 +667,7 @@
 </ol>
 <p><strong>推導與前提</strong></p>
 <ul>
-<li><strong>點數</strong>：資訊站<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>寫明轉生後六項屬性回到 1、給 100 點（一般新角色 48 點）。每級新得的點數本攻略照 R 版前規則推定與一般角色相同（<code>floor(升級前 Base ÷ 5) + 3</code>），所以同 Base 一律多 52 點；資訊站沒有寫明這點，** 待遊戲內核對**，實際可用點數不同時，照同一順序增減。</li>
+<li><strong>點數</strong>：資訊站<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>寫明轉生後六項屬性回到 1、給 100 點（一般新角色 48 點）。每級新得的點數依同頁公式為 <code>floor(升級前 Base ÷ 5) + 3</code>，公式沒有區分轉生角色（2026-11-05 查證），所以同 Base 一律多 52 點。</li>
 <li><strong>成本與上限</strong>：每加 1 點花 <code>floor((目前值 − 1) ÷ 10) + 2</code>，屬性上限 99；表中六圍是手動投入值，不含 Job、裝備與增益。</li>
 <li><strong>Job 加成</strong>：進階盜賊與一般盜賊相同（Job 50：STR +4、AGI +4、DEX +4、VIT +2、INT +1、LUK +3）。十字刺客 Job 70 為 STR +9、AGI +15、DEX +10、VIT +3、LUK +8；對照刺客 Job 50 為 STR +6、AGI +10、DEX +8、VIT +2、INT +4。</li>
 <li><strong>Base 99 面板（只含 Job 70 加成）</strong>：本表約 STR 99、AGI 95、DEX 65、VIT 43、LUK 9。</li>
@@ -746,7 +746,7 @@
 <td>4 洞短劍：短劍[4] Knife（ATK 17）、卡特短劍[4] Cutter（ATK 30）、笨拙短劍[4] Main_Gauche（ATK 43）</td>
 <td>雙刃短劍[3]</td>
 <td>短劍[4]：波利 Lv1 掉 1%；卡特[4]：蒼蠅 Lv4 掉 0.55%；笨拙[4]：蜂兵 Lv8 掉 0.15%</td>
-<td>左手只有 80%，主要當「卡片載體」</td>
+<td>左手只有 80%，而且左手那一下不吃卡片；它的卡片加在右手那一下，所以主要當「卡片載體」</td>
 </tr>
 <tr>
 <td>左手刀的插卡</td>
@@ -891,7 +891,7 @@
 <p>資料來源：<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>、上表卡片直達頁、<a href="https://ro-idle.app/info/database?type=items&amp;id=4109" target="_blank" rel="noopener noreferrer">南瓜先生卡</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4095" target="_blank" rel="noopener noreferrer">烏賊卡</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4056" target="_blank" rel="noopener noreferrer">獵蠅卡</a>、<a href="https://ro-idle.app/info/database?type=items&amp;id=4081" target="_blank" rel="noopener noreferrer">蚯蚓卡</a>、<a href="https://github.com/ned-lin-9527/Ragnarok/blob/main/data/ro-idle%E6%8A%AB%E8%82%A9%E6%B5%81%E6%B4%BE%E8%A4%87%E6%A0%B8_2026-10-29.json" target="_blank" rel="noopener noreferrer">披肩流派複核快照</a>。</p>
 <ul>
 <li><strong>左手刀多準備幾把</strong>：參考文章依屬性、種族把左手刀分組（例如對大型、對人形、對植物各一把），換地圖時一起換。數量多寡依資金決定，不必一次湊齊。</li>
-<li><strong>兩把武器的卡片是否都作用在兩隻手</strong>：資訊站程式推測是合併套用，但未經實測。若實測發現左手卡片只影響左手，左手刀的價值會降低，屆時改以右手插卡為主。</li>
+<li><strong>左手刀的卡片加在右手那一下（已查證）</strong>：<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>寫明，雙刀時左手武器上的種族、體型、屬性加傷卡片照原版算在右手那一下，和右手的同類卡片相加；左手那一下不吃卡片加成。卡片加傷是「同組累加、不同組連乘」，所以右手插體型卡、左手插種族卡（或反過來）比兩手都插同一類划算；左手刀的混插仍然有效，二刀連擊多打的那一下也是右手。</li>
 <li><strong>R 版前參考</strong>：原文的鍛造屬性短劍（強風、可燃等）與「混插」需要鍛造與精煉，本遊戲的鍛造流程與成本未核對，待驗證。</li>
 </ul>
 <p>資料來源：<a href="https://ro-idle.app/info/database?type=equipment" target="_blank" rel="noopener noreferrer">裝備資料</a>、<a href="https://ro-idle.app/info/database?type=monsters" target="_blank" rel="noopener noreferrer">怪物資料</a>。</p>
@@ -1012,7 +1012,7 @@
 <h3 id="section-18">測試方法：雙刀是否真的比單手強<a class="heading-anchor" href="#section-18" aria-label="連結至測試方法：雙刀是否真的比單手強">#</a></h3><ol>
 <li>同一張地圖、同一套防具，各掛 30 分鐘：A 組單手長柄短劍；B 組雙刀（右手長柄、左手 4 洞短劍）；C 組雙刀但左手刀改插另一類卡片。</li>
 <li>記錄 Base／Job 經驗、擊殺數、死亡次數；戰鬥紀錄中留意「二刀連擊！雙刀：右手、左手」的傷害。用統計頁前先按「歸零」。</li>
-<li>判斷：B 比 A 的擊殺／小時高 5% 以上就維持雙刀；C 比 B 高，表示左手刀的卡片有作用在右手（混插有效）。</li>
+<li>判斷：B 比 A 的擊殺／小時高 5% 以上就維持雙刀；C（左手改插和右手不同類的卡）比 B（兩手同類）高，表示混插在這張地圖划算。左手卡片加在右手那一下已由資訊站寫明，不必再用這組測試確認。</li>
 </ol>
 <p>資料來源：<a href="https://ro-idle.app/info/database?type=maps" target="_blank" rel="noopener noreferrer">地圖資料</a>、<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>。</p>
 <h2 id="section-19">比較與取捨<a class="heading-anchor" href="#section-19" aria-label="連結至比較與取捨">#</a></h2><p>雙刀的普攻輸出依公式只比單手短劍高約 9%，主要優勢是兩把武器能混插更多卡片、依地圖換左手刀；代價是攻速較慢、要收集更多武器與卡片。</p>
@@ -1066,19 +1066,17 @@
 <li><strong>重置成本</strong>：技能重置後必須先把一轉點數投回盜賊技能。屬性重置的方式與費用尚未查證。</li>
 <li><strong>短期與長期</strong>：轉刺客後先點右手、左手修練並開始雙持；左手刀的卡片收集是長期投資。</li>
 </ul>
-<h2 id="section-20">風險與待確認事項<a class="heading-anchor" href="#section-20" aria-label="連結至風險與待確認事項">#</a></h2><p>最大的不確定性是左手刀的卡片是否也作用在右手，這決定雙刀「混插」的價值。</p>
+<h2 id="section-20">風險與待確認事項<a class="heading-anchor" href="#section-20" aria-label="連結至風險與待確認事項">#</a></h2><p>最大的不確定性是雙刀時二刀連擊的實際觸發方式與每小時收益；左手刀卡片的算法已在 2026-11-05 依資訊站查證（加在右手那一下）。</p>
 <ul>
 <li><input disabled="" type="checkbox"> 提供目前流派／AGI、目標地圖、受擊紀錄與持有披肩／卡片，依同條件測試選擇迴避或抗性；不以職業名稱或精煉值單獨決定</li>
 <li><input disabled="" type="checkbox"> 確認披肩安全精煉值、精煉失敗是否必定連卡消失，以及能否拆卡（影響九尾狐卡片 +9 方案的成本）</li>
-<li><input disabled="" type="checkbox"> 用「測試方法」確認左手刀的卡片是否作用在右手</li>
+<li><input disabled="" type="checkbox"> 用「測試方法」比較混插與同類卡的擊殺差異</li>
 <li><input disabled="" type="checkbox"> 確認雙刀時二刀連擊的觸發方式（右手 2 下＋左手 1 下）</li>
-<li><input disabled="" type="checkbox"> 確認本遊戲的體型修正是否只影響武器 ATK</li>
 <li><input disabled="" type="checkbox"> 確認屬性是否可以重置及費用</li>
 <li><input disabled="" type="checkbox"> 確認鍛造屬性短劍的取得方式與成本</li>
 <li><input disabled="" type="checkbox"> 實測艾音布羅克原野 06 的擊殺數與鳥人哈比出現時的死亡風險</li>
 <li><input disabled="" type="checkbox"> 實測致命塗毒：一瓶期間的擊殺數、SP 消耗、毒藥瓶製作成功率與材料成本，以及是否增幅音速投擲</li>
 <li><input disabled="" type="checkbox"> 實測黑暗瞬間在雙刀時是否計入左手、施放頻率與 SP 消耗（群怪方案）</li>
-<li><input disabled="" type="checkbox"> 遊戲內核對轉生後每級獲得的屬性點是否與一般角色相同（⑤「轉生後屬性配點」以相同推算，同 Base 比③多 52 點）</li>
 <li><input disabled="" type="checkbox"> 補十字刺客的 MaxSP／回復</li>
 </ul>
 <p><strong>其他風險</strong></p>
@@ -1088,7 +1086,8 @@
 <li>參考文章是 2006 年官服心得，配點、配刀與鍛造內容需對照本遊戲。</li>
 <li>遊戲更新後，請優先複查左右手修練、二刀連擊與雙刀攻速的計算。</li>
 </ul>
-<h2 id="section-21">依據與資料來源<a class="heading-anchor" href="#section-21" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-05 補上高等候選地圖：依資訊站前端地圖與怪物資料篩選主動怪比例與怪物等級，再到資訊站核對<a href="https://ro-idle.app/info/database?type=maps&amp;id=ein_fild06" target="_blank" rel="noopener noreferrer">艾音布羅克原野 06</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1372" target="_blank" rel="noopener noreferrer">魔羌</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1148" target="_blank" rel="noopener noreferrer">米杜沙</a>等直達頁。</p>
+<h2 id="section-21">依據與資料來源<a class="heading-anchor" href="#section-21" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-05 依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>結清推定：每級屬性點公式 <code>floor(Base ÷ 5) + 3</code> 不分轉生角色、武器體型修正表與最大 HP 公式已公開；相關段落改為已查證。</p>
+<p>2026-11-05 補上高等候選地圖：依資訊站前端地圖與怪物資料篩選主動怪比例與怪物等級，再到資訊站核對<a href="https://ro-idle.app/info/database?type=maps&amp;id=ein_fild06" target="_blank" rel="noopener noreferrer">艾音布羅克原野 06</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1372" target="_blank" rel="noopener noreferrer">魔羌</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1148" target="_blank" rel="noopener noreferrer">米杜沙</a>等直達頁。</p>
 <p>2026-11-05 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> 2026-11-04 功能更新，補上人物頁「未湊齊的套裝」的用法。</p>
 <p>2026-11-04 新增⑤「轉生後屬性配點」：依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>的轉生規則（屬性回到 1、給 100 點）與配點成本，以及資訊站前端的各職業 Job 加成表計算；每級新得點數與一般角色相同屬 R 版前規則推定，待遊戲內核對。</p>
 <p>2026-11-03 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> p6.11（二轉直接學一轉任務技能）、p6.23（盜賊套卡、闇●盜賊卡片、金屬波利卡片開放）、p6.24（隱匿可以解除）補充配裝與掛機規則；套卡效果與掉落依各卡片直達頁。</p>

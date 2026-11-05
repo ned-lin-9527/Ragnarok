@@ -1231,7 +1231,7 @@
 </ol>
 <p><strong>推導與前提</strong></p>
 <ul>
-<li><strong>點數</strong>：資訊站<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>寫明轉生後六項屬性回到 1、給 100 點（一般新角色 48 點）。每級新得的點數本攻略照 R 版前規則推定與一般角色相同（<code>floor(升級前 Base ÷ 5) + 3</code>），所以同 Base 一律多 52 點；資訊站沒有寫明這點，** 待遊戲內核對**，實際可用點數不同時，照同一順序增減。</li>
+<li><strong>點數</strong>：資訊站<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>寫明轉生後六項屬性回到 1、給 100 點（一般新角色 48 點）。每級新得的點數依同頁公式為 <code>floor(升級前 Base ÷ 5) + 3</code>，公式沒有區分轉生角色（2026-11-05 查證），所以同 Base 一律多 52 點。</li>
 <li><strong>成本與上限</strong>：每加 1 點花 <code>floor((目前值 − 1) ÷ 10) + 2</code>，屬性上限 99；表中六圍是手動投入值，不含 Job、裝備與增益。</li>
 <li><strong>Job 加成</strong>：進階劍士與一般劍士相同（Job 50：STR +7、AGI +2、DEX +3、VIT +4、LUK +2）。聖殿十字軍 Job 70 為 STR +9、AGI +8、DEX +8、VIT +10、INT +7、LUK +3；對照十字軍 Job 50 為 STR +7、AGI +2、DEX +3、VIT +7、INT +6、LUK +5。</li>
 <li><strong>Base 99 面板（只含 Job 70 加成）</strong>：A：雙手矛力敏普攻約 STR 99、AGI 98、DEX 55、VIT 40、INT 8、LUK 4。</li>
@@ -1497,7 +1497,7 @@
 <ul>
 <li><input disabled="" type="checkbox"> 提供目前流派／AGI、目標地圖、受擊紀錄與持有披肩／卡片，依同條件測試選擇迴避或抗性；不以職業名稱或精煉值單獨決定</li>
 <li><input disabled="" type="checkbox"> 提供目前 Base／Job、六圍、技能、裝備、補給、目標與是否有固定隊友，以改寫成角色專用順序。</li>
-<li><input disabled="" type="checkbox"> 重新查證十字軍 Job 加成、持雙手矛的攻速基準與體型修正，避免沿用騎士資料。</li>
+<li><input disabled="" type="checkbox"> 重新查證十字軍 Job 加成與持雙手矛的攻速基準，避免沿用騎士資料（雙手矛體型修正已於 2026-11-05 依資訊站查證：小型、中型 75%，大型 100%）。</li>
 <li><input disabled="" type="checkbox"> 實測 B 的單次審判自傷、補血時間、SP 回復、怪物屬性與掛機施放條件。</li>
 <li><input disabled="" type="checkbox"> 實測 C 的受保護人數、實際轉移傷害、隊友增益共享與死亡／離圖後重掛行為。</li>
 <li><input disabled="" type="checkbox"> 查屬性／技能重置條件與費用；確認裝備卡片、洞版來源及當前地圖掉落。</li>
@@ -1505,7 +1505,6 @@
 <li><input disabled="" type="checkbox"> 實測聖殿十字軍神之威壓：持雙手矛能否施放、各等級詠唱與 SP 消耗、掛機施放頻率，以及對長矛加速術續航的影響。</li>
 <li><input disabled="" type="checkbox"> 實測連續盾擊的實際傷害與 STR／盾牌重量的關係，和聖十字攻擊比較每 SP 擊殺數。</li>
 <li><input disabled="" type="checkbox"> 若考慮聖音：實測隊友獲得的效果種類、HP／SP 消耗、清除自身增益的影響。</li>
-<li><input disabled="" type="checkbox"> 遊戲內核對轉生後每級獲得的屬性點是否與一般角色相同（⑤「轉生後屬性配點」以相同推算，同 Base 比③多 52 點）</li>
 </ul>
 <p><strong>其他風險</strong></p>
 <ul>
@@ -1513,7 +1512,8 @@
 <li>資訊站裝備基準買價與怪物基準掉率均不等於實際交易價或角色掉率；活動倍率與角色修正需另確認。</li>
 <li>B 的混合傷害公式、盾牌是否影響自傷、施法時周圍怪的實際攻擊頻率均未實測；C 的隊伍收益不能由保護人數直接換算。</li>
 </ul>
-<h2 id="section-31">依據與資料來源<a class="heading-anchor" href="#section-31" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-05 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> 2026-11-04 功能更新與<a href="https://ro-idle.app/info/database?type=skills&amp;id=SM_AUTOBERSERK" target="_blank" rel="noopener noreferrer">狂暴狀態 <code>SM_AUTOBERSERK</code></a>技能頁，補上狂暴狀態的減防禦與開關設定。</p>
+<h2 id="section-31">依據與資料來源<a class="heading-anchor" href="#section-31" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-05 依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>結清推定：每級屬性點公式 <code>floor(Base ÷ 5) + 3</code> 不分轉生角色、武器體型修正表與最大 HP 公式已公開；相關段落改為已查證。</p>
+<p>2026-11-05 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> 2026-11-04 功能更新與<a href="https://ro-idle.app/info/database?type=skills&amp;id=SM_AUTOBERSERK" target="_blank" rel="noopener noreferrer">狂暴狀態 <code>SM_AUTOBERSERK</code></a>技能頁，補上狂暴狀態的減防禦與開關設定。</p>
 <p>2026-11-04 新增⑤「轉生後屬性配點」：依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>的轉生規則（屬性回到 1、給 100 點）與配點成本，以及資訊站前端的各職業 Job 加成表計算；每級新得點數與一般角色相同屬 R 版前規則推定，待遊戲內核對。</p>
 <p>2026-11-03 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> p6.24（聖十字審判詠唱不因目標死亡中斷）與 p6.28（神之威壓 800～2000），逐級核對<a href="https://ro-idle.app/info/database?type=skills&amp;id=PA_PRESSURE" target="_blank" rel="noopener noreferrer">神之威壓</a>技能頁，改寫⑤的傷害與施放等級；配點表未變，其餘項目保留原查證日期。</p>
 <p>2026-10-29 複核披肩選卡：A 力敏列迴避候選，B 審判／C 護隊採抗性；自傷與轉移傷害適用性另待實測。依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>及<a href="https://github.com/ned-lin-9527/Ragnarok/blob/main/data/ro-idle%E6%8A%AB%E8%82%A9%E6%B5%81%E6%B4%BE%E8%A4%87%E6%A0%B8_2026-10-29.json" target="_blank" rel="noopener noreferrer">披肩流派複核快照</a>查證；僅更新本次披肩相關內容，其餘資料保留原查證日期。選卡與測試門檻是攻略建議，非角色實測。</p>

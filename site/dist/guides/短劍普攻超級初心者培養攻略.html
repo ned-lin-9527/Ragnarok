@@ -85,7 +85,7 @@
 <td>3,029／208</td>
 </tr>
 </tbody></table></div>
-<p><strong>依資料計算（R 版前公式，待此遊戲驗證）</strong>：若最大 HP ≈ 基礎 HP ×（1 ＋ VIT ÷ 100）再加裝備的固定值，Base 80、VIT 35 只有約 587 HP；VIT 每加 10 點只多約 44 HP。所以 Base 99 以前，** 固定加 HP 的裝備比堆 VIT 有效**：天使套裝 +900、天使之降臨 +100、蟲蛹卡片 +700，三者合計 +1,700，是 Base 80 角色本身 HP 的近 3 倍。MaxHP +% 的卡片（例如黑狐卡片 +10%）在 Base 99 以前只加幾十點。</p>
+<p><strong>依資料計算（資訊站最大 HP 公式，2026-11-05 查證）</strong>：最大 HP = floor((floor(基礎 HP ×（100 ＋ VIT）÷ 100) ＋ 固定加成) ×（100 ＋ 百分比加成）÷ 100)。Base 80、VIT 35 只有約 587 HP；VIT 每加 10 點只多約 44 HP。所以 Base 99 以前，** 固定加 HP 的裝備比堆 VIT 有效**：天使套裝 +900、天使之降臨 +100、蟲蛹卡片 +700，三者合計 +1,700，是 Base 80 角色本身 HP 的近 3 倍。MaxHP +% 的卡片（例如黑狐卡片 +10%）在 Base 99 以前只加幾十點。</p>
 <p><strong>天使套裝（已查證，資訊站玩法與公式、裝備頁）</strong>：</p>
 <div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
 <thead>
@@ -171,7 +171,7 @@
 <ul>
 <li><strong>Job 屬性加成（資訊站前端職業資料）</strong>：超級初心者從 Job 1 起每 2 級輪流 +1（STR→AGI→VIT→INT→DEX→LUK），Job 49 時 STR +5、其餘 +4；Job 52～68 補齊，<strong>Job 68 起六項各 +5</strong>，之後不再增加。</li>
 <li><strong>不扣點的任務技能</strong>：緊急治療 <code>NV_FIRSTAID</code>（初學者 Job 4）。超級初心者沒有其他任務技能。</li>
-<li><strong>技能點數</strong>：98 點是依其他職業「每升 1 Job Lv 得 1 點」的規則推算（一轉 Job 50 為 49 點），待在遊戲內核對。</li>
+<li><strong>技能點數</strong>：資訊站玩法與公式寫明每升 1 個 Job 等級增加 1 技能點，Job 99 共 98 點（2026-11-05 查證）。</li>
 </ul>
 <h2 id="section-5">① 轉職前（初心者）屬性配點<a class="heading-anchor" href="#section-5" aria-label="連結至① 轉職前（初心者）屬性配點">#</a></h2><p>初學者要練到 Base 45 才能轉職，比一般一轉晚得多，這段 HP 也最低。屬性以短劍普攻需要的 AGI、STR 為主，VIT 跟著補一些。表中是手動投入值，不含 Job、裝備與增益。</p>
 <div class="table-scroll" tabindex="0" aria-label="可水平捲動的表格"><table>
@@ -242,7 +242,7 @@
 <p><strong>推導與前提</strong></p>
 <ul>
 <li><strong>點數</strong>：資訊站寫明一般新角色起始 48 點；每級新得 <code>floor(升級前 Base ÷ 5) + 3</code> 點，Base 45 共 360 點（與其他攻略的累計數相同）。每加 1 點的成本為 <code>floor((目前值 − 1) ÷ 10) + 2</code>，上限 99。</li>
-<li><strong>HP 預估（依資料計算，R 版前公式）</strong>：Base 45、VIT 25 約 325 HP。這段 VIT 的效果很小，主要靠 FLEE（Base + AGI）避開攻擊，地圖要挑非主動怪。</li>
+<li><strong>HP 預估（依資料計算，資訊站最大 HP 公式）</strong>：Base 45、VIT 25 約 325 HP。這段 VIT 的效果很小，主要靠 FLEE（Base + AGI）避開攻擊，地圖要挑非主動怪。</li>
 <li><strong>命中</strong>：HIT = Base + DEX（資訊站）。Base 45、DEX 20 時 HIT 65；換怪前先看目標的 FLEE。</li>
 </ul>
 <p><strong>流派 B（IA 法術）</strong>：初學者階段照上表用短劍練到 Base 45。轉職為超級初心者後，到普隆德拉重置師把屬性免費重置（資訊站：Base 69 以下免費、不限次數），改照③的 B 表投入。原文「1～45 全點 INT」不適用，因為初學者沒有魔法技能，INT 對普攻沒有幫助。</p>
@@ -367,7 +367,7 @@
 <ul>
 <li><strong>攻速（依資料計算）</strong>：資訊站寫明普攻間隔 = (200 − ASPD) × 20 毫秒，AGI、DEX 以 4 × AGI ＋ DEX 的權重縮短動作時間。表中以 <code>ASPD = 200 − (650 − (650 × AGI ÷ 25 ＋ 650 × DEX ÷ 100) ÷ 10) ÷ 10</code> 估算（650 為超級初心者短劍的基礎動作時間；同一算式代入流氓的 500 與 AGI 97／DEX 59，得到流氓攻略的 172.3），不含 Job 加成與裝備。Base 99 含 Job 68 起的 +5（AGI 94、DEX 49），不開增益約 162.6、開加速術約 165.7、再加心神凝聚約 169.2（約每 0.6 秒一刀）。</li>
 <li><strong>命中與迴避（資訊站公式）</strong>：Base 99 含 Job 加成 HIT 約 148；FLEE 約 193，加殘影 Lv10 +30、加速術 +12 AGI 後約 235。</li>
-<li><strong>HP（依資料計算，R 版前公式）</strong>：Base 99、VIT 49（含 Job）約 3,770，天使套裝與天使之降臨再加 1,000；Base 80 只有約 587，穿滿天使套裝約 1,587。</li>
+<li><strong>HP（依資料計算，資訊站最大 HP 公式）</strong>：Base 99、VIT 49（含 Job）約 3,770，天使套裝與天使之降臨再加 1,000；Base 80 只有約 587，穿滿天使套裝約 1,587。</li>
 <li><strong>SP（依資料計算）</strong>：Base 99、INT 6（含 Job）最大 SP 約 116，天使套裝 +100 後約 216。三個增益合計每 240 秒 179 SP，約每分鐘 45 SP；禪心 Lv10 每 10 秒回 <code>30 + 最大 SP × 10 ÷ 500</code>，約每分鐘 180 SP 以上，足夠常駐增益再補治癒術。負重 50% 以上禪心會停（資訊站）。</li>
 <li><strong>為何不點 INT、LUK</strong>：INT 只會讓本來就很小的基礎 SP 按比例增加，禪心的固定 30 點才是主要來源；LUK 對短劍普攻只有暴擊與完全迴避的小幅收益。</li>
 </ul>
@@ -1159,9 +1159,8 @@
 <li><strong>重置成本</strong>：技能重置每轉職一次送 1 次，超級初心者轉職時有 1 次；之後的方式見遊戲內重置師說明（資訊站）。屬性重置在 Base 69 以下免費、不限次數，Base 70 起每隻角色第 1 次 300 萬 Zeny、之後每次多 100 萬（資訊站，普隆德拉重置師）；所以 VIT、AGI 的比例最好在 Base 69 以前用實測決定。</li>
 <li><strong>短期與長期</strong>：初學者要練到 Base 45 才能轉職，短期效率比一般一轉差；長期好處是能同時用加速術、賜福、心神凝聚與禪心，不必靠隊友上增益。代價是不能轉生，Base 99 也沒有轉生職業的 1.25 倍 HP／SP。</li>
 </ul>
-<h2 id="section-22">風險與待確認事項<a class="heading-anchor" href="#section-22" aria-label="連結至風險與待確認事項">#</a></h2><p>最大的不確定性是<strong>超級初心者實際的最大 HP</strong>：本攻略用 R 版前公式「基礎 HP ×（1＋VIT÷100）＋固定值」估算，資訊站只寫 VIT 會提高最大 HP，沒有列出完整算式。</p>
+<h2 id="section-22">風險與待確認事項<a class="heading-anchor" href="#section-22" aria-label="連結至風險與待確認事項">#</a></h2><p>最大的不確定性是<strong>流派 B（IA 法術）在本遊戲的實際表現</strong>：詠唱、被打斷次數與 SP 都還沒有實測；最大 HP 公式與技能點數已在 2026-11-05 依資訊站查證。</p>
 <ul>
-<li><input disabled="" type="checkbox"> 遊戲內核對超級初心者 Job 99 的技能點是否為 98 點</li>
 <li><input disabled="" type="checkbox"> 記錄 Base 45、60、80、99 的面板最大 HP，核對 HP 估算與 Base 99 的跳升</li>
 <li><input disabled="" type="checkbox"> 實測天使套裝的聖母之祈福觸發頻率與死亡數變化</li>
 <li><input disabled="" type="checkbox"> 實測短劍 ASPD 是否與表中估算一致（含加速術、心神凝聚）</li>
@@ -1177,7 +1176,8 @@
 <li>天使套裝五隻 Boss 的遇怪時間不固定，資訊站提醒可能要掛好幾個小時。</li>
 <li>2026-10-28 的裝備限制（p6.3）之後若再調整，配裝表要重新核對職業限制。</li>
 </ul>
-<h2 id="section-23">依據與資料來源<a class="heading-anchor" href="#section-23" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-05 補上高等候選地圖：依資訊站前端地圖與怪物資料篩選主動怪比例與怪物等級，再到資訊站核對<a href="https://ro-idle.app/info/database?type=maps&amp;id=ein_fild06" target="_blank" rel="noopener noreferrer">艾音布羅克原野 06</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1372" target="_blank" rel="noopener noreferrer">魔羌</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1148" target="_blank" rel="noopener noreferrer">米杜沙</a>等直達頁。</p>
+<h2 id="section-23">依據與資料來源<a class="heading-anchor" href="#section-23" aria-label="連結至依據與資料來源">#</a></h2><p>2026-11-05 依<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">資訊站玩法與公式</a>結清推定：每級屬性點公式 <code>floor(Base ÷ 5) + 3</code> 不分轉生角色、武器體型修正表與最大 HP 公式已公開；相關段落改為已查證。</p>
+<p>2026-11-05 補上高等候選地圖：依資訊站前端地圖與怪物資料篩選主動怪比例與怪物等級，再到資訊站核對<a href="https://ro-idle.app/info/database?type=maps&amp;id=ein_fild06" target="_blank" rel="noopener noreferrer">艾音布羅克原野 06</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1372" target="_blank" rel="noopener noreferrer">魔羌</a>、<a href="https://ro-idle.app/info/database?type=monsters&amp;id=1148" target="_blank" rel="noopener noreferrer">米杜沙</a>等直達頁。</p>
 <p>2026-11-05 依<a href="https://ro-idle.app/info/updates" target="_blank" rel="noopener noreferrer">資訊站更新紀錄</a> 2026-11-04 功能更新，補上人物頁「未湊齊的套裝」的用法。</p>
 <p>查詢日期：2026-11-04。</p>
 <ul>
@@ -1188,7 +1188,7 @@
 <li><strong>已查證的遊戲資料</strong>：天使套裝五件與各 Boss 的掉落、出沒地圖與重生時間，見「關鍵機制」與「候選地圖」所列直達頁；<a href="https://ro-idle.app/info/database?type=maps&amp;id=prt_maze03" target="_blank" rel="noopener noreferrer">普隆德拉迷宮森林 3 樓</a>、<a href="https://ro-idle.app/info/database?type=maps&amp;id=prt_fild02" target="_blank" rel="noopener noreferrer">普隆德拉原野 02</a>、<a href="https://ro-idle.app/info/database?type=maps&amp;id=prt_fild04" target="_blank" rel="noopener noreferrer">普隆德拉原野 04</a>、<a href="https://ro-idle.app/info/database?type=maps&amp;id=gef_fild01" target="_blank" rel="noopener noreferrer">吉芬原野 01</a>。</li>
 <li><strong>其他版本參考（R 版／Renewal，非 R 版前）</strong>：<a href="https://forum.gamer.com.tw/Co.php?bsn=4212&amp;sn=2449368" target="_blank" rel="noopener noreferrer">巴哈姆特〈R版IA超初養成及配點〉</a>，2010 年發表，2026-11-04 由使用者提供並閱讀。B 流派的技能選擇、配點方向、練功地圖與法師套卡建議取自此文，並依本遊戲的詠唱、MATK、重置與裝備限制改寫；原文的數值（例如 FLEE 303、經驗量）不能直接套用。</li>
 <li><strong>已查證的遊戲資料</strong>：<a href="https://ro-idle.app/info/database?type=equipment&amp;id=1622" target="_blank" rel="noopener noreferrer">催眠師的魔杖</a>、法師套卡六張卡片、<a href="https://ro-idle.app/info/database?type=maps&amp;id=iz_dun00" target="_blank" rel="noopener noreferrer">海盜地洞密穴 1 樓</a>與 <a href="https://ro-idle.app/info/database?type=maps&amp;id=iz_dun01" target="_blank" rel="noopener noreferrer">2 樓</a>；MATK、詠唱與中斷規則取自<a href="https://ro-idle.app/info/mechanics" target="_blank" rel="noopener noreferrer">玩法與公式</a>。</li>
-<li><strong>R 版前參考／待此遊戲驗證</strong>：超級初心者以短劍、二刀連擊、加速術、賜福與天使套裝掛機的玩法，以及最大 HP 公式。</li>
+<li><strong>R 版前參考／待此遊戲驗證</strong>：超級初心者以短劍、二刀連擊、加速術、賜福與天使套裝掛機的玩法。</li>
 <li><strong>建議／待驗證假設</strong>：本攻略的配點、技能順序與地圖尚無角色實測。</li>
 </ul>
 <div class="article-end"><span>閱讀完畢</span><a href="../index.html">探索其他攻略 →</a></div></article></div>
