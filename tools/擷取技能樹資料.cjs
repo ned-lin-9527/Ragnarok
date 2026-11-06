@@ -60,8 +60,10 @@ const jobs = JOBS.map(id => {
 });
 
 // 技能資料庫含未列於技能樹的任務／通用技能；一併保存以供職業技能說明使用。
+// 這些狀態的物件格式與技能相似，但不在資訊站公開技能清單中。
+const internalStatuses = new Set(['PERFORMING', 'BERSERK_RECOVERY', 'CG_MARIONETTE2']);
 const catalogIds = [...src.matchAll(/\{id:`([A-Z][A-Z0-9_]+)`,name:`/g)].map(m => m[1])
-  .filter(id => id !== 'PERFORMING'); // 內部演奏狀態，不在公開技能資料庫 269 筆清單。
+  .filter(id => !internalStatuses.has(id));
 const skills = {};
 for (const id of new Set(catalogIds)) {
   const s = find(`{id:\`${id}\`,name:\``);
