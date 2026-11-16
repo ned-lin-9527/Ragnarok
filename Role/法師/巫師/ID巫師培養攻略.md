@@ -1,6 +1,6 @@
 # RO 放置仙境：ID巫師培養攻略
 
-**最後查證：2026-11-11**
+**最後查證：2026-11-12**
 
 ## 目的與適用條件
 
@@ -123,6 +123,8 @@
 | 41～45 | 冰箭術 `MG_COLDBOLT` | 10 | — | 44 | 提升火屬性地圖的單體選項。 |
 | 46～50 | 雷擊術 `MG_LIGHTNINGBOLT` | 10 | — | 49 | 提升水屬性地圖的單體選項。 |
 
+▶ [在官網技能模擬器開啟這組配點](https://ro-idle.app/info/skills#j=mage&l=50&s=MG_FIREBOLT.10,MG_SRECOVERY.10,MG_COLDBOLT.5,MG_FROSTDIVER.1,MG_LIGHTNINGBOLT.4,MG_THUNDERSTORM.5,MG_NAPALMBEAT.1,MG_SIGHT.1,MG_STONECURSE.1,MG_LIGHTNINGBOLT.1,MG_COLDBOLT.5,MG_LIGHTNINGBOLT.5)。
+
 - **Job 40 就轉職**：保留火箭術 10、冰箭術 5、雷擊術 5、雷爆術 5、禪心 10 及四個 Lv1 前置／輔助；比 Job 50 版少冰箭術 5、雷擊術 5。若已轉職，一轉可投入點數不會再隨二轉 Job 增加。
 - **不用火牆的機會成本**：本攻略不為火焰之壁投入火球術 Lv5 與火焰之壁 Lv1；火狩仍取 Lv1 是為隱身怪。若有確實重複驗證的火牆收益，先算重置成本和放棄哪個屬性技能，勿直接照舊版擋怪配法。
 
@@ -168,6 +170,8 @@
 | 39～41 | 地震術 `WZ_EARTHSPIKE` | 3 | 石化術 Lv1 | 40 | 崩裂術的前置；地系單體備案 |
 | 42～46 | 崩裂術 `WZ_HEAVENDRIVE` | 5 | 地震術 Lv3 | 45 | 短詠唱（Lv 5 為 5 秒）範圍地系，對風屬性怪的備案 |
 | 47～50 | 火之獵殺 `WZ_SIGHTRASHER` | 6 | — | 49 | 以自己為中心的火屬性範圍、詠唱 0.5 秒；被圍時的短詠唱反擊，Lv 6 為 220% |
+
+▶ [在官網技能模擬器開啟這組配點](https://ro-idle.app/info/skills#j=wizard&c=50&l=50&s=MG_FIREBOLT.10,MG_SRECOVERY.10,MG_COLDBOLT.5,MG_FROSTDIVER.1,MG_LIGHTNINGBOLT.4,MG_THUNDERSTORM.5,MG_NAPALMBEAT.1,MG_SIGHT.1,MG_STONECURSE.1,MG_LIGHTNINGBOLT.1,MG_COLDBOLT.5,MG_LIGHTNINGBOLT.5,WZ_SIGHTRASHER.2,WZ_METEOR.10,WZ_JUPITEL.10,WZ_WATERBALL.5,WZ_STORMGUST.10,WZ_EARTHSPIKE.3,WZ_HEAVENDRIVE.5,WZ_SIGHTRASHER.4)。
 
 - **Job 40 轉職差異**：一轉冰箭術與雷擊術只有 Lv5，但已滿足火之獵殺、隕石術、雷鳴術、水球術、暴風雪所需前置；巫師表無須改點。
 - **和舊版的差異**：原本的怒雷強擊 10、泥沼地 5 拿掉。怒雷強擊和隕石術一樣是 15 秒長詠唱，但是風屬性，主要打水屬性怪；若常駐地圖以水屬性怪為主，可把暴風雪 10 換成怒雷強擊 10（前置雷鳴術 5、雷爆術 1 都已具備）。
@@ -231,6 +235,8 @@
 | 63～66 | 崩裂術 `WZ_HEAVENDRIVE` | 5 | — | 114 | 短詠唱範圍地系，對風屬性怪的備案 |
 | 67～68 | 地震術 `WZ_EARTHSPIKE` | 5 | — | 116 | 地系單體補滿 |
 | 69～70 | （保留 2 點） | — | — | 116 | 原配置未分配；建議候選為雷鳴術 3→5（擊退與風系單體）或火之獵殺 2→4（被圍時的短詠唱反擊），待實測後決定 |
+
+▶ [在官網技能模擬器開啟這組配點](https://ro-idle.app/info/skills#j=high_wizard&c=50&l=70&s=MG_COLDBOLT.5,MG_FROSTDIVER.1,MG_NAPALMBEAT.1,MG_LIGHTNINGBOLT.1,MG_SIGHT.1,MG_LIGHTNINGBOLT.3,MG_THUNDERSTORM.1,MG_SRECOVERY.1,MG_STONECURSE.1,MG_NAPALMBEAT.4,MG_SRECOVERY.4,MG_SOULSTRIKE.7,MG_FIREBOLT.5,MG_SRECOVERY.5,MG_NAPALMBEAT.2,MG_SAFETYWALL.7,WZ_JUPITEL.3,WZ_STORMGUST.10,WZ_SIGHTRASHER.2,WZ_METEOR.10,HW_MAGICCRASHER.1,HW_MAGICPOWER.10,WZ_EARTHSPIKE.3,WZ_HEAVENDRIVE.1,WZ_QUAGMIRE.1,HW_GRAVITATION.5,HW_NAPALMVULCAN.5,HW_SOULDRAIN.10,WZ_HEAVENDRIVE.4,WZ_EARTHSPIKE.2)（含轉生前的一轉、二轉配點）；剩 2 點是本攻略保留的彈性點。
 
 **和②④的差異（依資料計算）**
 
@@ -472,6 +478,8 @@ Base 60（MaxSP 約 979）時鬼女約 +32／分、轉轉蛋約 +22／分，結�
 **其他風險**：地圖混怪可能讓單一屬性規則失效；高 MDEF、主動怪及遠程怪會顯著改變結論；基準 EXP、屬性倍率與掉率不等於角色實得值；超重、死亡與詠唱被打斷都會放大離線收益波動。
 
 ## 依據與資料來源
+
+2026-11-12 在 ②④⑤ 的技能配點表下加上[官網技能模擬器](https://ro-idle.app/info/skills)連結（資訊站 2026-11-11 新增，使用遊戲本身的技能資料與學習規則）；每條連結都在官網模擬器實際打開，確認沒有被略過的技能，剩餘點數與表內保留點一致。配點未變。
 
 2026-11-11 依[資訊站玩法與公式](https://ro-idle.app/info/mechanics)「屬性或技能點錯了，可以重置嗎？」改寫重置相關段落：屬性重置 Base 69 以下免費、Base 70 起第 1 次 300 萬 Zeny，技能重置每轉職送 1 次；原本「尚未確認、先當作不可重置」的說法已移除。配點未變。
 
